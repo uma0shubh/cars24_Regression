@@ -48,6 +48,20 @@ warnings.filterwarnings("ignore")
 
 st.set_page_config(layout="wide")
 
+def add_bg_from_url():
+    st.markdown(
+         f"""
+         <style>
+         .stApp {{
+             background-image: url("https://wallpapercave.com/download/bull-bear-wallpapers-wp7802925");
+             background-attachment: fixed;
+	     background-position: 25% 75%;
+             background-size: cover
+         }}
+         </style>
+         """,
+         unsafe_allow_html=True
+     )
 
 
 
