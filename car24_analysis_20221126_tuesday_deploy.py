@@ -61,8 +61,8 @@ df1.describe(include = 'all')
 """### Univariant plots"""
 
 # Price
-plt.figure(figsize=(15,8))
-fig21 = sns.distplot(df1['price'])
+fig21 = plt.figure(figsize=(15,8))
+sns.distplot(df1['price'])
 print("skewness: %f" % df1['price'].skew())
 print("kurtosis: %f" % df1['price'].kurt())
 st.write(fig21)
@@ -118,8 +118,8 @@ plt.show()
 
 # Fuel Type
 f, ax = plt.subplots(figsize=(15, 8))
-fig = sns.boxplot(x="fueltype", y="price", data=df1)
-fig
+fig31 = sns.boxplot(x="fueltype", y="price", data=df1)
+st.write(fig31)
 
 # Year
 f, ax = plt.subplots(figsize=(15, 5))
@@ -146,19 +146,18 @@ plt.show
 
 fig3 = px.sunburst(df1, path=['city', 'fueltype'], color='city',height=800)
 fig3.update_layout(title_text="Fuel Type for City (Two-level Sunburst Diagram)", font_size=10)
-fig3.show()
+st.write(fig3)
 
 fig4 = px.treemap(df1, path=['city', 'make'], color='city',height=800,width=1500)
 fig4.update_layout(title_text="Manufacture Distribution for City", font_size=10)
-fig4.show()
+st.write(fig4)
 
-fig = px.histogram(df1, x="year", y="price",color='city', barmode='group',height=400,width=1500)
+fig5 = px.histogram(df1, x="year", y="price",color='city', barmode='group',height=400,width=1500)
 fig.update_layout(title_text="Yearly City Growth", font_size=10)
-fig.show()
+st.write(fig5)
 
-"""
-### Label Encoding
-"""
+
+# Label Encoding
 df7 = df1.copy(deep=True)
 
 numerics = ['int8', 'int16', 'int32', 'int64', 'float16', 'float32', 'float64']
@@ -182,8 +181,7 @@ plt.figure(figsize=(15,10))
 sns.heatmap(df8.corr(),annot=True,cmap='RdYlGn')
 plt.show()
 
-"""# Train-Test split"""
-
+# Train-Test split
 target_name = 'price'
 train_target0 = df8[target_name]
 df8 = df8.drop([target_name], axis=1)
@@ -207,7 +205,7 @@ train0 = pd.DataFrame(scaler.fit_transform(train0), columns = train0.columns)
 # getting test from train data (validation)
 train, test, target, target_test = train_test_split(train0, train_target0, test_size=valid_part, random_state=0)
 
-"""### Accuracy List"""
+# Accuracy List
 acc_train_r2 = []
 acc_test_r2 = []
 acc_train_d = []
@@ -311,39 +309,37 @@ def acc_model(num,model,train,test):
 - Ridge Regressor
 - AdaBoost Regressor
 - Voting Regressor
-
-### Linear Regression
 """
 
 linreg = LinearRegression()
 linreg.fit(train, target)
 acc_model(0,linreg,train,test)
 
-"""### Support vector machine"""
+# Support vector machine
 
 svr = SVR()
 svr.fit(train, target)
 acc_model(1,svr,train,test)
 
-"""### Decision Tree Regressor"""
+# Decision Tree Regressor
 
 decision_tree = DecisionTreeRegressor()
 decision_tree.fit(train, target)
 acc_model(5,decision_tree,train,test)
 
-"""### Ridge Regressor"""
+# Ridge Regressor
 
 ridge = RidgeCV(cv=5)
 ridge.fit(train, target)
 acc_model(10,ridge,train,test)
 
-"""### AdaBoost Regressor"""
+# AdaBoost Regressor
 
 Ada_Boost = AdaBoostRegressor()
 Ada_Boost.fit(train, target)
 acc_model(13,Ada_Boost,train,test)
 
-"""### Voting Regressor """
+# Voting Regressor
 
 Voting_Reg = VotingRegressor(estimators=[('lin', linreg), ('ridge', ridge)])
 Voting_Reg.fit(train, target)
@@ -366,10 +362,12 @@ models = pd.DataFrame({
 pd.options.display.float_format = '{:,.2f}'.format
 
 print('Prediction accuracy for models by R2 criterion - r2_test')
-models.sort_values(by=['r2_test', 'r2_train'], ascending=False)
+print11 = models.sort_values(by=['r2_test', 'r2_train'], ascending=False)
+st.write(print11)
 
 print('Prediction accuracy for models by RMSE - rmse_test')
-models.sort_values(by=['rmse_test', 'rmse_train'], ascending=True)
+print12 = models.sort_values(by=['rmse_test', 'rmse_train'], ascending=True)
+st.write(print12)
 
 """# Model Output - Visualization"""
 
