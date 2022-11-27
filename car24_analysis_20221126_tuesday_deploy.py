@@ -45,10 +45,8 @@ import warnings
 warnings.filterwarnings("ignore")
 
 
-"""# Data Pre-processing
-
+# Data Pre-processing
 ### Check for missing values & treatment
-"""
 sns.heatmap(df1.isnull(),cbar=False,cmap='viridis')
 df1.dropna(inplace=True)
 sns.heatmap(df1.isnull(),cbar=False,cmap='viridis')
@@ -56,21 +54,22 @@ df1.reset_index(inplace=True)
 df1.info()
 df1.drop(["index"],axis=1,inplace=True)
 
-
-"""# Descriptive statistics"""
+# Descriptive statistics"""
 df1.describe(include = 'all')
 
 """# Data Visualization"""
 """### Univariant plots"""
 
 # Price
-plt.figure(figsize=(15,8))
+fig21 = plt.figure(figsize=(15,8))
 sns.distplot(df1['price'])
 print("skewness: %f" % df1['price'].skew())
 print("kurtosis: %f" % df1['price'].kurt())
+st.wtite(fig21)
 
-plt.figure(figsize=(15,4))
+fig22 = plt.figure(figsize=(15,4))
 sns.boxplot(x='price',data=df1)
+st.wtite(fig22)
 
 plt.subplot(231)
 df1['year'].value_counts().plot(kind='bar', title='Year',figsize=(30,15))
@@ -375,7 +374,7 @@ models.sort_values(by=['rmse_test', 'rmse_train'], ascending=True)
 """# Model Output - Visualization"""
 
 # Plot
-fig1 = plt.figure(figsize=[15,6])
+fig11 = plt.figure(figsize=[15,6])
 xx = models['Model']
 plt.tick_params(labelsize=14)
 plt.plot(xx, models['r2_train'], label = 'r2_train')
@@ -386,10 +385,10 @@ plt.xlabel('Models')
 plt.ylabel('R2-criterion, %')
 plt.xticks(xx, rotation='vertical')
 plt.savefig('graph.png')
-st.write(fig1)
+st.write(fig11)
 
 # Plot
-fig1 = plt.figure(figsize=[15,6])
+fig12 = plt.figure(figsize=[15,6])
 xx = models['Model']
 plt.tick_params(labelsize=14)
 plt.plot(xx, models['d_train'], label = 'd_train')
@@ -400,10 +399,10 @@ plt.xlabel('Models')
 plt.ylabel('Relative error, %')
 plt.xticks(xx, rotation='vertical')
 plt.savefig('graph.png')
-st.write(fig2)
+st.write(fig12)
 
 # Plot
-fig3 = plt.figure(figsize=[15,6])
+fig13 = plt.figure(figsize=[15,6])
 xx = models['Model']
 plt.tick_params(labelsize=14)
 plt.plot(xx, models['rmse_train'], label = 'rmse_train')
@@ -414,7 +413,7 @@ plt.xlabel('Models')
 plt.ylabel('RMSE, %')
 plt.xticks(xx, rotation='vertical')
 plt.savefig('graph.png')
-st.write(fig3)
+st.write(fig13)
 
 """
 # Prediction
