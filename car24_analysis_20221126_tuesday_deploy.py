@@ -45,6 +45,13 @@ import warnings
 warnings.filterwarnings("ignore")
 
 
+
+st.set_page_config(layout="wide")
+
+
+
+
+
 # Data Pre-processing
 ### Check for missing values & treatment
 sns.heatmap(df1.isnull(),cbar=False,cmap='viridis')
