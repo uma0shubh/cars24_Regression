@@ -38,8 +38,10 @@ import streamlit as st
 # df.to_csv('cars24_20221126.csv', index=False)
 
 import pandas as pd
-df = pd.read_csv('cars24_20221126.csv')
-#df = df.iloc[:,1:]
+url = 'https://github.com/uma0shubh/cars24_data/blob/main/cars24_20221126.csv'
+df = pd.read_csv(url)
+# df = pd.read_csv('cars24_20221126.csv')
+# df = df.iloc[:,1:]
 df.head()
 
 """### Checking duplicates"""
