@@ -65,11 +65,11 @@ plt.figure(figsize=(15,8))
 fig21 = sns.distplot(df1['price'])
 print("skewness: %f" % df1['price'].skew())
 print("kurtosis: %f" % df1['price'].kurt())
-st.wtite(fig21)
+st.write(fig21)
 
 fig22 = plt.figure(figsize=(15,4))
 sns.boxplot(x='price',data=df1)
-st.wtite(fig22)
+st.write(fig22)
 
 plt.subplot(231)
 df1['year'].value_counts().plot(kind='bar', title='Year',figsize=(30,15))
