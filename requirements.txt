@@ -10,3 +10,4 @@ hyperopt==0.1.2
 pywedge==0.5.1.8
 requests==2.23.0
 pandas-profiling==1.4.1
+streamlit
