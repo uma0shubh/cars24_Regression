@@ -544,4 +544,4 @@ import pywedge as pw
 
 mc = pw.Pywedge_Charts(df1, c = None, y = 'price')
 
-# charts = mc.make_charts()
+st.write(mc.make_charts())
