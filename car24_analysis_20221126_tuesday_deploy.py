@@ -484,7 +484,7 @@ models.sort_values(by=['rmse_test', 'rmse_train'], ascending=True)
 """# Model Output - Visualization"""
 
 # Plot
-plt.figure(figsize=[15,6])
+fig1 = plt.figure(figsize=[15,6])
 xx = models['Model']
 plt.tick_params(labelsize=14)
 plt.plot(xx, models['r2_train'], label = 'r2_train')
@@ -495,7 +495,7 @@ plt.xlabel('Models')
 plt.ylabel('R2-criterion, %')
 plt.xticks(xx, rotation='vertical')
 plt.savefig('graph.png')
-plt.show()
+st.write(fig1)
 
 # Plot
 plt.figure(figsize=[15,6])
