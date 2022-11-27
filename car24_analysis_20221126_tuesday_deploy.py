@@ -61,8 +61,8 @@ df1.describe(include = 'all')
 """### Univariant plots"""
 
 # Price
-fig21 = plt.figure(figsize=(15,8))
-sns.distplot(df1['price'])
+plt.figure(figsize=(15,8))
+fig21 = sns.distplot(df1['price'])
 print("skewness: %f" % df1['price'].skew())
 print("kurtosis: %f" % df1['price'].kurt())
 st.wtite(fig21)
