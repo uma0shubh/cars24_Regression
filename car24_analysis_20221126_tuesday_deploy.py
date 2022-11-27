@@ -553,8 +553,8 @@ Voting_Reg.predict(testn)[:3]
 
 """# Creating Dashboard"""
 
-import pywedge as pw
+# import pywedge as pw
 
-mc = pw.Pywedge_Charts(df1, c = None, y = 'price') # use c if you want to remove any column
+# mc = pw.Pywedge_Charts(df1, c = None, y = 'price') # use c if you want to remove any column
 
-charts = mc.make_charts()
+# charts = mc.make_charts()
