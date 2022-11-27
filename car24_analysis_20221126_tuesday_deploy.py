@@ -44,26 +44,13 @@ df = pd.read_csv(url)
 # df = df.iloc[:,1:]
 df.head()
 
-"""### Checking duplicates"""
-
 duplicate = df[df.duplicated()]
-duplicate
-
-df['city'].value_counts()
-
-"""### Considering Top 15 Cities"""
 
 df1 = df.loc[df['city'].isin(['New Delhi', 'Mumbai', 'Jaipur', 'Chennai', 'Lucknow', 'Bangalore', 'Indore', 'Hyderabad', 'Kochi', 'Pune', 'Kolkata', 'Ahmedabad', 'Gurgaon', 'Noida', 'Ghaziabad'])]
-print(df1.shape)
-df1['city'].value_counts()
 
-"""# Import Libraries"""
-
-# Commented out IPython magic to ensure Python compatibility.
 import seaborn as sns
 sns.set()
 import matplotlib.pyplot as plt
-# %matplotlib inline
 import numpy as np
 import sklearn as skt
 
@@ -553,8 +540,8 @@ Voting_Reg.predict(testn)[:3]
 
 """# Creating Dashboard"""
 
-# import pywedge as pw
+import pywedge as pw
 
-# mc = pw.Pywedge_Charts(df1, c = None, y = 'price') # use c if you want to remove any column
+mc = pw.Pywedge_Charts(df1, c = None, y = 'price')
 
 # charts = mc.make_charts()
