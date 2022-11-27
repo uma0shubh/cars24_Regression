@@ -8,3 +8,4 @@ xgboost==0.90
 lightgbm==2.2.3
 hyperopt==0.1.2
 pywedge==0.5.1.8
+requests==2.23.0
