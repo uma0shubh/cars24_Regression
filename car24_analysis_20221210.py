@@ -50,7 +50,7 @@ def add_bg_from_url():
          f"""
          <style>
          .stApp {{
-             background-image: url("https://miro.medium.com/max/648/1*kQBj7l-Y1WPZfX9nKIYL1Q.jpeg");
+             background-image: url("https://th.bing.com/th/id/OIP.nAh2TaAFlb9hkHREiE4hZQHaFj?pid=ImgDet&rs=1");
              background-attachment: fixed;
 	     background-position: 25% 75%;
              background-size: cover
@@ -88,7 +88,6 @@ sns.heatmap(df1.isnull(),cbar=False,cmap='viridis')
 df1.dropna(inplace=True)
 df1.isnull().sum()
 
-#st.header('Missing Values')
 fig101 = plt.figure(figsize=(20,10))
 sns.heatmap(df1.isnull(),cbar=False,cmap='viridis')
 st.pyplot(fig101)
