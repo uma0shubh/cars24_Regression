@@ -550,8 +550,8 @@ with Graphical:
         x2 = df1["registrationstate"]
     
 #     fig303 = plt.figure(figsize = (15,4))
-#     plt.bar(x.value_counts())
-#     #plt.bar(x, df1["price"])
+#     #plt.bar(x.value_counts())
+#     plt.bar(x, df1["price"])
 #     plt.xticks(rotation=90)
 #     st.pyplot(fig303)
     
@@ -566,7 +566,7 @@ with Graphical:
     
     # ************************************************************* 
     """# Bivariate plots """
-    x_axis_1 = st.selectbox("Select Variable", options=("Brand", "City", "Year", "Owner Number", "FuelType", "Transmission", "BodyType", "RegistrationState"))
+    x_axis_1 = st.selectbox("Select Variable", options=("Brand", "City", "Year", "Owner Number", "FuelType", "Transmission", "BodyType"))
     if x_axis_1 == "Brand":
         x1 = "make"
     elif x_axis_1 == "City":
