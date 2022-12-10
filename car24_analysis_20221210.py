@@ -524,6 +524,13 @@ with Graphical:
     st.write("Kurtosis: %f" % x.kurt())
     
     """##### Box Plot """
+    fig302 = plt.figure(figsize=(15,4))
+    #sns.boxplot(x=x,data=df1)
+    sns.boxplot(x=x)
+    st.write(fig302)
+    
+    """### Categorical Analysis """
+    """##### Bar Plot """
     x_axis = st.selectbox("Select Variable", options=("Brand", "City", "Year", "FuelType", "OwnerNumber", "Transmission", "BodyType", "RegistrationState"))
     if x_axis == "Brand":
         x = "make"
@@ -542,14 +549,6 @@ with Graphical:
     elif x_axis == "RegistrationState":
         x = "registrationstate"
     
-    fig302 = plt.figure(figsize=(15,4))
-    #sns.boxplot(x='price',data=df1)
-    sns.boxplot(x=x,data=df1)
-    #sns.boxplot(x=x)
-    st.write(fig302)
-    
-    """### Categorical Analysis """
-    """##### Bar Plot """
     plt.subplot()
     df1['model'].value_counts().plot(kind='bar', title='model',figsize=(24,9))
     plt.xticks(rotation=90)
