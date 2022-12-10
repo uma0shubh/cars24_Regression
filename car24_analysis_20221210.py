@@ -520,10 +520,10 @@ with Graphical:
     
     fig301 = plt.figure(figsize=(15,8))
     sns.distplot(x)
-    fig302 = print("skewness: %f" % x.skew())
-    fig303 = print("kurtosis: %f" % x.kurt())
+    #fig302 = print("skewness: %f" % x.skew())
+    #fig303 = print("kurtosis: %f" % x.kurt())
     st.write(fig301)
-    st.write(fig302)
+    st.write("skewness: %f" % x.skew())
     st.write(fig303)
     
     """##### Box Plot """
