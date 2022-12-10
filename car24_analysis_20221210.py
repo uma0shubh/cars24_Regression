@@ -7,17 +7,14 @@ import matplotlib.pyplot as plt
 # %matplotlib inline
 import numpy as np
 import sklearn as skt
-
 import plotly
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
-
 # preprocessing
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.model_selection import train_test_split, cross_val_score, GridSearchCV, StratifiedKFold
 import pandas_profiling as pp
-
 # models
 from sklearn.linear_model import LinearRegression, SGDRegressor, RidgeCV
 from sklearn.svm import SVR, LinearSVR
@@ -31,13 +28,10 @@ from sklearn import metrics
 from sklearn.metrics import r2_score, mean_absolute_error, mean_squared_error
 import xgboost as xgb
 import lightgbm as lgb
-
 # model tuning
 from hyperopt import STATUS_OK, Trials, fmin, hp, tpe, space_eval
-
 import warnings
 warnings.filterwarnings("ignore")
-
 import requests
 import pandas as pd
 import streamlit as st
@@ -55,25 +49,26 @@ Prediction, Graphical, Appendix = st.tabs(["Prediction","Graphical Interface","A
 
 # Data Filter *****************************************************************
 cars = {
-    'Maruti': [],
- 'Hyundai': [],
- 'Datsun': [],
- 'Toyota': [],
- 'Mahindra': [],
- 'KIA': [],
- 'Volkswagen': [],
- 'Renault': [],
- 'Ford': [],
- 'MG': [],
- 'Jeep': [],
- 'Honda': [],
- 'Tata': [],
- 'Skoda': [],
- 'Nissan': [],
- 'Mercedes': [],
- 'Jaguar': [],
- 'Audi': [],
- 'BMW': []
+    'Audi': ['Audi A3', 'Audi A6', 'Audi Q3'],
+    'Bmw': ['BMW 3 Series', 'BMW 5 Series', 'BMW X3'],
+    'Datsun': ['Datsun Go', 'Datsun Go Plus', 'Datsun Redi Go'],
+    'Fiat': ['Fiat URBAN CROSS'],
+    'Ford': ['Ford Ecosport', 'Ford Endeavour', 'Ford Figo', 'Ford Figo Aspire', 'Ford FREESTYLE', 'Ford New Figo'],
+    'Honda': ['Honda Accord', 'Honda Amaze', 'Honda Brio', 'Honda BR-V', 'Honda City', 'Honda Civic', 'Honda CRV', 'Honda Jazz', 'Honda WR-V'],
+    'Hyundai': ['Hyundai Accent', 'Hyundai ALCAZAR', 'Hyundai AURA', 'Hyundai Creta', 'Hyundai Elite i20', 'Hyundai Eon', 'Hyundai Grand i10', 'Hyundai GRAND I10 NIOS', 'Hyundai GRAND i10 PRIME', 'Hyundai i10', 'Hyundai i20', 'Hyundai i20 Active', 'Hyundai New Elantra', 'Hyundai NEW I20', 'Hyundai NEW I20 N LINE', 'Hyundai NEW SANTRO', 'Hyundai Santro Xing', 'Hyundai Tucson New', 'Hyundai VENUE', 'Hyundai Verna', 'Hyundai Xcent'],
+    'Jaguar': ['Jaguar XF'],
+    'Jeep': ['Jeep Compass'],
+    'Kia': ['KIA CARENS', 'KIA SELTOS', 'KIA SONET'],
+    'Mahindra': ['Mahindra Bolero', 'Mahindra BOLERO NEO', 'Mahindra KUV 100 NXT', 'Mahindra Kuv100', 'Mahindra MARAZZO', 'Mahindra Scorpio', 'Mahindra Thar', 'Mahindra TUV300', 'Mahindra XUV 3OO', 'Mahindra XUV500', 'Mahindra XUV700'],
+    'Maruti': ['Maruti A Star', 'Maruti Alto', 'Maruti Alto 800', 'Maruti Alto K10', 'Maruti Baleno', 'MARUTI BREZZA', 'Maruti Celerio', 'Maruti Celerio X', 'Maruti Ciaz', 'Maruti Dzire', 'Maruti Eeco', 'Maruti Ertiga', 'Maruti IGNIS', 'Maruti New  Wagon-R', 'Maruti OMNI E', 'Maruti Ritz', 'Maruti S Cross', 'Maruti S PRESSO', 'Maruti Swift', 'Maruti Swift Dzire', 'Maruti Vitara Brezza', 'Maruti Wagon R', 'Maruti Wagon R 1.0', 'Maruti Wagon R Stingray', 'Maruti XL6', 'Maruti Zen Estilo'],
+    'Mercedes Benz': ['Mercedes Benz C Class', 'Mercedes Benz E Class'],
+    'Mg': ['MG ASTOR', 'MG HECTOR', 'MG HECTOR PLUS'],
+    'Nissan': ['Nissan Kicks', 'Nissan MAGNITE', 'Nissan Micra', 'Nissan Micra Active', 'Nissan Sunny', 'Nissan Terrano'],
+    'Renault': ['Renault Captur', 'Renault Duster', 'Renault Kiger', 'Renault Kwid', 'Renault Pulse', 'Renault TRIBER'],
+    'Skoda': ['Skoda KUSHAQ', 'Skoda Octavia', 'Skoda Rapid', 'Skoda SLAVIA'],
+    'Tata': ['Tata ALTROZ', 'Tata Harrier', 'Tata Hexa', 'Tata NEXON', 'Tata PUNCH', 'Tata Safari', 'Tata Tiago', 'Tata TIAGO NRG', 'Tata TIGOR', 'Tata Zest'],
+    'Toyota': ['Toyota Camry', 'Toyota Corolla Altis', 'Toyota Etios', 'Toyota Etios Liva', 'Toyota Glanza', 'Toyota Innova', 'Toyota Innova Crysta', 'Toyota URBAN CRUISER', 'Toyota YARIS'],
+    'Volkswagen': ['Volkswagen Ameo', 'Volkswagen Jetta', 'Volkswagen Polo', 'Volkswagen TAIGUN', 'Volkswagen TIGUAN', 'Volkswagen Vento']
 }
 
 with Appendix:
@@ -503,6 +498,33 @@ with Appendix:
     #svr.predict(testn)[:3]
 
 
+with Graphical:
+    # *************************************************************
+    """# Univariant plots """
+    """### Numerical """
+    """##### Density Plot """
+    plt.figure(figsize=(15,8))
+    sns.distplot(df1['price'])
+    print("skewness: %f" % df1['price'].skew())
+    print("kurtosis: %f" % df1['price'].kurt())
+    
+    """##### Box Plot """
+    plt.figure(figsize=(15,4))
+    sns.boxplot(x='price',data=df1)
+    
+    """### Categorical """
+    """##### Bar Plot """
+    plt.subplot()
+    df1['model'].value_counts().plot(kind='bar', title='model',figsize=(24,9))
+    plt.xticks(rotation=90)
+    plt.show()
+    
+    # ************************************************************* 
+    """# Bivariate plots """
+
+    
+    
+    
 
 
 left_column,right_column= st.columns(2)
@@ -595,39 +617,6 @@ if options == "Prediction":
 
 
 
-
-# Checking duplicates *************************************************************
-duplicate = df[df.duplicated()]
-df['city'].value_counts()
-
-# Considering Top 15 Cities
-df1 = df.loc[df['city'].isin(['New Delhi', 'Mumbai', 'Jaipur', 'Chennai', 'Lucknow', 'Bangalore', 'Indore', 'Hyderabad', 'Kochi', 'Pune', 'Kolkata', 'Ahmedabad', 'Gurgaon', 'Noida', 'Ghaziabad'])]
-print(df1.shape)
-df1['city'].value_counts()
-
-# Data Pre-processing
-"""# Missing Values"""
-df1.isnull().sum()
-sns.heatmap(df1.isnull(),cbar=False,cmap='viridis')
-df1.dropna(inplace=True)
-df1.isnull().sum()
-
-fig101 = plt.figure(figsize=(8,4))
-sns.heatmap(df1.isnull(),cbar=False,cmap='viridis')
-st.pyplot(fig101)
-
-df1.reset_index(inplace=True)
-df1.info()
-df1.drop(["index"],axis=1,inplace=True)
-
-# *************************************************************
-"""# Descriptive statistics"""
-fig102 = df1.describe(include = 'all')
-st.write(fig102)
-
-# Data Visualization"""
-for col in df1.columns:
-    print('{} : {}'.format(col,df1[col].unique()))
 
 # *************************************************************
 # Univariant plots
