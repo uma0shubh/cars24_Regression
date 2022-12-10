@@ -549,10 +549,12 @@ with Graphical:
     elif x_axis == "RegistrationState":
         x = "registrationstate"
     
-    plt.subplot()
-    df1['model'].value_counts().plot(kind='bar', title='model',figsize=(24,9))
+    fig303 = plt.subplot()
+    #df1['model'].value_counts().plot(kind='bar', title='model',figsize=(24,9))
+    x.value_counts().plot(kind='bar', figsize=(24,9))
     plt.xticks(rotation=90)
     plt.show()
+    st.write(fig303)
     
     # ************************************************************* 
     """# Bivariate plots """
