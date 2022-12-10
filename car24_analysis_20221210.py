@@ -50,7 +50,7 @@ df = pd.read_csv(url)
 st.set_page_config(layout="wide")
 st.title("Car Price Prediction")
 # options = st.sidebar.selectbox("Select Analyzing options:", options= ("Prediction","Data Analysis","Graphical Interface"))
-options = st.tabs("Select Analyzing options:", options= ("Prediction","Data Analysis","Graphical Interface"))
+options = st.tabs(["Prediction","Graphical Interface","Appendix"])
 # st.header(options)
 
 # Data Filter *****************************************************************
