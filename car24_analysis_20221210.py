@@ -584,7 +584,7 @@ with Graphical:
     elif x_axis_1 == "RegistrationState":
         x1 = "registrationstate"
     
-    fig304 = sns.catplot(y='price', x=x1, data=df1.sort_values('price',ascending=False),kind="boxen")
+    fig304 = sns.catplot(y='price', x=x1, data=df1.sort_values('price',ascending=False),kind="boxen",height=5, aspect=3)
     st.pyplot(fig304)
 
 
