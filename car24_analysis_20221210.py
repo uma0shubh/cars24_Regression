@@ -549,8 +549,8 @@ with Graphical:
     elif x_axis == "RegistrationState":
         x = df1["registrationstate"]
     
-    fig303 = plt.subplot()
-    x.value_counts().plot(kind='bar', figsize=(15,4))
+    #fig303 = plt.subplot()
+    fig303 = x.value_counts().plot(kind='bar', figsize=(15,4))
     plt.xticks(rotation=90)
     st.write(fig303)
     
