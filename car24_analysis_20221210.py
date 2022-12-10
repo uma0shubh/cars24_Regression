@@ -82,20 +82,16 @@ print(df1.shape)
 df1['city'].value_counts()
 
 # Data Pre-processing
-"""# Check for missing values & treatment"""
+"""# Missing Values"""
 df1.isnull().sum()
 sns.heatmap(df1.isnull(),cbar=False,cmap='viridis')
 df1.dropna(inplace=True)
 df1.isnull().sum()
 
-# fig101 = sns.heatmap(df1.isnull(),cbar=False,cmap='viridis')
-
-st.header('Missing Values')
+#st.header('Missing Values')
 fig101 = plt.figure(figsize=(20,10))
 sns.heatmap(df1.isnull(),cbar=False,cmap='viridis')
 st.pyplot(fig101)
-
-# st.write(fig101)
 
 df1.reset_index(inplace=True)
 df1.info()
