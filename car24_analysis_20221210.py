@@ -543,8 +543,9 @@ with Graphical:
         x = df1["registrationstate"]
     
     fig302 = plt.figure(figsize=(15,4))
-    sns.boxplot(x=x,data=df1)
-    st.plt(fig302)
+    #sns.boxplot(x=x,data=df1)
+    sns.boxplot(x=x)
+    st.write(fig302)
     
     """### Categorical Analysis """
     """##### Bar Plot """
