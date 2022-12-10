@@ -79,25 +79,9 @@ df1.info()
 df1.drop(["index"],axis=1,inplace=True)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 """# Descriptive statistics"""
-
-df1.describe(include = 'all')
-
-# pp.ProfileReport(df1)
+fig102 = df1.describe(include = 'all')
+st.pyplot(fig102)
 
 """# Data Visualization"""
 
@@ -111,12 +95,6 @@ plt.figure(figsize=(15,8))
 sns.distplot(df1['price'])
 print("skewness: %f" % df1['price'].skew())
 print("kurtosis: %f" % df1['price'].kurt())
-
-"""Price data is positively skewed.
-
-Car price range mostly preferable 5-7 lakhs. 
-
-"""
 
 plt.figure(figsize=(15,4))
 sns.boxplot(x='price',data=df1)
@@ -152,31 +130,23 @@ df1['city'].value_counts().plot(kind='bar', title='City name', figsize=(15,4))
 plt.xticks(rotation=0)
 plt.show()
 
-"""Bangalore is contributing highest in terms of sales. Bangalore is known as IT working of India. Hence the relocation is caused for the car selling."""
-
 plt.subplot()
 df1['make'].value_counts().plot(kind='bar', title='Make',figsize=(15,4))
 plt.xticks(rotation=90)
 plt.show()
-
-"""On the basis of above graph we can conclude that more selling car make on CAR24 is Maruti which is more than 104 CR valuation generated on portal. Cleary Maruti is most comman brand followed by Hyundai."""
 
 plt.subplot()
 df1['model'].value_counts().plot(kind='bar', title='model',figsize=(24,9))
 plt.xticks(rotation=90)
 plt.show()
 
-"""As per the above Graph i10 has provide a good benefit as to new or end user, benefits help to reduce the efforts of compiling the documentation.
 
-### Bi-variant plots
-"""
+# Bi-variant plots
 
 # Fuel Type
 f, ax = plt.subplots(figsize=(15, 8))
 fig = sns.boxplot(x="fueltype", y="price", data=df1)
 fig
-
-"""As, we thought diseal car would cost followed Petrol. Petrol cars are having less maintainace cost as compare to Diesel cars. """
 
 # Year
 f, ax = plt.subplots(figsize=(15, 5))
@@ -184,17 +154,10 @@ fig = sns.boxplot(x="year", y="price", data=df1)
 fig;
 plt.xticks(rotation=90);
 
-"""Clearly, it's a strong tendency.
-
-Price of Newest is high compared to old models.
-"""
-
 # Owner_Type
 fig, ax = plt.subplots()
 fig
 sns.stripplot(x = "ownernumber", y ='price', data = df1)
-
-"""From the above graph it is concluded that 'price' & 'ownernumber' are inversely proportional to each other."""
 
 # City vs Price
 sns.catplot(y='price',x="city",data=df1.sort_values('price',ascending=False),kind="boxen",height=5, aspect=3)
@@ -204,13 +167,9 @@ plt.show
 sns.catplot(y='price',x="transmission",data=df1.sort_values('price',ascending=False),kind="boxen",height=5, aspect=2)
 plt.show
 
-"""Automatic cars have less efforts as compare to manual & automatic cars give ease of driving."""
-
 # Make vs Price
 sns.catplot(y='price',x="make",data=df1.sort_values('price',ascending=False),kind="boxen",height=5, aspect=3)
 plt.show
-
-"""A lot of variation is seen for car manufacturer."""
 
 fig3 = px.sunburst(df1, path=['city', 'fueltype'], color='city',height=800)
 fig3.update_layout(title_text="Fuel Type for City (Two-level Sunburst Diagram)", font_size=10)
@@ -224,17 +183,7 @@ fig = px.histogram(df1, x="year", y="price",color='city', barmode='group',height
 fig.update_layout(title_text="Yearly City Growth", font_size=10)
 fig.show()
 
-"""The initial business starts from Bangalore & the city gives a good return on investment till 2018. 
-
-After launching in Mumbai business ideas get accepted by customer, so it will help to get a good revenue from Mumbai as well.After implementing a good marketing strategy brand is achieving good number in terms of sales from 2016-2022. Due to covid it effects on the business revenue and still they are working to improve their business model. 
-
-For Chennai & Hyderabad also creating a good business in 2020.
-
-# Encoding
-
-### Label Encoding
-"""
-
+# Label Encoding
 df1.head()
 
 df7 = df1.copy(deep=True)
@@ -254,7 +203,6 @@ for col in categorical_columns:
 
 df7['year'] = (df7['year']-1900).astype(int)
 
-# df8= df7.drop(['name','model', 'storename','isc24assured','registrationcity','discountprice','url','registrationstate','benefits','createdDate'], axis = 1)
 df8= df7.drop(['name','model', 'storename','isc24assured','registrationcity','url','registrationstate','createdDate'], axis = 1)
 df8
 
@@ -264,7 +212,7 @@ plt.figure(figsize=(15,10))
 sns.heatmap(df8.corr(),annot=True,cmap='RdYlGn')
 plt.show()
 
-"""# Train-Test split"""
+# Train-Test split
 
 target_name = 'price'
 train_target0 = df8[target_name]
@@ -292,7 +240,7 @@ train0.head(3)
 train, test, target, target_test = train_test_split(train0, train_target0, test_size=valid_part, random_state=0)
 train.head(3)
 
-"""### Accuracy List"""
+# Accuracy List
 
 acc_train_r2 = []
 acc_test_r2 = []
@@ -406,30 +354,24 @@ def acc_model(num,model,train,test):
 - ExtraTreesRegressor 
 - AdaBoost Regressor
 - Voting Regressor
-
-### Linear Regression
 """
 
+# Linear Regression
 linreg = LinearRegression()
 linreg.fit(train, target)
 acc_model(0,linreg,train,test)
 
-"""### Support vector machine"""
-
+# Support vector machine
 svr = SVR()
 svr.fit(train, target)
 acc_model(1,svr,train,test)
 
-"""### Linear SVR
-Linear SVR is a similar to SVM method. Its also builds on kernel functions but is appropriate for unsupervised learning.
-"""
-
+# Linear SVR
 linear_svr = LinearSVR()
 linear_svr.fit(train, target)
 acc_model(2,linear_svr,train,test)
 
-"""### MLPRegressor """
-
+# MLPRegressor
 mlp = MLPRegressor()
 param_grid = {'hidden_layer_sizes': [i for i in range(2,20)],
               'activation': ['relu'],
@@ -446,28 +388,22 @@ mlp_GS = GridSearchCV(mlp, param_grid=param_grid,
 mlp_GS.fit(train, target)
 acc_model(3,mlp_GS,train,test)
 
-"""### Stochastic Gradient Descent"""
-
+# Stochastic Gradient Descent
 sgd = SGDRegressor()
 sgd.fit(train, target)
 acc_model(4,sgd,train,test)
 
-"""### Decision Tree Regressor"""
-
+# Decision Tree Regressor
 decision_tree = DecisionTreeRegressor()
 decision_tree.fit(train, target)
 acc_model(5,decision_tree,train,test)
 
-"""### Random Forest"""
-
+# Random Forest
 random_forest = RandomForestRegressor()
 random_forest.fit(train, target)
-#print(random_forest.best_params)
 acc_model(6,random_forest,train,test)
 
-"""### XGB"""
-
-#xgb_clf = xgb.XGBRegressor({'objective': 'reg:squarederror'}) 
+# XGB
 xgb_clf = xgb.XGBRegressor(objective ='reg:squarederror', verbosity = 0, silent=True, random_state=42) 
 parameters = {'n_estimators': [60, 100, 120, 140], 
               'learning_rate': [0.01, 0.1],
@@ -478,12 +414,10 @@ print("Best score: %0.3f" % xgb_reg.best_score_)
 print("Best parameters set:", xgb_reg.best_params_)
 acc_boosting_model(7,xgb_reg,trainb,testb)
 
-"""### LGBM """
-
+# LGBM
 Xtrain, Xval, Ztrain, Zval = train_test_split(trainb, targetb, test_size=0.2, random_state=0)
 train_set = lgb.Dataset(Xtrain, Ztrain, silent=False)
 valid_set = lgb.Dataset(Xval, Zval, silent=False)
-
 params = {
         'boosting_type':'gbdt',
         'objective': 'regression',
@@ -513,8 +447,7 @@ axes = fig.add_subplot(111)
 lgb.plot_importance(modelL,ax = axes,height = 0.5)
 plt.show();
 
-"""### GradientBoostingRegressor with HyperOpt"""
-
+# GradientBoostingRegressor with HyperOpt
 def hyperopt_gb_score(params):
     clf = GradientBoostingRegressor(**params)
     current_score = cross_val_score(clf, train, target, cv=10).mean()
@@ -538,38 +471,32 @@ gradient_boosting = GradientBoostingRegressor(**params)
 gradient_boosting.fit(train, target)
 acc_model(9,gradient_boosting,train,test)
 
-"""### Ridge Regressor"""
-
+# Ridge Regressor
 ridge = RidgeCV(cv=5)
 ridge.fit(train, target)
 acc_model(10,ridge,train,test)
 
-"""### Bagging Regressor"""
-
+# Bagging Regressor
 bagging = BaggingRegressor()
 bagging.fit(train, target)
 acc_model(11,bagging,train,test)
 
-"""### Extra Trees Regressor """
-
+# Extra Trees Regressor
 etr = ExtraTreesRegressor()
 etr.fit(train, target)
 acc_model(12,etr,train,test)
 
-"""### AdaBoost Regressor"""
-
+# AdaBoost Regressor
 Ada_Boost = AdaBoostRegressor()
 Ada_Boost.fit(train, target)
 acc_model(13,Ada_Boost,train,test)
 
-"""### Voting Regressor """
-
+# Voting Regressor
 Voting_Reg = VotingRegressor(estimators=[('lin', linreg), ('ridge', ridge), ('sgd', sgd)])
 Voting_Reg.fit(train, target)
 acc_model(14,Voting_Reg,train,test)
 
 """# Models comparison"""
-
 models = pd.DataFrame({
     'Model': ['Linear Regression', 'Support Vector Machines', 'Linear SVR', 
               'MLPRegressor', 'Stochastic Gradient Decent', 
@@ -593,10 +520,9 @@ models.sort_values(by=['r2_test', 'r2_train'], ascending=False)
 print('Prediction accuracy for models by RMSE - rmse_test')
 models.sort_values(by=['rmse_test', 'rmse_train'], ascending=True)
 
-"""# Model Output - Visualization"""
-
+# Model Output - Visualization
 # Plot
-plt.figure(figsize=[20,6])
+fig200 = plt.figure(figsize=[20,6])
 xx = models['Model']
 plt.tick_params(labelsize=14)
 plt.plot(xx, models['r2_train'], label = 'r2_train')
@@ -608,23 +534,10 @@ plt.ylabel('R2-criterion, %')
 plt.xticks(xx, rotation='vertical')
 plt.savefig('graph.png')
 plt.show()
+st.write(fig200)
 
 # Plot
-plt.figure(figsize=[20,6])
-xx = models['Model']
-plt.tick_params(labelsize=14)
-plt.plot(xx, models['d_train'], label = 'd_train')
-plt.plot(xx, models['d_test'], label = 'd_test')
-plt.legend()
-plt.title('Relative errors for 15 popular models for train and test datasets')
-plt.xlabel('Models')
-plt.ylabel('Relative error, %')
-plt.xticks(xx, rotation='vertical')
-plt.savefig('graph.png')
-plt.show()
-
-# Plot
-plt.figure(figsize=[20,6])
+fig201 = plt.figure(figsize=[20,6])
 xx = models['Model']
 plt.tick_params(labelsize=14)
 plt.plot(xx, models['rmse_train'], label = 'rmse_train')
@@ -636,40 +549,33 @@ plt.ylabel('RMSE, %')
 plt.xticks(xx, rotation='vertical')
 plt.savefig('graph.png')
 plt.show()
+st.write(fig201)
 
-"""Thus, the best models by the RMSE are Ridge Regressor, XGB, AdaBoosting and Voting Regressor .
+"""Thus, the best model is Linear Regression."""
 
 # Prediction
-"""
-
-test0
-
-test_target0
-
 #For models from Sklearn
 testn = pd.DataFrame(scaler.transform(test0), columns = test0.columns)
 
-testn
-
 #Ridge Regressor model for basic train
 ridge.fit(train0, train_target0)
-ridge.predict(testn)[:3]
+#ridge.predict(testn)[:3]
 
 #xgb model for basic train
 xgb_reg.fit(train0, train_target0)
-xgb_reg.predict(testn)[:3]
+#xgb_reg.predict(testn)[:3]
 
 #Ada_Boost  model for basic train
 Ada_Boost.fit(train0, train_target0)
-Ada_Boost.predict(testn)[:3]
+#Ada_Boost.predict(testn)[:3]
 
 #Voting Regressor model for basic train
 Voting_Reg.fit(train0, train_target0)
-Voting_Reg.predict(testn)[:3]
+#Voting_Reg.predict(testn)[:3]
 
 #svr model for basic train
 svr.fit(train0, train_target0)
-svr.predict(testn)[:3]
+#svr.predict(testn)[:3]
 
 """# Creating Dashboard"""
 
