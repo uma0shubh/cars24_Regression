@@ -101,34 +101,33 @@ with Appendix:
     fig102 = df1.describe(include = 'all')
     st.write(fig102)
     
-#     # *************************************************************
-#     # Label Encoding
-#     df1.head()
+    # *************************************************************
+    # Label Encoding
+    df1.head()
 
-#     df7 = df1.copy(deep=True)
+    df7 = df1.copy(deep=True)
 
-#     numerics = ['int8', 'int16', 'int32', 'int64', 'float16', 'float32', 'float64']
-#     categorical_columns = []
-#     features = df7.columns.values.tolist()
-#     for col in features:
-#         if df7[col].dtype in numerics: continue
-#         categorical_columns.append(col)
-#     # Encoding categorical features
-#     for col in categorical_columns:
-#         if col in df7.columns:
-#             le = LabelEncoder()
-#             le.fit(list(df7[col].astype(str).values))
-#             df7[col] = le.transform(list(df7[col].astype(str).values))
+    numerics = ['int8', 'int16', 'int32', 'int64', 'float16', 'float32', 'float64']
+    categorical_columns = []
+    features = df7.columns.values.tolist()
+    for col in features:
+        if df7[col].dtype in numerics: continue
+        categorical_columns.append(col)
+    # Encoding categorical features
+    for col in categorical_columns:
+        if col in df7.columns:
+            le = LabelEncoder()
+            le.fit(list(df7[col].astype(str).values))
+            df7[col] = le.transform(list(df7[col].astype(str).values))
 
-#     df7['year'] = (df7['year']-1900).astype(int)
+    df7['year'] = (df7['year']-1900).astype(int)
 
-#     df8= df7.drop(['name','storename','isc24assured','registrationcity','url','registrationstate','createdDate'], axis = 1)
+    df8= df7.drop(['name','storename','isc24assured','registrationcity','url','registrationstate','createdDate'], axis = 1)
+    df8.corr()
 
-#     df8.corr()
-
-#     plt.figure(figsize=(15,10))
-#     sns.heatmap(df8.corr(),annot=True,cmap='RdYlGn')
-#     plt.show()
+    plt.figure(figsize=(15,10))
+    sns.heatmap(df8.corr(),annot=True,cmap='RdYlGn')
+    plt.show()
 
 #     # *************************************************************
 #     # Train-Test split
@@ -613,7 +612,11 @@ with Graphical:
     fig307.update_layout(title_text="Yearly City Growth", font_size=10)
     st.write(fig307)
     
-
+    # ************************************************************* 
+    """# Correlation """
+    fig308 = plt.figure(figsize=(15,10))
+    sns.heatmap(df8.corr(),annot=True,cmap='RdYlGn')
+    st.write(fig308)
     
     
     
