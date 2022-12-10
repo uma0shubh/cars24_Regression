@@ -83,11 +83,11 @@ df1.drop(["index"],axis=1,inplace=True)
 fig102 = df1.describe(include = 'all')
 st.write(fig102)
 
-"""# Data Visualization"""
+# Data Visualization"""
 for col in df1.columns:
     print('{} : {}'.format(col,df1[col].unique()))
 
-"""# Univariant plots"""
+# Univariant plots
 # Price
 plt.figure(figsize=(15,8))
 sns.distplot(df1['price'])
@@ -143,17 +143,17 @@ plt.show()
 # Fuel Type
 f, ax = plt.subplots(figsize=(15, 8))
 fig = sns.boxplot(x="fueltype", y="price", data=df1)
-fig
+#fig
 
 # Year
 f, ax = plt.subplots(figsize=(15, 5))
 fig = sns.boxplot(x="year", y="price", data=df1)
-fig;
+#fig;
 plt.xticks(rotation=90);
 
 # Owner_Type
 fig, ax = plt.subplots()
-fig
+#fig
 sns.stripplot(x = "ownernumber", y ='price', data = df1)
 
 # City vs Price
@@ -180,7 +180,7 @@ fig = px.histogram(df1, x="year", y="price",color='city', barmode='group',height
 fig.update_layout(title_text="Yearly City Growth", font_size=10)
 fig.show()
 
-"""# Label Encoding"""
+# Label Encoding
 df1.head()
 
 df7 = df1.copy(deep=True)
@@ -201,7 +201,6 @@ for col in categorical_columns:
 df7['year'] = (df7['year']-1900).astype(int)
 
 df8= df7.drop(['name','model', 'storename','isc24assured','registrationcity','url','registrationstate','createdDate'], axis = 1)
-df8
 
 df8.corr()
 
@@ -209,8 +208,7 @@ plt.figure(figsize=(15,10))
 sns.heatmap(df8.corr(),annot=True,cmap='RdYlGn')
 plt.show()
 
-"""# Train-Test split"""
-
+# Train-Test split
 target_name = 'price'
 train_target0 = df8[target_name]
 df8 = df8.drop([target_name], axis=1)
@@ -237,8 +235,7 @@ train0.head(3)
 train, test, target, target_test = train_test_split(train0, train_target0, test_size=valid_part, random_state=0)
 train.head(3)
 
-"""# Accuracy List"""
-
+# Accuracy List
 acc_train_r2 = []
 acc_test_r2 = []
 acc_train_d = []
