@@ -54,7 +54,7 @@ options = st.sidebar.selectbox("Select Analyzing options:", options= ("Predictio
 url = 'https://github.com/uma0shubh/cars24_data/blob/main/cars24_20221210.csv?raw=true'
 df = pd.read_csv(url)
 
-# Checking duplicates
+# Checking duplicates *************************************************************
 duplicate = df[df.duplicated()]
 df['city'].value_counts()
 
@@ -78,18 +78,16 @@ df1.reset_index(inplace=True)
 df1.info()
 df1.drop(["index"],axis=1,inplace=True)
 
-
+# *************************************************************
 """# Descriptive statistics"""
 fig102 = df1.describe(include = 'all')
-st.pyplot(fig102)
+st.write(fig102)
 
-"""# Data Visualization"""
-
+# Data Visualization
 for col in df1.columns:
     print('{} : {}'.format(col,df1[col].unique()))
 
-"""### Univariant plots"""
-
+# Univariant plots
 # Price
 plt.figure(figsize=(15,8))
 sns.distplot(df1['price'])
@@ -142,7 +140,6 @@ plt.show()
 
 
 # Bi-variant plots
-
 # Fuel Type
 f, ax = plt.subplots(figsize=(15, 8))
 fig = sns.boxplot(x="fueltype", y="price", data=df1)
