@@ -585,7 +585,6 @@ with Graphical:
         x1 = "registrationstate"
     
     fig304 = sns.catplot(y='price', x=x1, data=df1.sort_values('price',ascending=False),kind="boxen")
-    plt.show
     st.write(fig304)
 
     # # Transmission vs Price
