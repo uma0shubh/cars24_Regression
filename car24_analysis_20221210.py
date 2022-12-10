@@ -70,7 +70,7 @@ sns.heatmap(df1.isnull(),cbar=False,cmap='viridis')
 df1.dropna(inplace=True)
 df1.isnull().sum()
 
-fig101 = plt.figure(figsize=(20,10))
+fig101 = plt.figure(figsize=(10,5))
 sns.heatmap(df1.isnull(),cbar=False,cmap='viridis')
 st.pyplot(fig101)
 
@@ -83,11 +83,11 @@ df1.drop(["index"],axis=1,inplace=True)
 fig102 = df1.describe(include = 'all')
 st.write(fig102)
 
-# Data Visualization
+"""# Data Visualization"""
 for col in df1.columns:
     print('{} : {}'.format(col,df1[col].unique()))
 
-# Univariant plots
+"""# Univariant plots"""
 # Price
 plt.figure(figsize=(15,8))
 sns.distplot(df1['price'])
@@ -139,7 +139,7 @@ plt.xticks(rotation=90)
 plt.show()
 
 
-# Bi-variant plots
+"""# Bi-variant plots"""
 # Fuel Type
 f, ax = plt.subplots(figsize=(15, 8))
 fig = sns.boxplot(x="fueltype", y="price", data=df1)
@@ -180,7 +180,7 @@ fig = px.histogram(df1, x="year", y="price",color='city', barmode='group',height
 fig.update_layout(title_text="Yearly City Growth", font_size=10)
 fig.show()
 
-# Label Encoding
+"""# Label Encoding"""
 df1.head()
 
 df7 = df1.copy(deep=True)
@@ -209,7 +209,7 @@ plt.figure(figsize=(15,10))
 sns.heatmap(df8.corr(),annot=True,cmap='RdYlGn')
 plt.show()
 
-# Train-Test split
+"""# Train-Test split"""
 
 target_name = 'price'
 train_target0 = df8[target_name]
@@ -237,7 +237,7 @@ train0.head(3)
 train, test, target, target_test = train_test_split(train0, train_target0, test_size=valid_part, random_state=0)
 train.head(3)
 
-# Accuracy List
+"""# Accuracy List"""
 
 acc_train_r2 = []
 acc_test_r2 = []
