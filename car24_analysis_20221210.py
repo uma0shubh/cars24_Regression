@@ -181,6 +181,7 @@ fig = px.histogram(df1, x="year", y="price",color='city', barmode='group',height
 fig.update_layout(title_text="Yearly City Growth", font_size=10)
 fig.show()
 
+# *************************************************************
 # Label Encoding
 df1.head()
 
@@ -209,6 +210,7 @@ plt.figure(figsize=(15,10))
 sns.heatmap(df8.corr(),annot=True,cmap='RdYlGn')
 plt.show()
 
+# *************************************************************
 # Train-Test split
 target_name = 'price'
 train_target0 = df8[target_name]
@@ -236,6 +238,7 @@ train0.head(3)
 train, test, target, target_test = train_test_split(train0, train_target0, test_size=valid_part, random_state=0)
 train.head(3)
 
+# *************************************************************
 # Accuracy List
 acc_train_r2 = []
 acc_test_r2 = []
@@ -332,6 +335,7 @@ def acc_model(num,model,train,test):
     print('acc(rmse) for test =', acc_test_rmse_num)
     acc_test_rmse.insert(num, acc_test_rmse_num)
 
+# *************************************************************
 """# Model Building
 
 - Linear Regression
@@ -459,7 +463,6 @@ print('best:')
 print(best)
 
 params = space_eval(space_gb, best)
-params
 
 # Gradient Boosting Regression
 gradient_boosting = GradientBoostingRegressor(**params)
@@ -491,6 +494,7 @@ Voting_Reg = VotingRegressor(estimators=[('lin', linreg), ('ridge', ridge), ('sg
 Voting_Reg.fit(train, target)
 acc_model(14,Voting_Reg,train,test)
 
+# *************************************************************
 """# Models comparison"""
 models = pd.DataFrame({
     'Model': ['Linear Regression', 'Support Vector Machines', 'Linear SVR', 
@@ -517,7 +521,7 @@ models.sort_values(by=['rmse_test', 'rmse_train'], ascending=True)
 
 # Model Output - Visualization
 # Plot
-fig200 = plt.figure(figsize=[20,6])
+fig200 = plt.figure(figsize=[20,8])
 xx = models['Model']
 plt.tick_params(labelsize=14)
 plt.plot(xx, models['r2_train'], label = 'r2_train')
@@ -532,7 +536,7 @@ plt.show()
 st.write(fig200)
 
 # Plot
-fig201 = plt.figure(figsize=[20,6])
+fig201 = plt.figure(figsize=[20,8])
 xx = models['Model']
 plt.tick_params(labelsize=14)
 plt.plot(xx, models['rmse_train'], label = 'rmse_train')
@@ -548,6 +552,7 @@ st.write(fig201)
 
 """Thus, the best model is Linear Regression."""
 
+# *************************************************************
 # Prediction
 #For models from Sklearn
 testn = pd.DataFrame(scaler.transform(test0), columns = test0.columns)
@@ -572,11 +577,9 @@ Voting_Reg.fit(train0, train_target0)
 svr.fit(train0, train_target0)
 #svr.predict(testn)[:3]
 
-"""# Creating Dashboard"""
-
+# *************************************************************
+# Creating Dashboard
 # import pywedge as pw
-
 # mc = pw.Pywedge_Charts(df1, c = None, y = 'price') # use c if you want to remove any column
-
 # charts = mc.make_charts()
 
