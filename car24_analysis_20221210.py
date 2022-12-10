@@ -556,7 +556,8 @@ with Graphical:
     #plt.show()
     
     fig303 = plt.figure(figsize = (15,4))
-    plt.bar(x, df1["price"], color ='maroon',width = 0.4)
+    plt.bar(x, df1["price"])
+    plt.xticks(rotation=90)
     st.pyplot(fig303)
     
     # ************************************************************* 
