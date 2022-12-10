@@ -144,17 +144,17 @@ plt.show()
 # Fuel Type
 f, ax = plt.subplots(figsize=(15, 8))
 fig = sns.boxplot(x="fueltype", y="price", data=df1)
-fig
+#fig
 
 # Year
 f, ax = plt.subplots(figsize=(15, 5))
 fig = sns.boxplot(x="year", y="price", data=df1)
-fig;
+#fig;
 plt.xticks(rotation=90);
 
 # Owner_Type
 fig, ax = plt.subplots()
-fig
+#fig
 sns.stripplot(x = "ownernumber", y ='price', data = df1)
 
 # City vs Price
