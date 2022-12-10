@@ -569,9 +569,9 @@ if options == "Prediction":
     def user_input():
         with right_column:
             brand = st.selectbox("Car Name:",options = sorted(df["make"].unique()))
-            city = st.selectbox("city:", options=sorted(df["city"].unique()))
+            city = st.selectbox("City:", options=sorted(df["city"].unique()))
             kilometerdriven = st.number_input("Enter Km Driven:")
-            ownernumber = st.selectbox("ownernumber:", options=sorted(df["ownernumber"].unique()))
+            ownernumber = st.selectbox("Owner Number:", options=sorted(df["ownernumber"].unique()))
             discountprice = st.number_input("Enter Discount Price:")
         
         model_name = ""
@@ -615,11 +615,11 @@ if options == "Prediction":
             model_name = cars.get("BMW")
 
         with left_column:
-            year = st.selectbox("year:",options = sorted(df["year"].unique()))
+            year = st.selectbox("Year:",options = sorted(df["year"].unique()))
             model = st.selectbox("Model Name:", options=model_name)
             fueltype = st.selectbox("Fuel Type:", options=sorted(df["fueltype"].unique()))
-            transmission = st.selectbox("transmission:", options=sorted(df["transmission"].unique()))
-            bodytype = st.selectbox("bodytype:", options=sorted(df["bodytype"].unique()))
+            transmission = st.selectbox("Transmission:", options=sorted(df["transmission"].unique()))
+            bodytype = st.selectbox("Body Type:", options=sorted(df["bodytype"].unique()))
             benefits = st.number_input("Enter Benefits:")
         
         new_data = {"year":year,
