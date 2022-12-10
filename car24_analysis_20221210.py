@@ -555,17 +555,46 @@ with Graphical:
 #     plt.xticks(rotation=90)
 #     st.pyplot(fig303)
     
-    fig303 = sns.set(font_scale=1.4)
-    x.value_counts().plot(kind='bar', figsize=(15, 4), rot=90)
-    st.write(fig303)
+#     fig303 = sns.set(font_scale=1.4)
+#     x.value_counts().plot(kind='bar', figsize=(15, 4), rot=90)
+#     st.write(fig303)
     
-    fig304 = x.value_counts().plot(kind='barh', figsize=(15, 20))
-    st.write(fig304)
+#     fig304 = x.value_counts().plot(kind='barh', figsize=(15, 20))
+#     st.write(fig304)
     
     
     
     # ************************************************************* 
     """# Bivariate plots """
+    x_axis = st.selectbox("Select Variable", options=("Brand", "City", "Year", "Owner Number", "FuelType", "Transmission", "BodyType", "RegistrationState"))
+    if x_axis == "Brand":
+        x = "make"
+    elif x_axis == "City":
+        x = "city"
+    elif x_axis == "Year":
+        x = "year"
+    elif x_axis == "Owner Number":
+        x = "ownernumber"
+    elif x_axis == "FuelType":
+        x = "fueltype"
+    elif x_axis == "Transmission":
+        x = "transmission"
+    elif x_axis == "BodyType":
+        x = "bodytype"
+    elif x_axis == "RegistrationState":
+        x = "registrationstate"
+    
+    fig304 = sns.catplot(y='price', x=x, data=df1.sort_values('price',ascending=False),kind="boxen",height=5, aspect=3)
+    plt.show
+    st.write(fig304)
+
+    # # Transmission vs Price
+    # sns.catplot(y='price',x="transmission",data=df1.sort_values('price',ascending=False),kind="boxen",height=5, aspect=2)
+    # #plt.show
+
+    # # Make vs Price
+    # sns.catplot(y='price',x="make",data=df1.sort_values('price',ascending=False),kind="boxen",height=5, aspect=3)
+    # #plt.show
 
     
     
