@@ -555,11 +555,19 @@ with Graphical:
     #plt.xticks(rotation=90)
     #plt.show()
     
-    fig303 = plt.figure(figsize = (15,4))
-    plt.bar(x.value_counts())
-    #plt.bar(x, df1["price"])
-    plt.xticks(rotation=90)
-    st.pyplot(fig303)
+#     fig303 = plt.figure(figsize = (15,4))
+#     plt.bar(x.value_counts())
+#     #plt.bar(x, df1["price"])
+#     plt.xticks(rotation=90)
+#     st.pyplot(fig303)
+    
+    fig303 = sns.set(font_scale=1.4)
+    x.value_counts().plot(kind='bar', figsize=(7, 6), rot=0)
+    st.write(fig303)
+    
+    #x.value_counts().plot(kind='barh', figsize=(8, 6))
+    
+    
     
     # ************************************************************* 
     """# Bivariate plots """
