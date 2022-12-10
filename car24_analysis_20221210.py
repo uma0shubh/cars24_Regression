@@ -500,11 +500,14 @@ with Appendix:
 
 with Graphical:
     # *************************************************************
+    """# Data Overview """
+    fig300 = df1.head()
+    st.write(fig300)
+    
     """# Univariant plots """
     """### Numerical """
     """##### Density Plot """
-    st.write(df1)
-    x_axis = st.selectbox("Select X axis", options=("price", "kilometerdriven", "benefits", "discountprice"))
+    x_axis = st.selectbox("Select Variable", options=("price", "kilometerdriven", "benefits", "discountprice"))
     
     if x_axis == "price":
         x = df1["price"]
@@ -515,11 +518,13 @@ with Graphical:
     elif x_axis == "discountprice":
         x = df1["discountprice"]
     
-    fig300 = plt.figure(figsize=(15,8))
+    fig301 = plt.figure(figsize=(15,8))
     sns.distplot(x)
-    print("skewness: %f" % x.skew())
-    print("kurtosis: %f" % x.kurt())
-    st.write(fig300)
+    fig302 = print("skewness: %f" % x.skew())
+    fig303 = print("kurtosis: %f" % x.kurt())
+    st.write(fig301)
+    st.write(fig302)
+    st.write(fig303)
     
     """##### Box Plot """
     plt.figure(figsize=(15,4))
