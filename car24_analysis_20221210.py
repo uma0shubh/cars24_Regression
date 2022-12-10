@@ -549,12 +549,6 @@ with Graphical:
     elif x_axis == "RegistrationState":
         x = df1["registrationstate"]
     
-    #fig303 = plt.subplot()
-    #fig303 = x.value_counts().plot(kind='bar', figsize=(15,4))
-    #fig303 = x.value_counts().plot(kind='bar', figsize=(15,4))
-    #plt.xticks(rotation=90)
-    #plt.show()
-    
 #     fig303 = plt.figure(figsize = (15,4))
 #     plt.bar(x.value_counts())
 #     #plt.bar(x, df1["price"])
@@ -562,10 +556,11 @@ with Graphical:
 #     st.pyplot(fig303)
     
     fig303 = sns.set(font_scale=1.4)
-    x.value_counts().plot(kind='bar', figsize=(7, 6), rot=0)
+    x.value_counts().plot(kind='bar', figsize=(15, 4), rot=90)
     st.write(fig303)
     
-    #x.value_counts().plot(kind='barh', figsize=(8, 6))
+    fig304 = x.value_counts().plot(kind='barh', figsize=(8, 6))
+    st.write(fig304)
     
     
     
