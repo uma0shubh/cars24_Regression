@@ -556,7 +556,8 @@ with Graphical:
     #plt.show()
     
     fig303 = plt.figure(figsize = (15,4))
-    plt.bar(x, df1["price"])
+    plt.bar(x.value_counts())
+    #plt.bar(x, df1["price"])
     plt.xticks(rotation=90)
     st.pyplot(fig303)
     
