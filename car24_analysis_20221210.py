@@ -44,24 +44,6 @@ import streamlit as st
 
 # Page Setup *************************************************************
 st.set_page_config(layout="wide")
-
-def add_bg_from_url():
-    st.markdown(
-         f"""
-         <style>
-         .stApp {{
-             background-image: url("https://th.bing.com/th/id/OIP.nAh2TaAFlb9hkHREiE4hZQHaFj?pid=ImgDet&rs=1");
-             background-attachment: fixed;
-	     background-position: 25% 75%;
-             background-size: cover
-         }}
-         </style>
-         """,
-         unsafe_allow_html=True
-     )
-
-add_bg_from_url()
-
 st.title("Car Price Prediction")
 
 options = st.sidebar.selectbox("Select Analyzing options:", options= ("Prediction","Data Analysis","Graphical Interface"))
