@@ -70,7 +70,7 @@ sns.heatmap(df1.isnull(),cbar=False,cmap='viridis')
 df1.dropna(inplace=True)
 df1.isnull().sum()
 
-fig101 = plt.figure(figsize=(10,5))
+fig101 = plt.figure(figsize=(8,4))
 sns.heatmap(df1.isnull(),cbar=False,cmap='viridis')
 st.pyplot(fig101)
 
