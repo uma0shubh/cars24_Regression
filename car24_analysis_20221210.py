@@ -87,6 +87,7 @@ st.write(fig102)
 for col in df1.columns:
     print('{} : {}'.format(col,df1[col].unique()))
 
+# *************************************************************
 # Univariant plots
 # Price
 plt.figure(figsize=(15,8))
@@ -138,22 +139,22 @@ df1['model'].value_counts().plot(kind='bar', title='model',figsize=(24,9))
 plt.xticks(rotation=90)
 plt.show()
 
-
-"""# Bi-variant plots"""
+# *************************************************************
+# Bi-variant plots
 # Fuel Type
 f, ax = plt.subplots(figsize=(15, 8))
 fig = sns.boxplot(x="fueltype", y="price", data=df1)
-#fig
+fig
 
 # Year
 f, ax = plt.subplots(figsize=(15, 5))
 fig = sns.boxplot(x="year", y="price", data=df1)
-#fig;
+fig;
 plt.xticks(rotation=90);
 
 # Owner_Type
 fig, ax = plt.subplots()
-#fig
+fig
 sns.stripplot(x = "ownernumber", y ='price', data = df1)
 
 # City vs Price
