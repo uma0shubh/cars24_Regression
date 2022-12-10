@@ -550,9 +550,13 @@ with Graphical:
         x = df1["registrationstate"]
     
     #fig303 = plt.subplot()
-    fig303 = x.value_counts().plot(kind='bar', figsize=(15,4))
-    plt.xticks(rotation=90)
-    plt.show()
+    #fig303 = x.value_counts().plot(kind='bar', figsize=(15,4))
+    #fig303 = x.value_counts().plot(kind='bar', figsize=(15,4))
+    #plt.xticks(rotation=90)
+    #plt.show()
+    
+    fig303 = plt.figure(figsize = (15,4))
+    plt.bar(x, color ='maroon',width = 0.4)
     st.pyplot(fig303)
     
     # ************************************************************* 
