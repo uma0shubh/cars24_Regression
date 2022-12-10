@@ -505,32 +505,48 @@ with Graphical:
     st.write(fig300)
     
     """# Univariant plots """
-    """### Numerical """
+    """### Numerical Analysis """
     """##### Density Plot """
-    x_axis = st.selectbox("Select Variable", options=("price", "kilometerdriven", "benefits", "discountprice"))
-    
-    if x_axis == "price":
+    x_axis = st.selectbox("Select Variable", options=("Price", "Km", "Benefits", "Discount Price"))
+    if x_axis == "Price":
         x = df1["price"]
-    elif x_axis == "kilometerdriven":
+    elif x_axis == "Km":
         x = df1["kilometerdriven"]
     elif x_axis == "benefits":
-        x = df1["benefits"]
-    elif x_axis == "discountprice":
+        x = df1["Benefits"]
+    elif x_axis == "Discount Price":
         x = df1["discountprice"]
     
     fig301 = plt.figure(figsize=(15,8))
     sns.distplot(x)
-    #fig302 = print("skewness: %f" % x.skew())
-    #fig303 = print("kurtosis: %f" % x.kurt())
     st.write(fig301)
-    st.write("skewness: %f" % x.skew())
-    st.write(fig303)
+    st.write("Skewness: %f" % x.skew())
+    st.write("Kurtosis: %f" % x.kurt())
     
     """##### Box Plot """
-    plt.figure(figsize=(15,4))
-    sns.boxplot(x='price',data=df1)
+    x_axis = st.selectbox("Select Variable", options=("Brand", "City", "Year", "FuelType", "OwnerNumber", "Transmission", "BodyType", "RegistrationState"))
+    if x_axis == "Brand":
+        x = df1["make"]
+    elif x_axis == "City":
+        x = df1["city"]
+    elif x_axis == "Year":
+        x = df1["year"]
+    elif x_axis == "FuelType":
+        x = df1["fueltype"]
+    elif x_axis == "OwnerNumber":
+        x = df1["ownernumber"]
+    elif x_axis == "Transmission":
+        x = df1["transmission"]
+    elif x_axis == "BodyType":
+        x = df1["bodytype"]
+    elif x_axis == "RegistrationState":
+        x = df1["registrationstate"]
     
-    """### Categorical """
+    fig302 = plt.figure(figsize=(15,4))
+    sns.boxplot(x=x,data=df1)
+    st.write(fig302)
+    
+    """### Categorical Analysis """
     """##### Bar Plot """
     plt.subplot()
     df1['model'].value_counts().plot(kind='bar', title='model',figsize=(24,9))
