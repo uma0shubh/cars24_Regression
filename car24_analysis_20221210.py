@@ -584,7 +584,8 @@ with Graphical:
     
     fig304 = sns.catplot(y='price', x=x1, data=df1.sort_values('price',ascending=False),kind="boxen",height=5, aspect=3)
     st.pyplot(fig304)
-
+    
+    # ******
     x_axis_3 = st.selectbox("Select Variable", options=("Brand", "Owner Number", "FuelType", "Transmission", "BodyType"))
     if x_axis_3 == "Brand":
         x3 = "make"
@@ -599,8 +600,12 @@ with Graphical:
     
     fig305 = px.sunburst(df1, path=['city', x3], color='city',height=800)
     fig305.update_layout(title_text="Two-level Sunburst Diagram", font_size=10)
-    #fig305.show()
     st.write(fig305)
+    
+    # ******
+    fig306 = px.treemap(df1, path=['city', x3], color='city',height=800,width=1500)
+    fig306.update_layout(title_text="Distribution within City", font_size=10)
+    st.write(fig306)
     
     
     
