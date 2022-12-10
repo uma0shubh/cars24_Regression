@@ -503,10 +503,23 @@ with Graphical:
     """# Univariant plots """
     """### Numerical """
     """##### Density Plot """
-    plt.figure(figsize=(15,8))
-    sns.distplot(df1['price'])
-    print("skewness: %f" % df1['price'].skew())
-    print("kurtosis: %f" % df1['price'].kurt())
+    st.write(df1)
+    x_axis = st.selectbox("Select X axis", options=("price", "kilometerdriven", "benefits", "discountprice"))
+    
+    if x_axis == "price":
+        x = df1["price"]
+    elif x_axis == "kilometerdriven":
+        x = df1["kilometerdriven"]
+    elif x_axis == "benefits":
+        x = df1["benefits"]
+    elif x_axis == "discountprice":
+        x = df1["discountprice"]
+    
+    fig300 = plt.figure(figsize=(15,8))
+    sns.distplot(x)
+    print("skewness: %f" % x.skew())
+    print("kurtosis: %f" % x.kurt())
+    st.write(fig300)
     
     """##### Box Plot """
     plt.figure(figsize=(15,4))
