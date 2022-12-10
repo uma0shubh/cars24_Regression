@@ -11,35 +11,11 @@ Original file is located at
 
 import requests
 import pandas as pd
+import streamlit as st
 
-base = "https://www.cars24.com/buy-used-"
-
-table = []
-with requests.Session() as s:
-    for page in range(1, 501):
-        url = f"https://api-sell24.cars24.team/buy-used-car?sort=P&page={page}"
-        cars = s.get(url).json()['data']['content']
-        #print(f"Getting page {page}...")
-        for car in cars:
-            car_name = "-".join(car['carName'].lower().split())
-            car_city = "-".join(car['city'].lower().split())
-            offer_url = f"{base}{car_name}-{car['year']}-cars-{car_city}-{car['carId']}"
-            table.append([car['carName'], car['make'].title(), car['model'].title(), car['city'].title(), car['year'], car['fuelType'].title(), car['kilometerDriven'], 
-                          car['ownerNumber'], car.get('transmission'), car.get('bodyType'), car['storeName'].title(), car['isC24Assured'], 
-                          car['registrationCity'].title(), car['registrationState'].title(), car['benefits']['benefitValue'].replace('₹',"").replace(',',""),  
-                          car['discountPrice'], car['price'], offer_url, car['createdDate'][:10]])
-           
-df = pd.DataFrame(table, columns=['name', 'make', 'model', 'city', 'year', 'fueltype', 'kilometerdriven', 'ownernumber', 
-                                  'transmission', 'bodytype', 'storename', 'isc24assured', 'registrationcity', 
-                                  'registrationstate', 'benefits', 'discountprice', 'price', 'url', 'createdDate'])
-print('Total Rows & Columns :', df.shape)
+url = 'https://github.com/uma0shubh/cars24_data/blob/main/cars24_20221210.csv?raw=true'
+df = pd.read_csv(url)
 df.head()
-df.to_csv('cars24_20221210.csv', index=False)
-
-# import pandas as pd
-# df = pd.read_csv('cars24_20221126.csv')
-# #df = df.iloc[:,1:]
-# df.head()
 
 """### Checking duplicates"""
 
