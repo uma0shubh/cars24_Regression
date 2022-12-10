@@ -550,7 +550,7 @@ with Graphical:
         x = df1["registrationstate"]
     
     fig303 = plt.subplot()
-    x.value_counts().plot(kind='bar', figsize=(24,9))
+    x.value_counts().plot(kind='bar', figsize=(15,4))
     plt.xticks(rotation=90)
     st.write(fig303)
     
