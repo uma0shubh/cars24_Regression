@@ -526,25 +526,26 @@ with Graphical:
     """##### Box Plot """
     x_axis = st.selectbox("Select Variable", options=("Brand", "City", "Year", "FuelType", "OwnerNumber", "Transmission", "BodyType", "RegistrationState"))
     if x_axis == "Brand":
-        x = df1["make"]
+        x = "make"
     elif x_axis == "City":
-        x = df1["city"]
+        x = "city"
     elif x_axis == "Year":
-        x = df1["year"]
+        x = "year"
     elif x_axis == "FuelType":
-        x = df1["fueltype"]
+        x = "fueltype"
     elif x_axis == "OwnerNumber":
-        x = df1["ownernumber"]
+        x = "ownernumber"
     elif x_axis == "Transmission":
-        x = df1["transmission"]
+        x = "transmission"
     elif x_axis == "BodyType":
-        x = df1["bodytype"]
+        x = "bodytype"
     elif x_axis == "RegistrationState":
-        x = df1["registrationstate"]
+        x = "registrationstate"
     
     fig302 = plt.figure(figsize=(15,4))
-    #sns.boxplot(x=x,data=df1)
-    sns.boxplot(x=x)
+    #sns.boxplot(x='price',data=df1)
+    sns.boxplot(x=x,data=df1)
+    #sns.boxplot(x=x)
     st.write(fig302)
     
     """### Categorical Analysis """
