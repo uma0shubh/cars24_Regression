@@ -50,7 +50,7 @@ def add_bg_from_url():
          f"""
          <style>
          .stApp {{
-             background-image: url("https://wallpapercave.com/download/audi-a3-wallpapers-wp1893319");
+             background-image: url("https://miro.medium.com/max/648/1*kQBj7l-Y1WPZfX9nKIYL1Q.jpeg");
              background-attachment: fixed;
 	     background-position: 25% 75%;
              background-size: cover
