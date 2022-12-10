@@ -566,23 +566,23 @@ with Graphical:
     
     # ************************************************************* 
     """# Bivariate plots """
-    x_axis = st.selectbox("Select Variable", options=("Brand", "City", "Year", "Owner Number", "FuelType", "Transmission", "BodyType", "RegistrationState"))
-    if x_axis == "Brand":
-        x = "make"
-    elif x_axis == "City":
-        x = "city"
-    elif x_axis == "Year":
-        x = "year"
-    elif x_axis == "Owner Number":
-        x = "ownernumber"
-    elif x_axis == "FuelType":
-        x = "fueltype"
-    elif x_axis == "Transmission":
-        x = "transmission"
-    elif x_axis == "BodyType":
-        x = "bodytype"
-    elif x_axis == "RegistrationState":
-        x = "registrationstate"
+#     x_axis_1 = st.selectbox("Select Variable", options=("Brand", "City", "Year", "Owner Number", "FuelType", "Transmission", "BodyType", "RegistrationState"))
+#     if x_axis_1 == "Brand":
+#         x = "make"
+#     elif x_axis_1 == "City":
+#         x = "city"
+#     elif x_axis_1 == "Year":
+#         x = "year"
+#     elif x_axis_1 == "Owner Number":
+#         x = "ownernumber"
+#     elif x_axis_1 == "FuelType":
+#         x = "fueltype"
+#     elif x_axis == "Transmission":
+#         x = "transmission"
+#     elif x_axis == "BodyType":
+#         x = "bodytype"
+#     elif x_axis == "RegistrationState":
+#         x = "registrationstate"
     
     fig304 = sns.catplot(y='price', x=x, data=df1.sort_values('price',ascending=False),kind="boxen",height=5, aspect=3)
     plt.show
