@@ -598,12 +598,12 @@ with Graphical:
     elif x_axis_3 == "BodyType":
         x3 = "bodytype"
     
-    fig305 = px.sunburst(df1, path=['city', x3], color='city',height=800)
+    fig305 = px.sunburst(df1, path=['city', x3], color='city',height=600)
     fig305.update_layout(title_text="Two-level Sunburst Diagram", font_size=10)
     st.write(fig305)
     
     # ******
-    fig306 = px.treemap(df1, path=['city', x3], color='city',height=800,width=1500)
+    fig306 = px.treemap(df1, path=['city', x3], color='city',height=600,width=1000)
     fig306.update_layout(title_text="Distribution within City", font_size=10)
     st.write(fig306)
     
