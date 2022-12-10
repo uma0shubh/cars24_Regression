@@ -60,10 +60,12 @@ def add_bg_from_url():
          unsafe_allow_html=True
      )
 
-st.header("Car Price Prediction")
+add_bg_from_url()
 
-options = st.sidebar.selectbox("Select here:", options= ("Prediction","Data Analysis","Graphical Interface"))
-st.header(options)
+st.title("Car Price Prediction")
+
+options = st.sidebar.selectbox("Select Analyzing options:", options= ("Prediction","Data Analysis","Graphical Interface"))
+# st.header(options)
 
 
 # Load Dataset *************************************************************
