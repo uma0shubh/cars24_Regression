@@ -531,23 +531,23 @@ with Graphical:
     
     """### Categorical Analysis """
     """##### Bar Plot """
-    x_axis = st.selectbox("Select Variable", options=("Brand", "City", "Year", "Owner Number", "FuelType", "Transmission", "BodyType", "RegistrationState"))
-    if x_axis == "Brand":
-        x = df1["make"]
-    elif x_axis == "City":
-        x = df1["city"]
-    elif x_axis == "Year":
-        x = df1["year"]
-    elif x_axis == "Owner Number":
-        x = df1["ownernumber"]
-    elif x_axis == "FuelType":
-        x = df1["fueltype"]
-    elif x_axis == "Transmission":
-        x = df1["transmission"]
-    elif x_axis == "BodyType":
-        x = df1["bodytype"]
-    elif x_axis == "RegistrationState":
-        x = df1["registrationstate"]
+    x_axis_2 = st.selectbox("Select Variable", options=("Brand", "City", "Year", "Owner Number", "FuelType", "Transmission", "BodyType", "RegistrationState"))
+    if x_axis_2 == "Brand":
+        x2 = df1["make"]
+    elif x_axis_2 == "City":
+        x2 = df1["city"]
+    elif x_axis_2 == "Year":
+        x2 = df1["year"]
+    elif x_axis_2 == "Owner Number":
+        x2 = df1["ownernumber"]
+    elif x_axis_2 == "FuelType":
+        x2 = df1["fueltype"]
+    elif x_axis_2 == "Transmission":
+        x2 = df1["transmission"]
+    elif x_axis_2 == "BodyType":
+        x2 = df1["bodytype"]
+    elif x_axis_2 == "RegistrationState":
+        x2 = df1["registrationstate"]
     
 #     fig303 = plt.figure(figsize = (15,4))
 #     plt.bar(x.value_counts())
