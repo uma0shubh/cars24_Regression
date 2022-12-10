@@ -559,7 +559,7 @@ with Graphical:
     x.value_counts().plot(kind='bar', figsize=(15, 4), rot=90)
     st.write(fig303)
     
-    fig304 = x.value_counts().plot(kind='barh', figsize=(8, 6))
+    fig304 = x.value_counts().plot(kind='barh', figsize=(15, 20))
     st.write(fig304)
     
     
