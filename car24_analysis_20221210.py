@@ -586,6 +586,12 @@ with Graphical:
     st.pyplot(fig304)
     
     # ******
+    fig307 = px.histogram(df1, x="year", y="price",color='city', barmode='group',height=400,width=1500)
+    fig307.update_layout(title_text="Yearly City Growth", font_size=10)
+    st.write(fig307)
+    
+    
+    # ******
     x_axis_3 = st.selectbox("Select Variable", options=("Brand", "Owner Number", "FuelType", "Transmission", "BodyType"))
     if x_axis_3 == "Brand":
         x3 = "make"
@@ -598,14 +604,16 @@ with Graphical:
     elif x_axis_3 == "BodyType":
         x3 = "bodytype"
     
-    fig305 = px.sunburst(df1, path=['city', x3], color='city',height=600)
-    fig305.update_layout(title_text="Two-level Sunburst Diagram", font_size=10)
-    st.write(fig305)
+#     fig305 = px.sunburst(df1, path=['city', x3], color='city',height=600)
+#     fig305.update_layout(title_text="Two-level Sunburst Diagram", font_size=10)
+#     st.write(fig305)
     
     # ******
     fig306 = px.treemap(df1, path=['city', x3], color='city',height=600,width=1000)
     fig306.update_layout(title_text="Distribution within City", font_size=10)
     st.write(fig306)
+    
+
     
     
     
