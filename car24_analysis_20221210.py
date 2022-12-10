@@ -564,7 +564,7 @@ cars = {
  'BMW': ['BMW 5 Series 520D 2.0']
 }
 
-left_column,min_column,right_column= st.columns(3)
+left_column,mid_column,right_column= st.columns(3)
 if options == "Prediction":
     def user_input():
         with left_column:
