@@ -619,7 +619,7 @@ if options == "Prediction":
             model = st.selectbox("Model Name:", options=model_name)
             fueltype = st.selectbox("Fuel Type:", options=sorted(df["fueltype"].unique()))
             #transmission = st.selectbox("Car Transmission:", options=sorted(df["transmission"].unique()))
-            #bodytype = st.selectbox("Body Type:", options=sorted(df["bodytype"].unique()))
+            bodytype = st.selectbox("Body Type:", options=sorted(df["bodytype"].unique()))
             benefits = st.number_input("Enter Benefits:")
         
         new_data = {"year":year,
