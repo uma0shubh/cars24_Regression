@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Import Libraries
+# Import Libraries *************************************************************
 import seaborn as sns
 sns.set()
 import matplotlib.pyplot as plt
@@ -43,21 +43,18 @@ import pandas as pd
 import streamlit as st
 
 
-# Load Dataset
+# Load Dataset *************************************************************
 url = 'https://github.com/uma0shubh/cars24_data/blob/main/cars24_20221210.csv?raw=true'
 df = pd.read_csv(url)
-
 
 # Checking duplicates
 duplicate = df[df.duplicated()]
 df['city'].value_counts()
 
-
 # Considering Top 15 Cities
 df1 = df.loc[df['city'].isin(['New Delhi', 'Mumbai', 'Jaipur', 'Chennai', 'Lucknow', 'Bangalore', 'Indore', 'Hyderabad', 'Kochi', 'Pune', 'Kolkata', 'Ahmedabad', 'Gurgaon', 'Noida', 'Ghaziabad'])]
 print(df1.shape)
 df1['city'].value_counts()
-
 
 # Data Pre-processing
 """# Check for missing values & treatment"""
@@ -69,7 +66,7 @@ df1.isnull().sum()
 # fig101 = sns.heatmap(df1.isnull(),cbar=False,cmap='viridis')
 
 st.header('Missing Values')
-fig = plt.figure(figsize=(20,10))
+fig101 = plt.figure(figsize=(20,10))
 sns.heatmap(df1.isnull(),cbar=False,cmap='viridis')
 st.pyplot(fig101)
 
