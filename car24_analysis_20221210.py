@@ -42,6 +42,29 @@ import requests
 import pandas as pd
 import streamlit as st
 
+# Page Setup *************************************************************
+st.set_page_config(layout="wide")
+
+def add_bg_from_url():
+    st.markdown(
+         f"""
+         <style>
+         .stApp {{
+             background-image: url("https://wallpapercave.com/download/audi-a3-wallpapers-wp1893319");
+             background-attachment: fixed;
+	     background-position: 25% 75%;
+             background-size: cover
+         }}
+         </style>
+         """,
+         unsafe_allow_html=True
+     )
+
+options = st.sidebar.selectbox("Select here:", options= ("Prediction","Data Analysis","Graphical Interface"))
+st.header(options)
+
+st.header("Car Price Prediction")
+
 
 # Load Dataset *************************************************************
 url = 'https://github.com/uma0shubh/cars24_data/blob/main/cars24_20221210.csv?raw=true'
