@@ -76,8 +76,12 @@ cars = {
  'BMW': []
 }
 
+
+
+
+
 left_column,right_column= st.columns(2)
-if options == "Prediction":
+with options == "Prediction":
     def user_input():
         with right_column:
             brand = st.selectbox("Car Name:",options = sorted(df["make"].unique()))
