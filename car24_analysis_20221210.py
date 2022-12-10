@@ -533,17 +533,17 @@ with Graphical:
     """##### Bar Plot """
     x_axis = st.selectbox("Select Variable", options=("Brand", "City", "FuelType", "Transmission", "BodyType", "RegistrationState"))
     if x_axis == "Brand":
-        x = "make"
+        x = df1["make"]
     elif x_axis == "City":
-        x = "city"
+        x = df1["city"]
     elif x_axis == "FuelType":
-        x = "fueltype"
+        x = df1["fueltype"]
     elif x_axis == "Transmission":
-        x = "transmission"
+        x = df1["transmission"]
     elif x_axis == "BodyType":
-        x = "bodytype"
+        x = df1["bodytype"]
     elif x_axis == "RegistrationState":
-        x = "registrationstate"
+        x = df1["registrationstate"]
     
     fig303 = plt.subplot()
     #df1['model'].value_counts().plot(kind='bar', title='model',figsize=(24,9))
