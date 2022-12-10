@@ -581,13 +581,26 @@ with Graphical:
         x1 = "transmission"
     elif x_axis_1 == "BodyType":
         x1 = "bodytype"
-    elif x_axis_1 == "RegistrationState":
-        x1 = "registrationstate"
     
-    fig304 = sns.catplot(y='price', x=x1, data=df1.sort_values('price',ascending=False),kind="boxen",height=5, aspect=3, rot=90)
+    fig304 = sns.catplot(y='price', x=x1, data=df1.sort_values('price',ascending=False),kind="boxen",height=5, aspect=3)
     st.pyplot(fig304)
 
-
+    x_axis_3 = st.selectbox("Select Variable", options=("Brand", "Owner Number", "FuelType", "Transmission", "BodyType"))
+    if x_axis_3 == "Brand":
+        x3 = "make"
+    elif x_axis_3 == "Owner Number":
+        x3 = "ownernumber"
+    elif x_axis_3 == "FuelType":
+        x3 = "fueltype"
+    elif x_axis_3 == "Transmission":
+        x3 = "transmission"
+    elif x_axis_3 == "BodyType":
+        x3 = "bodytype"
+    
+    fig305 = px.sunburst(df1, path=['city', x3], color='city',height=800)
+    fig305.update_layout(title_text="Two-level Sunburst Diagram", font_size=10)
+    #fig305.show()
+    st.write(fig305)
     
     
     
