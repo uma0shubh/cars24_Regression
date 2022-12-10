@@ -552,6 +552,7 @@ with Graphical:
     #fig303 = plt.subplot()
     fig303 = x.value_counts().plot(kind='bar', figsize=(15,4))
     plt.xticks(rotation=90)
+    plt.show()
     st.write(fig303)
     
     # ************************************************************* 
