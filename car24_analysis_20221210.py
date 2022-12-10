@@ -50,7 +50,7 @@ df = pd.read_csv(url)
 st.set_page_config(layout="wide")
 st.title("Car Price Prediction")
 # options = st.sidebar.selectbox("Select Analyzing options:", options= ("Prediction","Data Analysis","Graphical Interface"))
-options = st.tabs(["Prediction","Graphical Interface","Appendix"])
+tab1, tab2, tab3 = st.tabs(["Prediction","Graphical Interface","Appendix"])
 # st.header(options)
 
 # Data Filter *****************************************************************
@@ -76,12 +76,35 @@ cars = {
  'BMW': []
 }
 
+with tab3:
+    # Checking duplicates *************************************************************
+    duplicate = df[df.duplicated()]
+    df['city'].value_counts()
 
+    # Considering Top 15 Cities
+    df1 = df.loc[df['city'].isin(['New Delhi', 'Mumbai', 'Jaipur', 'Chennai', 'Lucknow', 'Bangalore', 'Indore', 'Hyderabad', 'Kochi', 'Pune', 'Kolkata', 'Ahmedabad', 'Gurgaon', 'Noida', 'Ghaziabad'])]
+    print(df1.shape)
+    df1['city'].value_counts()
+
+    # Data Pre-processing
+    """# Missing Values"""
+    df1.isnull().sum()
+    sns.heatmap(df1.isnull(),cbar=False,cmap='viridis')
+    df1.dropna(inplace=True)
+    df1.isnull().sum()
+
+    fig101 = plt.figure(figsize=(8,4))
+    sns.heatmap(df1.isnull(),cbar=False,cmap='viridis')
+    st.pyplot(fig101)
+
+    df1.reset_index(inplace=True)
+    df1.info()
+    df1.drop(["index"],axis=1,inplace=True)
 
 
 
 left_column,right_column= st.columns(2)
-with options == "Prediction":
+if options == "Prediction":
     def user_input():
         with right_column:
             brand = st.selectbox("Car Name:",options = sorted(df["make"].unique()))
