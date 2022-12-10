@@ -531,17 +531,13 @@ with Graphical:
     
     """### Categorical Analysis """
     """##### Bar Plot """
-    x_axis = st.selectbox("Select Variable", options=("Brand", "City", "Year", "FuelType", "OwnerNumber", "Transmission", "BodyType", "RegistrationState"))
+    x_axis = st.selectbox("Select Variable", options=("Brand", "City", "FuelType", "Transmission", "BodyType", "RegistrationState"))
     if x_axis == "Brand":
         x = "make"
     elif x_axis == "City":
         x = "city"
-    elif x_axis == "Year":
-        x = "year"
     elif x_axis == "FuelType":
         x = "fueltype"
-    elif x_axis == "OwnerNumber":
-        x = "ownernumber"
     elif x_axis == "Transmission":
         x = "transmission"
     elif x_axis == "BodyType":
