@@ -158,15 +158,15 @@ sns.stripplot(x = "ownernumber", y ='price', data = df1)
 
 # City vs Price
 sns.catplot(y='price',x="city",data=df1.sort_values('price',ascending=False),kind="boxen",height=5, aspect=3)
-plt.show
+#plt.show
 
 # Transmission vs Price
 sns.catplot(y='price',x="transmission",data=df1.sort_values('price',ascending=False),kind="boxen",height=5, aspect=2)
-plt.show
+#plt.show
 
 # Make vs Price
 sns.catplot(y='price',x="make",data=df1.sort_values('price',ascending=False),kind="boxen",height=5, aspect=3)
-plt.show
+#plt.show
 
 fig3 = px.sunburst(df1, path=['city', 'fueltype'], color='city',height=800)
 fig3.update_layout(title_text="Fuel Type for City (Two-level Sunburst Diagram)", font_size=10)
