@@ -518,8 +518,8 @@ with Appendix:
 
     # Linear Regression
     linreg = LinearRegression()
-    linreg.fit(train, target)
-    acc_model(0,linreg,train,test)
+    linreg.fit(df8.iloc[:,:-1], df8['price'])
+#     acc_model(0,linreg,train,test)
     
     
     fig600 = linreg.predict(pred_final)
