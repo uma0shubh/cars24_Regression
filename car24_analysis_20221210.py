@@ -39,6 +39,24 @@ df = pd.read_csv(url)
 
 # Page Setup *************************************************************
 st.set_page_config(layout="wide")
+
+def add_bg_from_url():
+    st.markdown(
+         f"""
+         <style>
+         .stApp {{
+             background-image: url("https://github.com/uma0shubh/cars24_data/blob/main/background1.jpeg");
+             background-attachment: fixed;
+	     background-position: 25% 75%;
+             background-size: cover
+         }}
+         </style>
+         """,
+         unsafe_allow_html=True
+     )
+
+add_bg_from_url()
+
 st.title("Car Price Prediction")
 # options = st.sidebar.selectbox("Select Analyzing options:", options= ("Prediction","Data Analysis","Graphical Interface"))
 Prediction, Graphical, Appendix, AboutUs, ContactUs = st.tabs(["Prediction","Graphical Interface","Appendix","About Us","Contact Us"])
