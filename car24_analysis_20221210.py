@@ -238,8 +238,10 @@ with Appendix:
             df7[col] = le.transform(list(df7[col].astype(str).values))
 
     df7['year'] = (df7['year']-1900).astype(int)
-
+    
     pred_final = df7.iloc[-1]
+    pred_final = pred_final.iloc[:-1]
+    pred_final = np.array(pred_final).reshape(1, -1)
     df8 = df7.iloc[:-1]
     
 
