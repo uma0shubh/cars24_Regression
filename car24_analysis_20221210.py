@@ -61,10 +61,6 @@ st.set_page_config(layout="wide")
 #title_name = st.markdown("<h1 style='text-align: center; color: black;'>Car Price Prediction</h1>", unsafe_allow_html=True)
 #logo2 = st.image("https://scontent.fdel3-3.fna.fbcdn.net/v/t39.30808-6/304085798_456928279786631_7564844763627760843_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=rXhgP1_yNeoAX_4leNq&_nc_ht=scontent.fdel3-3.fna&oh=00_AfBwFN6l0LaVG5WZb1OqSQ2GamOuMsY_Cx1hnB8rsxB40w&oe=639A2764", width=100)
 
-#st.title("Car Price Prediction")
-# options = st.sidebar.selectbox("Select Analyzing options:", options= ("Prediction","Data Analysis","Graphical Interface"))
-Prediction, Graphical, Appendix, AboutUs, ContactUs = st.tabs(["Prediction","Graphical Interface","Appendix","About Us","Contact Us"])
-# st.header(options)
 
 col1, mid, col2 = st.columns([1,1,1])
 with col1:
@@ -73,6 +69,11 @@ with mid:
     st.markdown("<h1 style='text-align: center; color: black;'>Car Price Prediction</h1>", unsafe_allow_html=True)
 with col2:
     st.image("https://scontent.fdel3-3.fna.fbcdn.net/v/t39.30808-6/304085798_456928279786631_7564844763627760843_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=rXhgP1_yNeoAX_4leNq&_nc_ht=scontent.fdel3-3.fna&oh=00_AfBwFN6l0LaVG5WZb1OqSQ2GamOuMsY_Cx1hnB8rsxB40w&oe=639A2764", width=100)
+
+#st.title("Car Price Prediction")
+# options = st.sidebar.selectbox("Select Analyzing options:", options= ("Prediction","Data Analysis","Graphical Interface"))
+Prediction, Graphical, Appendix, AboutUs, ContactUs = st.tabs(["Prediction","Graphical Interface","Appendix","About Us","Contact Us"])
+# st.header(options)
 
 
 
