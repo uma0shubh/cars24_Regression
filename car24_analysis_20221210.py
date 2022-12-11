@@ -524,8 +524,9 @@ with Appendix:
     
     
     fig600 = linreg.predict(pred_final)
-    fig600 = fig600.iat[0,0]
-    st.write(fig600)
+    fig600.iloc[0,0]
+    
+#     st.write(fig600)
 
 # #     # Support vector machine
 # #     svr = SVR()
