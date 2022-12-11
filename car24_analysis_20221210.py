@@ -649,6 +649,16 @@ with AboutUs:
     Cars24 follows asset-heavy customers to business (C2B) model, where it buys used cars from individuals and dealers and sells them to other dealerships and individuals as well.
     There’s no public information about it’s charges but according to Economic Times, unlike a listings-based classifieds platform, Cars24 enables the end-to-end transaction itself, charging a commission of about 4-5% for each transaction and also a small fee from the buyers as an registration
     
+    ### Cars24 Competitors:
+    - Droom
+    - Cardekho
+    - Cartrade
+    - Carwale
+    - Spinny
+    - Carnation
+    - Dealer Direct
+    - Checkgaadi
+    - Mahindra First Choice Wheels
     """
     
     """# Contact Us """
