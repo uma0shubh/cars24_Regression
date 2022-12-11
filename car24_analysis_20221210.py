@@ -81,7 +81,7 @@ with Appendix:
     # Data Pre-processing
     """# Missing Values"""
     df1.isnull().sum()
-    sns.heatmap(df1.isnull(),cbar=False,cmap='viridis')
+    #sns.heatmap(df1.isnull(),cbar=False,cmap='viridis')
     df1.dropna(inplace=True)
     df1.isnull().sum()
 
