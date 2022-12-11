@@ -92,8 +92,6 @@ with Appendix:
     
     # *************************************************************
     # Label Encoding
-    df1.head()
-
     df7 = df1.copy(deep=True)
 
     numerics = ['int8', 'int16', 'int32', 'int64', 'float16', 'float32', 'float64']
@@ -112,11 +110,6 @@ with Appendix:
     df7['year'] = (df7['year']-1900).astype(int)
 
     df8= df7.drop(['name','storename','isc24assured','registrationcity','url','registrationstate','createdDate'], axis = 1)
-#     df8.corr()
-
-#     plt.figure(figsize=(15,10))
-#     sns.heatmap(df8.corr(),annot=True,cmap='RdYlGn')
-#     plt.show()
 
     # *************************************************************
     # Train-Test split
@@ -772,10 +765,12 @@ with Prediction:
     fig401 = pred.head()
     st.write(fig401)
     
-    scaler = StandardScaler()
-    pred_trans = pd.DataFrame(scaler.transform(pred), columns = pred.columns)
-    fig401 = pred_trans.head()
-    st.write(fig402)
+#     scaler = StandardScaler()
+#     pred_trans = pd.DataFrame(scaler.transform(pred), columns = pred.columns)
+#     fig401 = pred_trans.head()
+#     st.write(fig402)
+
+    
     
 with AboutUs:
     """ # Thanks """
