@@ -67,6 +67,35 @@ Prediction, Graphical, Appendix, AboutUs, ContactUs = st.tabs(["Prediction","Gra
 # st.header(options)
 
 
+
+                                                    
+
+# Data Filter *****************************************************************
+cars = {
+    'Audi': ['A3', 'A6', 'Q3'],
+    'Bmw': ['3 Series', '5 Series', 'X3'],
+    'Datsun': ['Go', 'Go Plus', 'Redi Go'],
+    'Fiat': ['Urban Cross'],
+    'Ford': ['Ecosport', 'Endeavour', 'Figo', 'Figo Aspire', 'Freestyle', 'New Figo'],
+    'Honda': ['Accord', 'Amaze', 'Brio', 'Br-V', 'City', 'Civic', 'Crv', 'Jazz', 'Wr-V'],
+    'Hyundai': ['Accent', 'Alcazar', 'Aura', 'Creta', 'Elite I20', 'Eon', 'Grand I10', 'Grand I10 Nios', 'Grand I10 Prime', 'I10', 'I20', 'I20 Active', 'New Elantra', 'New I20', 'New I20 N Line', 'New Santro', 'Santro Xing', 'Tucson New', 'Venue', 'Verna', 'Xcent'],
+    'Jaguar': ['Xf'],
+    'Jeep': ['Compass'],
+    'Kia': ['Carens', 'Seltos', 'Sonet'],
+    'Mahindra': ['Bolero', 'Bolero Neo', 'Kuv 100 Nxt', 'Kuv100', 'Marazzo', 'Scorpio', 'Thar', 'Tuv300', 'Xuv 3Oo', 'Xuv500', 'Xuv700'],
+    'Maruti': ['A Star', 'Alto', 'Alto 800', 'Alto K10', 'Baleno', 'Brezza', 'Celerio', 'Celerio X', 'Ciaz', 'Dzire', 'Eeco', 'Ertiga', 'Ignis', 'New  Wagon-R', 'Omni E', 'Ritz', 'S Cross', 'S Presso', 'Swift', 'Swift Dzire', 'Vitara Brezza', 'Wagon R', 'Wagon R 1.0', 'Wagon R Stingray', 'Xl6', 'Zen Estilo'],
+    'Mercedes Benz': ['C Class', 'E Class'],
+    'Mg': ['Astor', 'Hector', 'Hector Plus'],
+    'Nissan': ['Kicks', 'Magnite', 'Micra', 'Micra Active', 'Sunny', 'Terrano'],
+    'Renault': ['Captur', 'Duster', 'Kiger', 'Kwid', 'Pulse', 'Triber'],
+    'Skoda': ['Kushaq', 'Octavia', 'Rapid', 'Slavia'],
+    'Tata': ['Altroz', 'Harrier', 'Hexa', 'Nexon', 'Punch', 'Safari', 'Tiago', 'Tiago Nrg', 'Tigor', 'Zest'],
+    'Toyota': ['Camry', 'Corolla Altis', 'Etios', 'Etios Liva', 'Glanza', 'Innova', 'Innova Crysta', 'Urban Cruiser', 'Yaris'],
+    'Volkswagen': ['Ameo', 'Jetta', 'Polo', 'Taigun', 'Tiguan', 'Vento']
+}
+
+
+# *****************************************************************
 with Appendix:
     # Checking duplicates *************************************************************
     duplicate = df[df.duplicated()]
@@ -96,7 +125,100 @@ with Appendix:
     """# Descriptive statistics"""
     fig102 = df1.describe(include = 'all')
     st.write(fig102)
+
+
+
+
+with Prediction:
+    left_column,mid1_column,mid2_column,right_column = st.columns(4)
+    def user_input():
+        with left_column:
+            year = st.selectbox("Year:",options = sorted(df1["year"].unique()))
+            fueltype = st.selectbox("Fuel Type:", options=sorted(df1["fueltype"].unique()))
+            bodytype = st.selectbox("Body Type:", options=sorted(df1["bodytype"].unique()))
+
+        with mid1_column:
+            brand = st.selectbox("Car Name:",options = sorted(df1["make"].unique()))
+            kilometerdriven = st.number_input("Enter Km Driven:")
+            discountprice = st.number_input("Enter Discount Price:")
+
+        model_name = ""
+        if brand == "Audi":
+            model_name = cars.get("Audi")
+        elif brand == "Bmw":
+            model_name = cars.get("Bmw")
+        elif brand == "Datsun":
+            model_name = cars.get("Datsun")
+        elif brand == "Fiat":
+            model_name = cars.get("Fiat")
+        elif brand == "Ford":
+            model_name = cars.get("Ford")
+        elif brand == "Honda":
+            model_name = cars.get("Honda")
+        elif brand == "Hyundai":
+            model_name = cars.get("Hyundai")
+        elif brand == "Jaguar":
+            model_name = cars.get("Jaguar")
+        elif brand == "Jeep":
+            model_name = cars.get("Jeep")
+        elif brand == "Kia":
+            model_name = cars.get("Kia")
+        elif brand == "Mahindra":
+            model_name = cars.get("Mahindra")
+        elif brand == "Maruti":
+            model_name = cars.get("Maruti")
+        elif brand == "Mercedes Benz":
+            model_name = cars.get("Mercedes Benz")
+        elif brand == "Mg":
+            model_name = cars.get("Mg")
+        elif brand == "Nissan":
+            model_name = cars.get("Nissan")
+        elif brand == "Renault":
+            model_name = cars.get("Renault")
+        elif brand == "Skoda":
+            model_name = cars.get("Skoda")
+        elif brand == "Tata":
+            model_name = cars.get("Tata")
+        elif brand == "Toyota":
+            model_name = cars.get("Toyota")
+        elif brand == "Volkswagen":
+            model_name = cars.get("Volkswagen")        
+
+        with mid2_column:
+            model = st.selectbox("Model Name:", options=model_name)
+            transmission = st.selectbox("Transmission:", options=sorted(df1["transmission"].unique()))
+            benefits = st.number_input("Enter Benefits:")
+
+        with right_column:
+            city = st.selectbox("City:", options=sorted(df1["city"].unique()))
+            ownernumber = st.selectbox("Owner Number:", options=sorted(df1["ownernumber"].unique()))
+
+        new_data = {"make":brand,
+                "model":model,
+                "city":city,
+                "year":year,
+                "fueltype":fueltype,
+                "kilometerdriven":kilometerdriven,
+                "ownernumber":ownernumber,
+                "transmission":transmission,
+                "bodytype":bodytype,
+                "benefits":benefits,
+                "discountprice":discountprice
+                }
+
+        features = pd.DataFrame(new_data,index = [0])
+        return features
+
+    button = st.button("Predict Price")
+    pred = user_input()
     
+    fig400 = pred.head()
+    st.write(fig400)
+
+
+
+
+with Appendix:
     # *************************************************************
     # Label Encoding
     df7 = df1.copy(deep=True)
@@ -654,136 +776,23 @@ with ContactUs:
     
     https://github.com/uma0shubh/cars24_Regression
     """
-                                                    
-
-# Data Filter *****************************************************************
-cars = {
-    'Audi': ['A3', 'A6', 'Q3'],
-    'Bmw': ['3 Series', '5 Series', 'X3'],
-    'Datsun': ['Go', 'Go Plus', 'Redi Go'],
-    'Fiat': ['Urban Cross'],
-    'Ford': ['Ecosport', 'Endeavour', 'Figo', 'Figo Aspire', 'Freestyle', 'New Figo'],
-    'Honda': ['Accord', 'Amaze', 'Brio', 'Br-V', 'City', 'Civic', 'Crv', 'Jazz', 'Wr-V'],
-    'Hyundai': ['Accent', 'Alcazar', 'Aura', 'Creta', 'Elite I20', 'Eon', 'Grand I10', 'Grand I10 Nios', 'Grand I10 Prime', 'I10', 'I20', 'I20 Active', 'New Elantra', 'New I20', 'New I20 N Line', 'New Santro', 'Santro Xing', 'Tucson New', 'Venue', 'Verna', 'Xcent'],
-    'Jaguar': ['Xf'],
-    'Jeep': ['Compass'],
-    'Kia': ['Carens', 'Seltos', 'Sonet'],
-    'Mahindra': ['Bolero', 'Bolero Neo', 'Kuv 100 Nxt', 'Kuv100', 'Marazzo', 'Scorpio', 'Thar', 'Tuv300', 'Xuv 3Oo', 'Xuv500', 'Xuv700'],
-    'Maruti': ['A Star', 'Alto', 'Alto 800', 'Alto K10', 'Baleno', 'Brezza', 'Celerio', 'Celerio X', 'Ciaz', 'Dzire', 'Eeco', 'Ertiga', 'Ignis', 'New  Wagon-R', 'Omni E', 'Ritz', 'S Cross', 'S Presso', 'Swift', 'Swift Dzire', 'Vitara Brezza', 'Wagon R', 'Wagon R 1.0', 'Wagon R Stingray', 'Xl6', 'Zen Estilo'],
-    'Mercedes Benz': ['C Class', 'E Class'],
-    'Mg': ['Astor', 'Hector', 'Hector Plus'],
-    'Nissan': ['Kicks', 'Magnite', 'Micra', 'Micra Active', 'Sunny', 'Terrano'],
-    'Renault': ['Captur', 'Duster', 'Kiger', 'Kwid', 'Pulse', 'Triber'],
-    'Skoda': ['Kushaq', 'Octavia', 'Rapid', 'Slavia'],
-    'Tata': ['Altroz', 'Harrier', 'Hexa', 'Nexon', 'Punch', 'Safari', 'Tiago', 'Tiago Nrg', 'Tigor', 'Zest'],
-    'Toyota': ['Camry', 'Corolla Altis', 'Etios', 'Etios Liva', 'Glanza', 'Innova', 'Innova Crysta', 'Urban Cruiser', 'Yaris'],
-    'Volkswagen': ['Ameo', 'Jetta', 'Polo', 'Taigun', 'Tiguan', 'Vento']
-}
-
-
-# *****************************************************************
-with Prediction:
-    left_column,mid1_column,mid2_column,right_column = st.columns(4)
-    def user_input():
-        with left_column:
-            year = st.selectbox("Year:",options = sorted(df1["year"].unique()))
-            fueltype = st.selectbox("Fuel Type:", options=sorted(df1["fueltype"].unique()))
-            bodytype = st.selectbox("Body Type:", options=sorted(df1["bodytype"].unique()))
-
-        with mid1_column:
-            brand = st.selectbox("Car Name:",options = sorted(df1["make"].unique()))
-            kilometerdriven = st.number_input("Enter Km Driven:")
-            discountprice = st.number_input("Enter Discount Price:")
-
-        model_name = ""
-        if brand == "Audi":
-            model_name = cars.get("Audi")
-        elif brand == "Bmw":
-            model_name = cars.get("Bmw")
-        elif brand == "Datsun":
-            model_name = cars.get("Datsun")
-        elif brand == "Fiat":
-            model_name = cars.get("Fiat")
-        elif brand == "Ford":
-            model_name = cars.get("Ford")
-        elif brand == "Honda":
-            model_name = cars.get("Honda")
-        elif brand == "Hyundai":
-            model_name = cars.get("Hyundai")
-        elif brand == "Jaguar":
-            model_name = cars.get("Jaguar")
-        elif brand == "Jeep":
-            model_name = cars.get("Jeep")
-        elif brand == "Kia":
-            model_name = cars.get("Kia")
-        elif brand == "Mahindra":
-            model_name = cars.get("Mahindra")
-        elif brand == "Maruti":
-            model_name = cars.get("Maruti")
-        elif brand == "Mercedes Benz":
-            model_name = cars.get("Mercedes Benz")
-        elif brand == "Mg":
-            model_name = cars.get("Mg")
-        elif brand == "Nissan":
-            model_name = cars.get("Nissan")
-        elif brand == "Renault":
-            model_name = cars.get("Renault")
-        elif brand == "Skoda":
-            model_name = cars.get("Skoda")
-        elif brand == "Tata":
-            model_name = cars.get("Tata")
-        elif brand == "Toyota":
-            model_name = cars.get("Toyota")
-        elif brand == "Volkswagen":
-            model_name = cars.get("Volkswagen")        
-
-        with mid2_column:
-            model = st.selectbox("Model Name:", options=model_name)
-            transmission = st.selectbox("Transmission:", options=sorted(df1["transmission"].unique()))
-            benefits = st.number_input("Enter Benefits:")
-
-        with right_column:
-            city = st.selectbox("City:", options=sorted(df1["city"].unique()))
-            ownernumber = st.selectbox("Owner Number:", options=sorted(df1["ownernumber"].unique()))
-
-        new_data = {"make":brand,
-                "model":model,
-                "city":city,
-                "year":year,
-                "fueltype":fueltype,
-                "kilometerdriven":kilometerdriven,
-                "ownernumber":ownernumber,
-                "transmission":transmission,
-                "bodytype":bodytype,
-                "benefits":benefits,
-                "discountprice":discountprice
-                }
-
-        features = pd.DataFrame(new_data,index = [0])
-        return features
-
-    button = st.button("Predict Price")
-    pred = user_input()
     
-    fig400 = pred.head()
-    st.write(fig400)
+#     numerics = ['int8', 'int16', 'int32', 'int64', 'float16', 'float32', 'float64']
+#     categorical_columns = []
+#     features = pred.columns.values.tolist()
+#     for col in features:
+#         if pred[col].dtype in numerics: continue
+#         categorical_columns.append(col)
+#     # Encoding categorical features
+#     for col in categorical_columns:
+#         if col in pred.columns:
+#             le = LabelEncoder()
+#             le.fit(list(pred[col].astype(str).values))
+#             pred[col] = le.transform(list(pred[col].astype(str).values))
     
-    numerics = ['int8', 'int16', 'int32', 'int64', 'float16', 'float32', 'float64']
-    categorical_columns = []
-    features = pred.columns.values.tolist()
-    for col in features:
-        if pred[col].dtype in numerics: continue
-        categorical_columns.append(col)
-    # Encoding categorical features
-    for col in categorical_columns:
-        if col in pred.columns:
-            le = LabelEncoder()
-            le.fit(list(pred[col].astype(str).values))
-            pred[col] = le.transform(list(pred[col].astype(str).values))
-    
-    pred['year'] = (pred['year']-1900).astype(int)
-    fig401 = pred.head()
-    st.write(fig401)
+#     pred['year'] = (pred['year']-1900).astype(int)
+#     fig401 = pred.head()
+#     st.write(fig401)
     
 #     scaler = StandardScaler()
 #     pred_trans = pd.DataFrame(scaler.transform(pred), columns = pred.columns)
