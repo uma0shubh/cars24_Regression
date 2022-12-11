@@ -415,20 +415,17 @@ with Appendix:
 
     # *************************************************************
     """# Models comparison"""
-#     models = pd.DataFrame({
+    models = pd.DataFrame({
+        'Model': ['Linear Regression', 'Support Vector Machines', 'Linear SVR', 'Stochastic Gradient Decent', 
+                  'Decision Tree Regressor', 'Random Forest',  'XGB', 'LGBM','RidgeRegressor', 'BaggingRegressor', 'ExtraTreesRegressor',
+                  'AdaBoostRegressor', 'VotingRegressor'],
+        
 #         'Model': ['Linear Regression', 'Support Vector Machines', 'Linear SVR', 
 #                   'MLPRegressor', 'Stochastic Gradient Decent', 
 #                   'Decision Tree Regressor', 'Random Forest',  'XGB', 'LGBM',
 #                   'GradientBoostingRegressor', 'RidgeRegressor', 'BaggingRegressor', 'ExtraTreesRegressor', 
 #                   'AdaBoostRegressor', 'VotingRegressor'],
         
-        models = pd.DataFrame({
-        'Model': ['Linear Regression', 'Support Vector Machines', 'Linear SVR', 
-                  'Stochastic Gradient Decent', 
-                  'Decision Tree Regressor', 'Random Forest',  'XGB', 'LGBM',
-                  'RidgeRegressor', 'BaggingRegressor', 'ExtraTreesRegressor', 
-                  'AdaBoostRegressor', 'VotingRegressor'],
-
         'r2_train': acc_train_r2,
         'r2_test': acc_test_r2,
         'd_train': acc_train_d,
