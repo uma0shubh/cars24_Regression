@@ -767,10 +767,11 @@ with Prediction:
     
 #     scaler = StandardScaler()
 #     pred_trans = pd.DataFrame(scaler.transform(pred), columns = pred.columns)
-#     fig401 = pred_trans.head()
+#     fig402 = pred_trans.head()
 #     st.write(fig402)
 
-    
+    fig403 = figlinreg.predict(pred)    
+    st.write(fig403)
     
 with AboutUs:
     """ # Thanks """
