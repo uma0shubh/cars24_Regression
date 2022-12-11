@@ -58,7 +58,7 @@ def add_logo():
                 background-position: 20px 20px;
             }
             [data-testid="stSidebarNav"]::before {
-                content: "My Company Name";
+                content: "Car Price Prediction";
                 margin-left: 20px;
                 margin-top: 20px;
                 font-size: 30px;
