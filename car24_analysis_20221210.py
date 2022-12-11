@@ -40,12 +40,14 @@ df = pd.read_csv(url)
 # Page Setup *************************************************************
 st.set_page_config(layout="wide")
 
+#https://github.com/uma0shubh/cars24_data/blob/main/background1.jpeg
+
 def add_bg_from_url():
     st.markdown(
          f"""
          <style>
          .stApp {{
-             background-image: url("https://github.com/uma0shubh/cars24_data/blob/main/background1.jpeg");
+             background-image: url("https://wallpapercave.com/download/forex-wallpapers-wp2116598");
              background-attachment: fixed;
 	     background-position: 25% 75%;
              background-size: cover
