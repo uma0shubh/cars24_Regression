@@ -47,6 +47,31 @@ st.title("Car Price Prediction")
 Prediction, Graphical, Appendix = st.tabs(["Prediction","Graphical Interface","Appendix"])
 # st.header(options)
 
+def add_logo():
+    st.markdown(
+        """
+        <style>
+            [data-testid="stSidebarNav"] {
+                background-image: url(https://www.cars24.com/js/28776e9c38260ac3339c3babe6171dd0.svg);
+                background-repeat: no-repeat;
+                padding-top: 120px;
+                background-position: 20px 20px;
+            }
+            [data-testid="stSidebarNav"]::before {
+                content: "My Company Name";
+                margin-left: 20px;
+                margin-top: 20px;
+                font-size: 30px;
+                position: relative;
+                top: 100px;
+            }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+    
+add_logo()
+
 # Data Filter *****************************************************************
 cars = {
     'Audi': ['Audi A3', 'Audi A6', 'Audi Q3'],
