@@ -723,7 +723,7 @@ with Prediction:
     linreg_1.fit(df9.iloc[:,:-1], df9['price'])
     
     fig600 = linreg.predict(pred_final)
-    st.write(fig600)
+#     st.write(fig600)
 
                                                     
                                                     
