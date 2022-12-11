@@ -682,15 +682,19 @@ cars = {
 
 
 with Prediction:
-    left_column,right_column = st.columns(2)
+    left_column,mid1_column,mid2_column,right_column = st.columns(4)
 #     def user_input():
-    with right_column:
+    
+    with left_column:
+        year = st.selectbox("Year:",options = sorted(df1["year"].unique()))
+        fueltype = st.selectbox("Fuel Type:", options=sorted(df1["fueltype"].unique()))
+        bodytype = st.selectbox("Body Type:", options=sorted(df1["bodytype"].unique()))
+        
+    with mid1_column:
         brand = st.selectbox("Car Name:",options = sorted(df1["make"].unique()))
-        city = st.selectbox("City:", options=sorted(df1["city"].unique()))
         kilometerdriven = st.number_input("Enter Km Driven:")
-        ownernumber = st.selectbox("Owner Number:", options=sorted(df1["ownernumber"].unique()))
         discountprice = st.number_input("Enter Discount Price:")
-
+    
     model_name = ""
     if brand == "Audi":
         model_name = cars.get("Audi")
@@ -733,13 +737,14 @@ with Prediction:
     elif brand == "Volkswagen":
         model_name = cars.get("Volkswagen")        
 
-    with left_column:
-        year = st.selectbox("Year:",options = sorted(df1["year"].unique()))
+    with mid2_column:
         model = st.selectbox("Model Name:", options=model_name)
-        fueltype = st.selectbox("Fuel Type:", options=sorted(df1["fueltype"].unique()))
         transmission = st.selectbox("Transmission:", options=sorted(df1["transmission"].unique()))
-        bodytype = st.selectbox("Body Type:", options=sorted(df1["bodytype"].unique()))
         benefits = st.number_input("Enter Benefits:")
+    
+    with right_column:
+        city = st.selectbox("City:", options=sorted(df1["city"].unique()))
+        ownernumber = st.selectbox("Owner Number:", options=sorted(df1["ownernumber"].unique()))
         
 #         new_data = {"year":year,
 #                 "brand":brand,
@@ -770,6 +775,111 @@ with Prediction:
 #     if button:
 #         button_clicked = True
 #         st.subheader(f"Car Price: ₹{predict}")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# with Prediction:
+#     left_column,right_column = st.columns(2)
+# #     def user_input():
+#     with right_column:
+#         brand = st.selectbox("Car Name:",options = sorted(df1["make"].unique()))
+#         city = st.selectbox("City:", options=sorted(df1["city"].unique()))
+#         kilometerdriven = st.number_input("Enter Km Driven:")
+#         ownernumber = st.selectbox("Owner Number:", options=sorted(df1["ownernumber"].unique()))
+#         discountprice = st.number_input("Enter Discount Price:")
+
+#     model_name = ""
+#     if brand == "Audi":
+#         model_name = cars.get("Audi")
+#     elif brand == "Bmw":
+#         model_name = cars.get("Bmw")
+#     elif brand == "Datsun":
+#         model_name = cars.get("Datsun")
+#     elif brand == "Fiat":
+#         model_name = cars.get("Fiat")
+#     elif brand == "Ford":
+#         model_name = cars.get("Ford")
+#     elif brand == "Honda":
+#         model_name = cars.get("Honda")
+#     elif brand == "Hyundai":
+#         model_name = cars.get("Hyundai")
+#     elif brand == "Jaguar":
+#         model_name = cars.get("Jaguar")
+#     elif brand == "Jeep":
+#         model_name = cars.get("Jeep")
+#     elif brand == "Kia":
+#         model_name = cars.get("Kia")
+#     elif brand == "Mahindra":
+#         model_name = cars.get("Mahindra")
+#     elif brand == "Maruti":
+#         model_name = cars.get("Maruti")
+#     elif brand == "Mercedes Benz":
+#         model_name = cars.get("Mercedes Benz")
+#     elif brand == "Mg":
+#         model_name = cars.get("Mg")
+#     elif brand == "Nissan":
+#         model_name = cars.get("Nissan")
+#     elif brand == "Renault":
+#         model_name = cars.get("Renault")
+#     elif brand == "Skoda":
+#         model_name = cars.get("Skoda")
+#     elif brand == "Tata":
+#         model_name = cars.get("Tata")
+#     elif brand == "Toyota":
+#         model_name = cars.get("Toyota")
+#     elif brand == "Volkswagen":
+#         model_name = cars.get("Volkswagen")        
+
+#     with left_column:
+#         year = st.selectbox("Year:",options = sorted(df1["year"].unique()))
+#         model = st.selectbox("Model Name:", options=model_name)
+#         fueltype = st.selectbox("Fuel Type:", options=sorted(df1["fueltype"].unique()))
+#         transmission = st.selectbox("Transmission:", options=sorted(df1["transmission"].unique()))
+#         bodytype = st.selectbox("Body Type:", options=sorted(df1["bodytype"].unique()))
+#         benefits = st.number_input("Enter Benefits:")
+        
+# #         new_data = {"year":year,
+# #                 "brand":brand,
+# #                 "model":model,
+# #                 "city":city,
+# #                 "fueltype":fueltype,
+# #                 "kilometerdriven":kilometerdriven,
+# #                 "ownernumber":ownernumber,
+# #                 "transmission":transmission,
+# #                 "bodytype":bodytype,
+# #                 "discountprice":discountprice,
+# #                 "benefits":benefits
+# #                 }
+# #         features = pd.DataFrame(new_data,index = [0])
+# #         return features
+
+#     button = st.button("Predict Price")
+# #     df = user_input()
+
+# #     model=pickle.load(open('model_linear.pkl','rb'))
+
+# #     prediction = model.predict(df)
+# #     pred = np.round(prediction,2)
+# #     predic = abs(pred)
+# #     predict = str(predic).lstrip('[').rstrip(']')
+# #     button_clicked = False
+
+# #     if button:
+# #         button_clicked = True
+# #         st.subheader(f"Car Price: ₹{predict}")
 
 
 
