@@ -663,6 +663,7 @@ with AboutUs:
     website : https://www.cars24.com/
     
     # Contact Us
+    Data Scientist & Developer Team
     - Arpita Pyne : pynearpita06@gmail.com
     - Asmit Pawar : asmitpawar98@gmail.com
     - Sagar Chore : sagar.chore@gmail.com
@@ -671,6 +672,7 @@ with AboutUs:
     
     # Study Material
     https://github.com/uma0shubh/cars24_data
+    
     https://github.com/uma0shubh/cars24_Regression
     """
                                                     
