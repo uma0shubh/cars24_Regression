@@ -60,30 +60,6 @@ Prediction, Graphical, Appendix, AboutUs, ContactUs = st.tabs(["Prediction","Gra
     
 # add_logo()
 
-# Data Filter *****************************************************************
-cars = {
-    'Audi': ['Audi A3', 'Audi A6', 'Audi Q3'],
-    'Bmw': ['BMW 3 Series', 'BMW 5 Series', 'BMW X3'],
-    'Datsun': ['Datsun Go', 'Datsun Go Plus', 'Datsun Redi Go'],
-    'Fiat': ['Fiat URBAN CROSS'],
-    'Ford': ['Ford Ecosport', 'Ford Endeavour', 'Ford Figo', 'Ford Figo Aspire', 'Ford FREESTYLE', 'Ford New Figo'],
-    'Honda': ['Honda Accord', 'Honda Amaze', 'Honda Brio', 'Honda BR-V', 'Honda City', 'Honda Civic', 'Honda CRV', 'Honda Jazz', 'Honda WR-V'],
-    'Hyundai': ['Hyundai Accent', 'Hyundai ALCAZAR', 'Hyundai AURA', 'Hyundai Creta', 'Hyundai Elite i20', 'Hyundai Eon', 'Hyundai Grand i10', 'Hyundai GRAND I10 NIOS', 'Hyundai GRAND i10 PRIME', 'Hyundai i10', 'Hyundai i20', 'Hyundai i20 Active', 'Hyundai New Elantra', 'Hyundai NEW I20', 'Hyundai NEW I20 N LINE', 'Hyundai NEW SANTRO', 'Hyundai Santro Xing', 'Hyundai Tucson New', 'Hyundai VENUE', 'Hyundai Verna', 'Hyundai Xcent'],
-    'Jaguar': ['Jaguar XF'],
-    'Jeep': ['Jeep Compass'],
-    'Kia': ['KIA CARENS', 'KIA SELTOS', 'KIA SONET'],
-    'Mahindra': ['Mahindra Bolero', 'Mahindra BOLERO NEO', 'Mahindra KUV 100 NXT', 'Mahindra Kuv100', 'Mahindra MARAZZO', 'Mahindra Scorpio', 'Mahindra Thar', 'Mahindra TUV300', 'Mahindra XUV 3OO', 'Mahindra XUV500', 'Mahindra XUV700'],
-    'Maruti': ['Maruti A Star', 'Maruti Alto', 'Maruti Alto 800', 'Maruti Alto K10', 'Maruti Baleno', 'MARUTI BREZZA', 'Maruti Celerio', 'Maruti Celerio X', 'Maruti Ciaz', 'Maruti Dzire', 'Maruti Eeco', 'Maruti Ertiga', 'Maruti IGNIS', 'Maruti New  Wagon-R', 'Maruti OMNI E', 'Maruti Ritz', 'Maruti S Cross', 'Maruti S PRESSO', 'Maruti Swift', 'Maruti Swift Dzire', 'Maruti Vitara Brezza', 'Maruti Wagon R', 'Maruti Wagon R 1.0', 'Maruti Wagon R Stingray', 'Maruti XL6', 'Maruti Zen Estilo'],
-    'Mercedes Benz': ['Mercedes Benz C Class', 'Mercedes Benz E Class'],
-    'Mg': ['MG ASTOR', 'MG HECTOR', 'MG HECTOR PLUS'],
-    'Nissan': ['Nissan Kicks', 'Nissan MAGNITE', 'Nissan Micra', 'Nissan Micra Active', 'Nissan Sunny', 'Nissan Terrano'],
-    'Renault': ['Renault Captur', 'Renault Duster', 'Renault Kiger', 'Renault Kwid', 'Renault Pulse', 'Renault TRIBER'],
-    'Skoda': ['Skoda KUSHAQ', 'Skoda Octavia', 'Skoda Rapid', 'Skoda SLAVIA'],
-    'Tata': ['Tata ALTROZ', 'Tata Harrier', 'Tata Hexa', 'Tata NEXON', 'Tata PUNCH', 'Tata Safari', 'Tata Tiago', 'Tata TIAGO NRG', 'Tata TIGOR', 'Tata Zest'],
-    'Toyota': ['Toyota Camry', 'Toyota Corolla Altis', 'Toyota Etios', 'Toyota Etios Liva', 'Toyota Glanza', 'Toyota Innova', 'Toyota Innova Crysta', 'Toyota URBAN CRUISER', 'Toyota YARIS'],
-    'Volkswagen': ['Volkswagen Ameo', 'Volkswagen Jetta', 'Volkswagen Polo', 'Volkswagen TAIGUN', 'Volkswagen TIGUAN', 'Volkswagen Vento']
-}
-
 with Appendix:
     # Checking duplicates *************************************************************
     duplicate = df[df.duplicated()]
@@ -680,6 +656,30 @@ with ContactUs:
     """
                                                     
 
+# Data Filter *****************************************************************
+cars = {
+    'Audi': ['A3', 'A6', 'Q3']
+    'Bmw': ['3 Series', '5 Series', 'X3']
+    'Datsun': ['Go', 'Go Plus', 'Redi Go']
+    'Fiat': ['Urban Cross']
+    'Ford': ['Ecosport', 'Endeavour', 'Figo', 'Figo Aspire', 'Freestyle', 'New Figo']
+    'Honda': ['Accord', 'Amaze', 'Brio', 'Br-V', 'City', 'Civic', 'Crv', 'Jazz', 'Wr-V']
+    'Hyundai': ['Accent', 'Alcazar', 'Aura', 'Creta', 'Elite I20', 'Eon', 'Grand I10', 'Grand I10 Nios', 'Grand I10 Prime', 'I10', 'I20', 'I20 Active', 'New Elantra', 'New I20', 'New I20 N Line', 'New Santro', 'Santro Xing', 'Tucson New', 'Venue', 'Verna', 'Xcent']
+    'Jaguar': ['Xf']
+    'Jeep': ['Compass']
+    'Kia': ['Carens', 'Seltos', 'Sonet']
+    'Mahindra': ['Bolero', 'Bolero Neo', 'Kuv 100 Nxt', 'Kuv100', 'Marazzo', 'Scorpio', 'Thar', 'Tuv300', 'Xuv 3Oo', 'Xuv500', 'Xuv700']
+    'Maruti': ['A Star', 'Alto', 'Alto 800', 'Alto K10', 'Baleno', 'Brezza', 'Celerio', 'Celerio X', 'Ciaz', 'Dzire', 'Eeco', 'Ertiga', 'Ignis', 'New  Wagon-R', 'Omni E', 'Ritz', 'S Cross', 'S Presso', 'Swift', 'Swift Dzire', 'Vitara Brezza', 'Wagon R', 'Wagon R 1.0', 'Wagon R Stingray', 'Xl6', 'Zen Estilo']
+    'Mercedes Benz': ['C Class', 'E Class']
+    'Mg': ['Astor', 'Hector', 'Hector Plus']
+    'Nissan': ['Kicks', 'Magnite', 'Micra', 'Micra Active', 'Sunny', 'Terrano']
+    'Renault': ['Captur', 'Duster', 'Kiger', 'Kwid', 'Pulse', 'Triber']
+    'Skoda': ['Kushaq', 'Octavia', 'Rapid', 'Slavia']
+    'Tata': ['Altroz', 'Harrier', 'Hexa', 'Nexon', 'Punch', 'Safari', 'Tiago', 'Tiago Nrg', 'Tigor', 'Zest']
+    'Toyota': ['Camry', 'Corolla Altis', 'Etios', 'Etios Liva', 'Glanza', 'Innova', 'Innova Crysta', 'Urban Cruiser', 'Yaris']
+    'Volkswagen': ['Ameo', 'Jetta', 'Polo', 'Taigun', 'Tiguan', 'Vento']
+}
+
 
 with Prediction:
     left_column,right_column = st.columns(2)
@@ -692,44 +692,46 @@ with Prediction:
         discountprice = st.number_input("Enter Discount Price:")
 
     model_name = ""
-    if brand == "Maruti":
-        model_name = cars.get("Maruti")
-    elif brand == "Hyundai":
-        model_name = cars.get("Hyundai")
+    if brand == "Audi":
+        model_name = cars.get("Audi")
+    elif brand == "Bmw":
+        model_name = cars.get("Bmw")
     elif brand == "Datsun":
         model_name = cars.get("Datsun")
-    elif brand == "Toyota":
-        model_name = cars.get("Toyota")
-    elif brand == "Mahindra":
-        model_name = cars.get("Mahindra")
-    elif brand == "KIA":
-        model_name = cars.get("KIA")
-    elif brand == "Volkswagen":
-        model_name = cars.get("Volkswagen")
-    elif brand == "Renault":
-        model_name = cars.get("Renault")
+    elif brand == "Fiat":
+        model_name = cars.get("Fiat")
     elif brand == "Ford":
         model_name = cars.get("Ford")
-    elif brand == "MG":
-        model_name = cars.get("MG")
-    elif brand == "Jeep":
-        model_name = cars.get("Jeep")
     elif brand == "Honda":
         model_name = cars.get("Honda")
-    elif brand == "Tata":
-        model_name = cars.get("Tata")
-    elif brand == "Skoda":
-        model_name = cars.get("Skoda")
-    elif brand == "Nissan":
-        model_name = cars.get("Nissan")
-    elif brand == "Mercedes":
-        model_name = cars.get("Mercedes")
+    elif brand == "Hyundai":
+        model_name = cars.get("Hyundai")
     elif brand == "Jaguar":
         model_name = cars.get("Jaguar")
-    elif brand == "Audi":
-        model_name = cars.get("Audi")
-    elif brand == "BMW":
-        model_name = cars.get("BMW")
+    elif brand == "Jeep":
+        model_name = cars.get("Jeep")
+    elif brand == "Kia":
+        model_name = cars.get("Kia")
+    elif brand == "Mahindra":
+        model_name = cars.get("Mahindra")
+    elif brand == "Maruti":
+        model_name = cars.get("Maruti")
+    elif brand == "Mercedes Benz":
+        model_name = cars.get("Mercedes Benz")
+    elif brand == "Mg":
+        model_name = cars.get("Mg")
+    elif brand == "Nissan":
+        model_name = cars.get("Nissan")
+    elif brand == "Renault":
+        model_name = cars.get("Renault")
+    elif brand == "Skoda":
+        model_name = cars.get("Skoda")
+    elif brand == "Tata":
+        model_name = cars.get("Tata")
+    elif brand == "Toyota":
+        model_name = cars.get("Toyota")
+    elif brand == "Volkswagen":
+        model_name = cars.get("Volkswagen")        
 
     with left_column:
         year = st.selectbox("Year:",options = sorted(df1["year"].unique()))
