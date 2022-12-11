@@ -658,25 +658,25 @@ with ContactUs:
 
 # Data Filter *****************************************************************
 cars = {
-    'Audi': ['A3', 'A6', 'Q3']
-    'Bmw': ['3 Series', '5 Series', 'X3']
-    'Datsun': ['Go', 'Go Plus', 'Redi Go']
-    'Fiat': ['Urban Cross']
-    'Ford': ['Ecosport', 'Endeavour', 'Figo', 'Figo Aspire', 'Freestyle', 'New Figo']
-    'Honda': ['Accord', 'Amaze', 'Brio', 'Br-V', 'City', 'Civic', 'Crv', 'Jazz', 'Wr-V']
-    'Hyundai': ['Accent', 'Alcazar', 'Aura', 'Creta', 'Elite I20', 'Eon', 'Grand I10', 'Grand I10 Nios', 'Grand I10 Prime', 'I10', 'I20', 'I20 Active', 'New Elantra', 'New I20', 'New I20 N Line', 'New Santro', 'Santro Xing', 'Tucson New', 'Venue', 'Verna', 'Xcent']
-    'Jaguar': ['Xf']
-    'Jeep': ['Compass']
-    'Kia': ['Carens', 'Seltos', 'Sonet']
-    'Mahindra': ['Bolero', 'Bolero Neo', 'Kuv 100 Nxt', 'Kuv100', 'Marazzo', 'Scorpio', 'Thar', 'Tuv300', 'Xuv 3Oo', 'Xuv500', 'Xuv700']
-    'Maruti': ['A Star', 'Alto', 'Alto 800', 'Alto K10', 'Baleno', 'Brezza', 'Celerio', 'Celerio X', 'Ciaz', 'Dzire', 'Eeco', 'Ertiga', 'Ignis', 'New  Wagon-R', 'Omni E', 'Ritz', 'S Cross', 'S Presso', 'Swift', 'Swift Dzire', 'Vitara Brezza', 'Wagon R', 'Wagon R 1.0', 'Wagon R Stingray', 'Xl6', 'Zen Estilo']
-    'Mercedes Benz': ['C Class', 'E Class']
-    'Mg': ['Astor', 'Hector', 'Hector Plus']
-    'Nissan': ['Kicks', 'Magnite', 'Micra', 'Micra Active', 'Sunny', 'Terrano']
-    'Renault': ['Captur', 'Duster', 'Kiger', 'Kwid', 'Pulse', 'Triber']
-    'Skoda': ['Kushaq', 'Octavia', 'Rapid', 'Slavia']
-    'Tata': ['Altroz', 'Harrier', 'Hexa', 'Nexon', 'Punch', 'Safari', 'Tiago', 'Tiago Nrg', 'Tigor', 'Zest']
-    'Toyota': ['Camry', 'Corolla Altis', 'Etios', 'Etios Liva', 'Glanza', 'Innova', 'Innova Crysta', 'Urban Cruiser', 'Yaris']
+    'Audi': ['A3', 'A6', 'Q3'],
+    'Bmw': ['3 Series', '5 Series', 'X3'],
+    'Datsun': ['Go', 'Go Plus', 'Redi Go'],
+    'Fiat': ['Urban Cross'],
+    'Ford': ['Ecosport', 'Endeavour', 'Figo', 'Figo Aspire', 'Freestyle', 'New Figo'],
+    'Honda': ['Accord', 'Amaze', 'Brio', 'Br-V', 'City', 'Civic', 'Crv', 'Jazz', 'Wr-V'],
+    'Hyundai': ['Accent', 'Alcazar', 'Aura', 'Creta', 'Elite I20', 'Eon', 'Grand I10', 'Grand I10 Nios', 'Grand I10 Prime', 'I10', 'I20', 'I20 Active', 'New Elantra', 'New I20', 'New I20 N Line', 'New Santro', 'Santro Xing', 'Tucson New', 'Venue', 'Verna', 'Xcent'],
+    'Jaguar': ['Xf'],
+    'Jeep': ['Compass'],
+    'Kia': ['Carens', 'Seltos', 'Sonet'],
+    'Mahindra': ['Bolero', 'Bolero Neo', 'Kuv 100 Nxt', 'Kuv100', 'Marazzo', 'Scorpio', 'Thar', 'Tuv300', 'Xuv 3Oo', 'Xuv500', 'Xuv700'],
+    'Maruti': ['A Star', 'Alto', 'Alto 800', 'Alto K10', 'Baleno', 'Brezza', 'Celerio', 'Celerio X', 'Ciaz', 'Dzire', 'Eeco', 'Ertiga', 'Ignis', 'New  Wagon-R', 'Omni E', 'Ritz', 'S Cross', 'S Presso', 'Swift', 'Swift Dzire', 'Vitara Brezza', 'Wagon R', 'Wagon R 1.0', 'Wagon R Stingray', 'Xl6', 'Zen Estilo'],
+    'Mercedes Benz': ['C Class', 'E Class'],
+    'Mg': ['Astor', 'Hector', 'Hector Plus'],
+    'Nissan': ['Kicks', 'Magnite', 'Micra', 'Micra Active', 'Sunny', 'Terrano'],
+    'Renault': ['Captur', 'Duster', 'Kiger', 'Kwid', 'Pulse', 'Triber'],
+    'Skoda': ['Kushaq', 'Octavia', 'Rapid', 'Slavia'],
+    'Tata': ['Altroz', 'Harrier', 'Hexa', 'Nexon', 'Punch', 'Safari', 'Tiago', 'Tiago Nrg', 'Tigor', 'Zest'],
+    'Toyota': ['Camry', 'Corolla Altis', 'Etios', 'Etios Liva', 'Glanza', 'Innova', 'Innova Crysta', 'Urban Cruiser', 'Yaris'],
     'Volkswagen': ['Ameo', 'Jetta', 'Polo', 'Taigun', 'Tiguan', 'Vento']
 }
 
