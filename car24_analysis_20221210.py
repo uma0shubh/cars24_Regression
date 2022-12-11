@@ -770,7 +770,7 @@ with Prediction:
 #     fig402 = pred_trans.head()
 #     st.write(fig402)
 
-    fig403 = figlinreg.predict(pred)    
+    fig403 = linreg.predict(pred)    
     st.write(fig403)
     
 with AboutUs:
