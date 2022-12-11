@@ -268,201 +268,201 @@ with Appendix:
     linreg.fit(train, target)
     acc_model(0,linreg,train,test)
 
-    # Support vector machine
-    svr = SVR()
-    svr.fit(train, target)
-    acc_model(1,svr,train,test)
+#     # Support vector machine
+#     svr = SVR()
+#     svr.fit(train, target)
+#     acc_model(1,svr,train,test)
 
-    # Linear SVR
-    linear_svr = LinearSVR()
-    linear_svr.fit(train, target)
-    acc_model(2,linear_svr,train,test)
+#     # Linear SVR
+#     linear_svr = LinearSVR()
+#     linear_svr.fit(train, target)
+#     acc_model(2,linear_svr,train,test)
 
-#     # MLPRegressor
-#     mlp = MLPRegressor()
-#     param_grid = {'hidden_layer_sizes': [i for i in range(2,20)],
-#                   'activation': ['relu'],
-#                   'solver': ['adam'],
-#                   'learning_rate': ['constant'],
-#                   'learning_rate_init': [0.01],
-#                   'power_t': [0.5],
-#                   'alpha': [0.0001],
-#                   'max_iter': [1000],
-#                   'early_stopping': [True],
-#                   'warm_start': [False]}
-#     mlp_GS = GridSearchCV(mlp, param_grid=param_grid, 
-#                        cv=10, verbose=True, pre_dispatch='2*n_jobs')
-#     mlp_GS.fit(train, target)
-#     acc_model(3,mlp_GS,train,test)
+# #     # MLPRegressor
+# #     mlp = MLPRegressor()
+# #     param_grid = {'hidden_layer_sizes': [i for i in range(2,20)],
+# #                   'activation': ['relu'],
+# #                   'solver': ['adam'],
+# #                   'learning_rate': ['constant'],
+# #                   'learning_rate_init': [0.01],
+# #                   'power_t': [0.5],
+# #                   'alpha': [0.0001],
+# #                   'max_iter': [1000],
+# #                   'early_stopping': [True],
+# #                   'warm_start': [False]}
+# #     mlp_GS = GridSearchCV(mlp, param_grid=param_grid, 
+# #                        cv=10, verbose=True, pre_dispatch='2*n_jobs')
+# #     mlp_GS.fit(train, target)
+# #     acc_model(3,mlp_GS,train,test)
 
-    # Stochastic Gradient Descent
-    sgd = SGDRegressor()
-    sgd.fit(train, target)
-    acc_model(4,sgd,train,test)
+#     # Stochastic Gradient Descent
+#     sgd = SGDRegressor()
+#     sgd.fit(train, target)
+#     acc_model(4,sgd,train,test)
 
-    # Decision Tree Regressor
-    decision_tree = DecisionTreeRegressor()
-    decision_tree.fit(train, target)
-    acc_model(5,decision_tree,train,test)
+#     # Decision Tree Regressor
+#     decision_tree = DecisionTreeRegressor()
+#     decision_tree.fit(train, target)
+#     acc_model(5,decision_tree,train,test)
 
-    # Random Forest
-    random_forest = RandomForestRegressor()
-    random_forest.fit(train, target)
-    acc_model(6,random_forest,train,test)
+#     # Random Forest
+#     random_forest = RandomForestRegressor()
+#     random_forest.fit(train, target)
+#     acc_model(6,random_forest,train,test)
 
-    # XGB
-    xgb_clf = xgb.XGBRegressor(objective ='reg:squarederror', verbosity = 0, silent=True, random_state=42) 
-    parameters = {'n_estimators': [60, 100, 120, 140], 
-                  'learning_rate': [0.01, 0.1],
-                  'max_depth': [5, 7],
-                  'reg_lambda': [0.5]}
-    xgb_reg = GridSearchCV(estimator=xgb_clf, param_grid=parameters, cv=5, n_jobs=-1).fit(trainb, targetb)
-    print("Best score: %0.3f" % xgb_reg.best_score_)
-    print("Best parameters set:", xgb_reg.best_params_)
-    acc_boosting_model(7,xgb_reg,trainb,testb)
+#     # XGB
+#     xgb_clf = xgb.XGBRegressor(objective ='reg:squarederror', verbosity = 0, silent=True, random_state=42) 
+#     parameters = {'n_estimators': [60, 100, 120, 140], 
+#                   'learning_rate': [0.01, 0.1],
+#                   'max_depth': [5, 7],
+#                   'reg_lambda': [0.5]}
+#     xgb_reg = GridSearchCV(estimator=xgb_clf, param_grid=parameters, cv=5, n_jobs=-1).fit(trainb, targetb)
+#     print("Best score: %0.3f" % xgb_reg.best_score_)
+#     print("Best parameters set:", xgb_reg.best_params_)
+#     acc_boosting_model(7,xgb_reg,trainb,testb)
 
-    # LGBM
-    Xtrain, Xval, Ztrain, Zval = train_test_split(trainb, targetb, test_size=0.2, random_state=0)
-    train_set = lgb.Dataset(Xtrain, Ztrain, silent=False)
-    valid_set = lgb.Dataset(Xval, Zval, silent=False)
-    params = {
-            'boosting_type':'gbdt',
-            'objective': 'regression',
-            'num_leaves': 31,
-            'learning_rate': 0.01,
-            'max_depth': -1,
-            'subsample': 0.8,
-            'bagging_fraction' : 1,
-            'max_bin' : 5000 ,
-            'bagging_freq': 20,
-            'colsample_bytree': 0.6,
-            'metric': 'rmse',
-            'min_split_gain': 0.5,
-            'min_child_weight': 1,
-            'min_child_samples': 10,
-            'scale_pos_weight':1,
-            'zero_as_missing': False,
-            'seed':0,        
-        }
-    modelL = lgb.train(params, train_set = train_set, num_boost_round=10000,
-                       early_stopping_rounds=8000,verbose_eval=500, valid_sets=valid_set)
+#     # LGBM
+#     Xtrain, Xval, Ztrain, Zval = train_test_split(trainb, targetb, test_size=0.2, random_state=0)
+#     train_set = lgb.Dataset(Xtrain, Ztrain, silent=False)
+#     valid_set = lgb.Dataset(Xval, Zval, silent=False)
+#     params = {
+#             'boosting_type':'gbdt',
+#             'objective': 'regression',
+#             'num_leaves': 31,
+#             'learning_rate': 0.01,
+#             'max_depth': -1,
+#             'subsample': 0.8,
+#             'bagging_fraction' : 1,
+#             'max_bin' : 5000 ,
+#             'bagging_freq': 20,
+#             'colsample_bytree': 0.6,
+#             'metric': 'rmse',
+#             'min_split_gain': 0.5,
+#             'min_child_weight': 1,
+#             'min_child_samples': 10,
+#             'scale_pos_weight':1,
+#             'zero_as_missing': False,
+#             'seed':0,        
+#         }
+#     modelL = lgb.train(params, train_set = train_set, num_boost_round=10000,
+#                        early_stopping_rounds=8000,verbose_eval=500, valid_sets=valid_set)
 
-    acc_boosting_model(8,modelL,trainb,testb,modelL.best_iteration)
+#     acc_boosting_model(8,modelL,trainb,testb,modelL.best_iteration)
 
-    fig =  plt.figure(figsize = (5,5))
-    axes = fig.add_subplot(111)
-    lgb.plot_importance(modelL,ax = axes,height = 0.5)
-    plt.show();
+#     fig =  plt.figure(figsize = (5,5))
+#     axes = fig.add_subplot(111)
+#     lgb.plot_importance(modelL,ax = axes,height = 0.5)
+#     plt.show();
 
-#     # GradientBoostingRegressor with HyperOpt
-#     def hyperopt_gb_score(params):
-#         clf = GradientBoostingRegressor(**params)
-#         current_score = cross_val_score(clf, train, target, cv=10).mean()
-#         print(current_score, params)
-#         return current_score 
+# #     # GradientBoostingRegressor with HyperOpt
+# #     def hyperopt_gb_score(params):
+# #         clf = GradientBoostingRegressor(**params)
+# #         current_score = cross_val_score(clf, train, target, cv=10).mean()
+# #         print(current_score, params)
+# #         return current_score 
 
-#     space_gb = {
-#                 'n_estimators': hp.choice('n_estimators', range(100, 1000)),
-#                 'max_depth': hp.choice('max_depth', np.arange(2, 10, dtype=int))            
-#             }
+# #     space_gb = {
+# #                 'n_estimators': hp.choice('n_estimators', range(100, 1000)),
+# #                 'max_depth': hp.choice('max_depth', np.arange(2, 10, dtype=int))            
+# #             }
 
-#     best = fmin(fn=hyperopt_gb_score, space=space_gb, algo=tpe.suggest, max_evals=10)
-#     print('best:')
-#     print(best)
+# #     best = fmin(fn=hyperopt_gb_score, space=space_gb, algo=tpe.suggest, max_evals=10)
+# #     print('best:')
+# #     print(best)
 
-#     params = space_eval(space_gb, best)
+# #     params = space_eval(space_gb, best)
 
-#     # Gradient Boosting Regression
-#     gradient_boosting = GradientBoostingRegressor(**params)
-#     gradient_boosting.fit(train, target)
-#     acc_model(9,gradient_boosting,train,test)
+# #     # Gradient Boosting Regression
+# #     gradient_boosting = GradientBoostingRegressor(**params)
+# #     gradient_boosting.fit(train, target)
+# #     acc_model(9,gradient_boosting,train,test)
 
-    # Ridge Regressor
-    ridge = RidgeCV(cv=5)
-    ridge.fit(train, target)
-    acc_model(10,ridge,train,test)
+#     # Ridge Regressor
+#     ridge = RidgeCV(cv=5)
+#     ridge.fit(train, target)
+#     acc_model(10,ridge,train,test)
 
-    # Bagging Regressor
-    bagging = BaggingRegressor()
-    bagging.fit(train, target)
-    acc_model(11,bagging,train,test)
+#     # Bagging Regressor
+#     bagging = BaggingRegressor()
+#     bagging.fit(train, target)
+#     acc_model(11,bagging,train,test)
 
-    # Extra Trees Regressor
-    etr = ExtraTreesRegressor()
-    etr.fit(train, target)
-    acc_model(12,etr,train,test)
+#     # Extra Trees Regressor
+#     etr = ExtraTreesRegressor()
+#     etr.fit(train, target)
+#     acc_model(12,etr,train,test)
 
-    # AdaBoost Regressor
-    Ada_Boost = AdaBoostRegressor()
-    Ada_Boost.fit(train, target)
-    acc_model(13,Ada_Boost,train,test)
+#     # AdaBoost Regressor
+#     Ada_Boost = AdaBoostRegressor()
+#     Ada_Boost.fit(train, target)
+#     acc_model(13,Ada_Boost,train,test)
 
-    # Voting Regressor
-    Voting_Reg = VotingRegressor(estimators=[('lin', linreg), ('ridge', ridge), ('sgd', sgd)])
-    Voting_Reg.fit(train, target)
-    acc_model(14,Voting_Reg,train,test)
+#     # Voting Regressor
+#     Voting_Reg = VotingRegressor(estimators=[('lin', linreg), ('ridge', ridge), ('sgd', sgd)])
+#     Voting_Reg.fit(train, target)
+#     acc_model(14,Voting_Reg,train,test)
 
-    # *************************************************************
-    """# Models comparison"""
-    models = pd.DataFrame({
-        'Model': ['Linear Regression', 'Support Vector Machines', 'Linear SVR', 'Stochastic Gradient Decent', 
-                  'Decision Tree Regressor', 'Random Forest',  'XGB', 'LGBM','RidgeRegressor', 'BaggingRegressor', 'ExtraTreesRegressor',
-                  'AdaBoostRegressor', 'VotingRegressor'],
-        
-#         'Model': ['Linear Regression', 'Support Vector Machines', 'Linear SVR', 
-#                   'MLPRegressor', 'Stochastic Gradient Decent', 
-#                   'Decision Tree Regressor', 'Random Forest',  'XGB', 'LGBM',
-#                   'GradientBoostingRegressor', 'RidgeRegressor', 'BaggingRegressor', 'ExtraTreesRegressor', 
+#     # *************************************************************
+#     """# Models comparison"""
+#     models = pd.DataFrame({
+#         'Model': ['Linear Regression', 'Support Vector Machines', 'Linear SVR', 'Stochastic Gradient Decent', 
+#                   'Decision Tree Regressor', 'Random Forest',  'XGB', 'LGBM','RidgeRegressor', 'BaggingRegressor', 'ExtraTreesRegressor',
 #                   'AdaBoostRegressor', 'VotingRegressor'],
         
-        'r2_train': acc_train_r2,
-        'r2_test': acc_test_r2,
-        'd_train': acc_train_d,
-        'd_test': acc_test_d,
-        'rmse_train': acc_train_rmse,
-        'rmse_test': acc_test_rmse
-                         })
+# #         'Model': ['Linear Regression', 'Support Vector Machines', 'Linear SVR', 
+# #                   'MLPRegressor', 'Stochastic Gradient Decent', 
+# #                   'Decision Tree Regressor', 'Random Forest',  'XGB', 'LGBM',
+# #                   'GradientBoostingRegressor', 'RidgeRegressor', 'BaggingRegressor', 'ExtraTreesRegressor', 
+# #                   'AdaBoostRegressor', 'VotingRegressor'],
+        
+#         'r2_train': acc_train_r2,
+#         'r2_test': acc_test_r2,
+#         'd_train': acc_train_d,
+#         'd_test': acc_test_d,
+#         'rmse_train': acc_train_rmse,
+#         'rmse_test': acc_test_rmse
+#                          })
 
-    pd.options.display.float_format = '{:,.2f}'.format
+#     pd.options.display.float_format = '{:,.2f}'.format
 
-    print('Prediction accuracy for models by R2 criterion - r2_test')
-    models.sort_values(by=['r2_test', 'r2_train'], ascending=False)
+#     print('Prediction accuracy for models by R2 criterion - r2_test')
+#     models.sort_values(by=['r2_test', 'r2_train'], ascending=False)
 
-    print('Prediction accuracy for models by RMSE - rmse_test')
-    models.sort_values(by=['rmse_test', 'rmse_train'], ascending=True)
+#     print('Prediction accuracy for models by RMSE - rmse_test')
+#     models.sort_values(by=['rmse_test', 'rmse_train'], ascending=True)
 
-    # Model Output - Visualization
-    # Plot
-    fig200 = plt.figure(figsize=[20,8])
-    xx = models['Model']
-    plt.tick_params(labelsize=14)
-    plt.plot(xx, models['r2_train'], label = 'r2_train')
-    plt.plot(xx, models['r2_test'], label = 'r2_test')
-    plt.legend()
-    plt.title('R2-criterion for 15 popular models for train and test datasets')
-    plt.xlabel('Models')
-    plt.ylabel('R2-criterion, %')
-    plt.xticks(xx, rotation='vertical')
-    plt.savefig('graph.png')
-    plt.show()
-    st.write(fig200)
+#     # Model Output - Visualization
+#     # Plot
+#     fig200 = plt.figure(figsize=[20,8])
+#     xx = models['Model']
+#     plt.tick_params(labelsize=14)
+#     plt.plot(xx, models['r2_train'], label = 'r2_train')
+#     plt.plot(xx, models['r2_test'], label = 'r2_test')
+#     plt.legend()
+#     plt.title('R2-criterion for 15 popular models for train and test datasets')
+#     plt.xlabel('Models')
+#     plt.ylabel('R2-criterion, %')
+#     plt.xticks(xx, rotation='vertical')
+#     plt.savefig('graph.png')
+#     plt.show()
+#     st.write(fig200)
 
-    # Plot
-    fig201 = plt.figure(figsize=[20,8])
-    xx = models['Model']
-    plt.tick_params(labelsize=14)
-    plt.plot(xx, models['rmse_train'], label = 'rmse_train')
-    plt.plot(xx, models['rmse_test'], label = 'rmse_test')
-    plt.legend()
-    plt.title('RMSE for 15 popular models for train and test datasets')
-    plt.xlabel('Models')
-    plt.ylabel('RMSE, %')
-    plt.xticks(xx, rotation='vertical')
-    plt.savefig('graph.png')
-    plt.show()
-    st.write(fig201)
+#     # Plot
+#     fig201 = plt.figure(figsize=[20,8])
+#     xx = models['Model']
+#     plt.tick_params(labelsize=14)
+#     plt.plot(xx, models['rmse_train'], label = 'rmse_train')
+#     plt.plot(xx, models['rmse_test'], label = 'rmse_test')
+#     plt.legend()
+#     plt.title('RMSE for 15 popular models for train and test datasets')
+#     plt.xlabel('Models')
+#     plt.ylabel('RMSE, %')
+#     plt.xticks(xx, rotation='vertical')
+#     plt.savefig('graph.png')
+#     plt.show()
+#     st.write(fig201)
 
-    """Thus, the best model is Linear Regression."""
+#     """Thus, the best model is Linear Regression."""
 
 #     # *************************************************************
 #     # Prediction
@@ -772,11 +772,13 @@ with Prediction:
     fig401 = pred.head()
     st.write(fig401)
     
-    scaler = StandardScaler()
-    pred_trans = pd.DataFrame(scaler.transform(pred), columns = pred.columns)
-    fig401 = pred_trans.head()
-    st.write(fig402)
+#     scaler = StandardScaler()
+#     pred_trans = pd.DataFrame(scaler.transform(pred), columns = pred.columns)
+#     fig401 = pred_trans.head()
+#     st.write(fig402)
     
+with AboutUs:
+    """ # Thanks """
     
     
 
