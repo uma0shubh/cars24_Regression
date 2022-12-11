@@ -221,59 +221,55 @@ with Appendix:
     # *************************************************************
     df1 = df1.append(pred, ignore_index = True)
     
-    fig500 = df1.iloc[-1]
-    st.write(fig500)
+    # Label Encoding
+    df7 = df1.copy(deep=True)
+
+    numerics = ['int8', 'int16', 'int32', 'int64', 'float16', 'float32', 'float64']
+    categorical_columns = []
+    features = df7.columns.values.tolist()
+    for col in features:
+        if df7[col].dtype in numerics: continue
+        categorical_columns.append(col)
+    # Encoding categorical features
+    for col in categorical_columns:
+        if col in df7.columns:
+            le = LabelEncoder()
+            le.fit(list(df7[col].astype(str).values))
+            df7[col] = le.transform(list(df7[col].astype(str).values))
+
+    df7['year'] = (df7['year']-1900).astype(int)
+
+    pred_final = df7.iloc[-1]
+    df8 = df7.iloc[:-1]
     
-    
-    
-    
-#     # Label Encoding
-#     df7 = df1.copy(deep=True)
 
-#     numerics = ['int8', 'int16', 'int32', 'int64', 'float16', 'float32', 'float64']
-#     categorical_columns = []
-#     features = df7.columns.values.tolist()
-#     for col in features:
-#         if df7[col].dtype in numerics: continue
-#         categorical_columns.append(col)
-#     # Encoding categorical features
-#     for col in categorical_columns:
-#         if col in df7.columns:
-#             le = LabelEncoder()
-#             le.fit(list(df7[col].astype(str).values))
-#             df7[col] = le.transform(list(df7[col].astype(str).values))
+    # *************************************************************
+    # Train-Test split
+    target_name = 'price'
+    train_target0 = df8[target_name]
+    df8 = df8.drop([target_name], axis=1)
 
-#     df7['year'] = (df7['year']-1900).astype(int)
+    # Train and Test Split
+    train0, test0, train_target0, test_target0 = train_test_split(df8, train_target0, test_size=0.2, random_state=0)
 
-#     df8= df7.copy(deep=True)
+    valid_part = 0.3
+    pd.set_option('max_columns',100)
 
-#     # *************************************************************
-#     # Train-Test split
-#     target_name = 'price'
-#     train_target0 = df8[target_name]
-#     df8 = df8.drop([target_name], axis=1)
+    # For boosting model
+    train0b = train0
+    train_target0b = train_target0
+    # Synthesis valid as test for selection models
+    trainb, testb, targetb, target_testb = train_test_split(train0b, train_target0b, test_size=valid_part, random_state=0)
 
-#     # Train and Test Split
-#     train0, test0, train_target0, test_target0 = train_test_split(df8, train_target0, test_size=0.2, random_state=0)
+    # For models from Sklearn
+    scaler = StandardScaler()
+    train0 = pd.DataFrame(scaler.fit_transform(train0), columns = train0.columns)
 
-#     valid_part = 0.3
-#     pd.set_option('max_columns',100)
+    train0.head(3)
 
-#     # For boosting model
-#     train0b = train0
-#     train_target0b = train_target0
-#     # Synthesis valid as test for selection models
-#     trainb, testb, targetb, target_testb = train_test_split(train0b, train_target0b, test_size=valid_part, random_state=0)
-
-#     # For models from Sklearn
-#     scaler = StandardScaler()
-#     train0 = pd.DataFrame(scaler.fit_transform(train0), columns = train0.columns)
-
-#     train0.head(3)
-
-#     # getting test from train data (validation)
-#     train, test, target, target_test = train_test_split(train0, train_target0, test_size=valid_part, random_state=0)
-#     train.head(3)
+    # getting test from train data (validation)
+    train, test, target, target_test = train_test_split(train0, train_target0, test_size=valid_part, random_state=0)
+    train.head(3)
 
 #     # *************************************************************
 #     # Accuracy List
