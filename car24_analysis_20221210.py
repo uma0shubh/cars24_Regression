@@ -271,6 +271,132 @@ with Appendix:
     train, test, target, target_test = train_test_split(train0, train_target0, test_size=valid_part, random_state=0)
     train.head(3)
 
+    
+
+with Graphical:
+    # *************************************************************
+    """# Data Overview """
+    fig300 = df1.head()
+    st.write(fig300)
+    
+    """# Univariant plots """
+    """### Numerical Analysis """
+    """##### Density Plot """
+    x_axis = st.selectbox("Select Variable", options=("Price", "Km", "Benefits", "Discount Price"))
+    if x_axis == "Price":
+        x = df1["price"]
+    elif x_axis == "Km":
+        x = df1["kilometerdriven"]
+    elif x_axis == "benefits":
+        x = df1["Benefits"]
+    elif x_axis == "Discount Price":
+        x = df1["discountprice"]
+    
+    fig301 = plt.figure(figsize=(15,8))
+    sns.distplot(x)
+    st.write(fig301)
+    st.write("Skewness: %f" % x.skew())
+    st.write("Kurtosis: %f" % x.kurt())
+    
+    """##### Box Plot """
+    fig302 = plt.figure(figsize=(15,4))
+    #sns.boxplot(x=x,data=df1)
+    sns.boxplot(x=x)
+    st.write(fig302)
+    
+    """### Categorical Analysis """
+    """##### Bar Plot """
+    x_axis_2 = st.selectbox("Select Variable", options=("Brand", "City", "Year", "Owner Number", "FuelType", "Transmission", "BodyType", "RegistrationState"))
+    if x_axis_2 == "Brand":
+        x2 = df1["make"]
+    elif x_axis_2 == "City":
+        x2 = df1["city"]
+    elif x_axis_2 == "Year":
+        x2 = df1["year"]
+    elif x_axis_2 == "Owner Number":
+        x2 = df1["ownernumber"]
+    elif x_axis_2 == "FuelType":
+        x2 = df1["fueltype"]
+    elif x_axis_2 == "Transmission":
+        x2 = df1["transmission"]
+    elif x_axis_2 == "BodyType":
+        x2 = df1["bodytype"]
+    elif x_axis_2 == "RegistrationState":
+        x2 = df1["registrationstate"]
+    
+#     fig303 = plt.figure(figsize = (15,4))
+#     #plt.bar(x.value_counts())
+#     plt.bar(x, df1["price"])
+#     plt.xticks(rotation=90)
+#     st.pyplot(fig303)
+    
+#     fig303 = sns.set(font_scale=1.4)
+#     x.value_counts().plot(kind='bar', figsize=(15, 4), rot=90)
+#     st.write(fig303)
+    
+#     fig304 = x.value_counts().plot(kind='barh', figsize=(15, 20))
+#     st.write(fig304)
+    
+    
+    
+    # ************************************************************* 
+    """# Bivariate plots """
+    x_axis_1 = st.selectbox("Select Variable", options=("Brand", "City", "Year", "Owner Number", "FuelType", "Transmission", "BodyType"))
+    if x_axis_1 == "Brand":
+        x1 = "make"
+    elif x_axis_1 == "City":
+        x1 = "city"
+    elif x_axis_1 == "Year":
+        x1 = "year"
+    elif x_axis_1 == "Owner Number":
+        x1 = "ownernumber"
+    elif x_axis_1 == "FuelType":
+        x1 = "fueltype"
+    elif x_axis_1 == "Transmission":
+        x1 = "transmission"
+    elif x_axis_1 == "BodyType":
+        x1 = "bodytype"
+    
+    fig304 = sns.catplot(y='price', x=x1, data=df1.sort_values('price',ascending=False),kind="boxen",height=5, aspect=3)
+    st.pyplot(fig304)
+    
+    # ******
+    x_axis_3 = st.selectbox("Select Variable", options=("Brand", "Owner Number", "FuelType", "Transmission", "BodyType"))
+    if x_axis_3 == "Brand":
+        x3 = "make"
+    elif x_axis_3 == "Owner Number":
+        x3 = "ownernumber"
+    elif x_axis_3 == "FuelType":
+        x3 = "fueltype"
+    elif x_axis_3 == "Transmission":
+        x3 = "transmission"
+    elif x_axis_3 == "BodyType":
+        x3 = "bodytype"
+    
+#     fig305 = px.sunburst(df1, path=['city', x3], color='city',height=600)
+#     fig305.update_layout(title_text="Two-level Sunburst Diagram", font_size=10)
+#     st.write(fig305)
+    
+    fig306 = px.treemap(df1, path=['city', x3], color='city',height=600,width=1000)
+    fig306.update_layout(title_text="Distribution within City", font_size=10)
+    st.write(fig306)
+    
+    
+    # ************************************************************* 
+    """# Yearly City Growth """
+    fig307 = px.histogram(df1, x="year", y="price",color='city', barmode='group',height=500,width=1200)
+    fig307.update_layout(title_text="Yearly City Growth", font_size=10)
+    st.write(fig307)
+    
+    # ************************************************************* 
+    """# Correlation """
+    fig308 = plt.figure(figsize=(15,10))
+    sns.heatmap(df8.corr(),annot=True,cmap='RdYlGn')
+    st.write(fig308)
+
+    
+    
+# with Appendix:
 #     # *************************************************************
 #     # Accuracy List
 #     acc_train_r2 = []
@@ -615,170 +741,50 @@ with Appendix:
 # #     #svr.predict(testn)[:3]
 
 
-# with Graphical:
-#     # *************************************************************
-#     """# Data Overview """
-#     fig300 = df1.head()
-#     st.write(fig300)
-    
-#     """# Univariant plots """
-#     """### Numerical Analysis """
-#     """##### Density Plot """
-#     x_axis = st.selectbox("Select Variable", options=("Price", "Km", "Benefits", "Discount Price"))
-#     if x_axis == "Price":
-#         x = df1["price"]
-#     elif x_axis == "Km":
-#         x = df1["kilometerdriven"]
-#     elif x_axis == "benefits":
-#         x = df1["Benefits"]
-#     elif x_axis == "Discount Price":
-#         x = df1["discountprice"]
-    
-#     fig301 = plt.figure(figsize=(15,8))
-#     sns.distplot(x)
-#     st.write(fig301)
-#     st.write("Skewness: %f" % x.skew())
-#     st.write("Kurtosis: %f" % x.kurt())
-    
-#     """##### Box Plot """
-#     fig302 = plt.figure(figsize=(15,4))
-#     #sns.boxplot(x=x,data=df1)
-#     sns.boxplot(x=x)
-#     st.write(fig302)
-    
-#     """### Categorical Analysis """
-#     """##### Bar Plot """
-#     x_axis_2 = st.selectbox("Select Variable", options=("Brand", "City", "Year", "Owner Number", "FuelType", "Transmission", "BodyType", "RegistrationState"))
-#     if x_axis_2 == "Brand":
-#         x2 = df1["make"]
-#     elif x_axis_2 == "City":
-#         x2 = df1["city"]
-#     elif x_axis_2 == "Year":
-#         x2 = df1["year"]
-#     elif x_axis_2 == "Owner Number":
-#         x2 = df1["ownernumber"]
-#     elif x_axis_2 == "FuelType":
-#         x2 = df1["fueltype"]
-#     elif x_axis_2 == "Transmission":
-#         x2 = df1["transmission"]
-#     elif x_axis_2 == "BodyType":
-#         x2 = df1["bodytype"]
-#     elif x_axis_2 == "RegistrationState":
-#         x2 = df1["registrationstate"]
-    
-# #     fig303 = plt.figure(figsize = (15,4))
-# #     #plt.bar(x.value_counts())
-# #     plt.bar(x, df1["price"])
-# #     plt.xticks(rotation=90)
-# #     st.pyplot(fig303)
-    
-# #     fig303 = sns.set(font_scale=1.4)
-# #     x.value_counts().plot(kind='bar', figsize=(15, 4), rot=90)
-# #     st.write(fig303)
-    
-# #     fig304 = x.value_counts().plot(kind='barh', figsize=(15, 20))
-# #     st.write(fig304)
-    
-    
-    
-#     # ************************************************************* 
-#     """# Bivariate plots """
-#     x_axis_1 = st.selectbox("Select Variable", options=("Brand", "City", "Year", "Owner Number", "FuelType", "Transmission", "BodyType"))
-#     if x_axis_1 == "Brand":
-#         x1 = "make"
-#     elif x_axis_1 == "City":
-#         x1 = "city"
-#     elif x_axis_1 == "Year":
-#         x1 = "year"
-#     elif x_axis_1 == "Owner Number":
-#         x1 = "ownernumber"
-#     elif x_axis_1 == "FuelType":
-#         x1 = "fueltype"
-#     elif x_axis_1 == "Transmission":
-#         x1 = "transmission"
-#     elif x_axis_1 == "BodyType":
-#         x1 = "bodytype"
-    
-#     fig304 = sns.catplot(y='price', x=x1, data=df1.sort_values('price',ascending=False),kind="boxen",height=5, aspect=3)
-#     st.pyplot(fig304)
-    
-#     # ******
-#     x_axis_3 = st.selectbox("Select Variable", options=("Brand", "Owner Number", "FuelType", "Transmission", "BodyType"))
-#     if x_axis_3 == "Brand":
-#         x3 = "make"
-#     elif x_axis_3 == "Owner Number":
-#         x3 = "ownernumber"
-#     elif x_axis_3 == "FuelType":
-#         x3 = "fueltype"
-#     elif x_axis_3 == "Transmission":
-#         x3 = "transmission"
-#     elif x_axis_3 == "BodyType":
-#         x3 = "bodytype"
-    
-# #     fig305 = px.sunburst(df1, path=['city', x3], color='city',height=600)
-# #     fig305.update_layout(title_text="Two-level Sunburst Diagram", font_size=10)
-# #     st.write(fig305)
-    
-#     fig306 = px.treemap(df1, path=['city', x3], color='city',height=600,width=1000)
-#     fig306.update_layout(title_text="Distribution within City", font_size=10)
-#     st.write(fig306)
-    
-    
-#     # ************************************************************* 
-#     """# Yearly City Growth """
-#     fig307 = px.histogram(df1, x="year", y="price",color='city', barmode='group',height=500,width=1200)
-#     fig307.update_layout(title_text="Yearly City Growth", font_size=10)
-#     st.write(fig307)
-    
-#     # ************************************************************* 
-#     """# Correlation """
-#     fig308 = plt.figure(figsize=(15,10))
-#     sns.heatmap(df8.corr(),annot=True,cmap='RdYlGn')
-#     st.write(fig308)
                                                     
                                                     
-# with AboutUs:
-#     """ 
-#     ### History of Cars24:
-#     Cars24 was started by FabFurnish founders Vikram Chopra and Mehul Agrawal in August, 2015. Their aim is to help the car owners to sell their cars instantly without any trouble. And also help the dealers and people who are looking for a second hand car with no trouble and issues in a very less time and minimum paperwork and legal formalities. And apart from that you’ll also get expert assistance and from start to finish.
+with AboutUs:
+    """ 
+    ### History of Cars24:
+    Cars24 was started by FabFurnish founders Vikram Chopra and Mehul Agrawal in August, 2015. Their aim is to help the car owners to sell their cars instantly without any trouble. And also help the dealers and people who are looking for a second hand car with no trouble and issues in a very less time and minimum paperwork and legal formalities. And apart from that you’ll also get expert assistance and from start to finish.
     
-#     ### Services offered by Cars24
-#     Cars24 offers buy and sell service of old cars and also free RC transfer. They help us to sell the cars with the best price and also provide instant payment with zero trouble in paper work or delay in the payments.
-#     They also provide financial loans to the businesses to help them to grow faster and also to buy the dream car with a very fast process with their AI and machine learning. Currently they are having 3 product in their financial menu as well,
+    ### Services offered by Cars24
+    Cars24 offers buy and sell service of old cars and also free RC transfer. They help us to sell the cars with the best price and also provide instant payment with zero trouble in paper work or delay in the payments.
+    They also provide financial loans to the businesses to help them to grow faster and also to buy the dream car with a very fast process with their AI and machine learning. Currently they are having 3 product in their financial menu as well,
     
-#     ### Business Model Of Cars24: How Cars24 earns?
-#     Cars24 follows asset-heavy customers to business (C2B) model, where it buys used cars from individuals and dealers and sells them to other dealerships and individuals as well.
-#     There’s no public information about it’s charges but according to Economic Times, unlike a listings-based classifieds platform, Cars24 enables the end-to-end transaction itself, charging a commission of about 4-5% for each transaction and also a small fee from the buyers as an registration
+    ### Business Model Of Cars24: How Cars24 earns?
+    Cars24 follows asset-heavy customers to business (C2B) model, where it buys used cars from individuals and dealers and sells them to other dealerships and individuals as well.
+    There’s no public information about it’s charges but according to Economic Times, unlike a listings-based classifieds platform, Cars24 enables the end-to-end transaction itself, charging a commission of about 4-5% for each transaction and also a small fee from the buyers as an registration
     
-#     ### Cars24 Competitors:
-#     - Droom
-#     - Cardekho
-#     - Cartrade
-#     - Carwale
-#     - Spinny
-#     - Carnation
-#     - Dealer Direct
-#     - Checkgaadi
-#     - Mahindra First Choice Wheels
+    ### Cars24 Competitors:
+    - Droom
+    - Cardekho
+    - Cartrade
+    - Carwale
+    - Spinny
+    - Carnation
+    - Dealer Direct
+    - Checkgaadi
+    - Mahindra First Choice Wheels
     
-#     website : https://www.cars24.com/
-#     """
+    website : https://www.cars24.com/
+    """
     
-# with ContactUs:
-#     """
-#     ### Contact Us
-#     Data Scientist & Developer Team
-#     - Arpita Pyne : pynearpita06@gmail.com
-#     - Asmit Pawar : asmitpawar98@gmail.com
-#     - Sagar Chore : sagar.chore@gmail.com
-#     - Uma Prajapati : umaprajapati35@gmail.com
-#     - Vrushali Patil : pvrushali27@gmail.com
+with ContactUs:
+    """
+    ### Contact Us
+    Data Scientist & Developer Team
+    - Arpita Pyne : pynearpita06@gmail.com
+    - Asmit Pawar : asmitpawar98@gmail.com
+    - Sagar Chore : sagar.chore@gmail.com
+    - Uma Prajapati : umaprajapati35@gmail.com
+    - Vrushali Patil : pvrushali27@gmail.com
     
-#     ### Study Material
-#     https://github.com/uma0shubh/cars24_data
+    ### Study Material
+    https://github.com/uma0shubh/cars24_data
     
-#     https://github.com/uma0shubh/cars24_Regression
-#     """
+    https://github.com/uma0shubh/cars24_Regression
+    """
     
 # #     numerics = ['int8', 'int16', 'int32', 'int64', 'float16', 'float32', 'float64']
 # #     categorical_columns = []
