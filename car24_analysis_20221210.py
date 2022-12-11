@@ -514,10 +514,10 @@ with Appendix:
     - Voting Regressor
     """
 
-#     # Linear Regression
-#     linreg = LinearRegression()
-#     linreg.fit(train, target)
-#     acc_model(0,linreg,train,test)
+    # Linear Regression
+    linreg = LinearRegression()
+    linreg.fit(train, target)
+    acc_model(0,linreg,train,test)
 
 # #     # Support vector machine
 # #     svr = SVR()
