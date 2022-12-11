@@ -637,7 +637,13 @@ with Graphical:
                                                     
                                                     
 with AboutUs:
-    """# Cars 24 """
+    # Cars 24
+    """ # History of Cars24:
+    ## Cars24 was started by FabFurnish founders Vikram Chopra and Mehul Agrawal in August, 2015. Their aim is to help the car owners to sell their cars instantly without any trouble.
+    And also help the dealers and people who are looking for a second hand car with no trouble and issues in a very less time and minimum paperwork and legal formalities.
+    And apart from that you’ll also get expert assistance and from start to finish.
+    """
+    
     """# Contact Us """
     """# Study Material """
                                                     
