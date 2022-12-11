@@ -50,7 +50,7 @@ def add_bg_from_url():
          f"""
          <style>
          .stApp {{
-             background-image: url("https://images.unsplash.com/photo-1519752441410-d3ca70ecb937?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Njd8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60");
+             background-image: url("https://images.unsplash.com/photo-1514053514818-a89e7ce304e9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzF8fGFuaW1hdGVkJTIwY2FyJTIwaW1hZ2V8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60");
              background-attachment: fixed;
 	     background-position: 25% 75%;
              background-size: cover
