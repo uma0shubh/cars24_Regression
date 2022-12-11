@@ -665,7 +665,7 @@ with AboutUs:
     
 with ContactUs:
     """
-    # Contact Us
+    ### Contact Us
     Data Scientist & Developer Team
     - Arpita Pyne : pynearpita06@gmail.com
     - Asmit Pawar : asmitpawar98@gmail.com
@@ -673,8 +673,9 @@ with ContactUs:
     - Uma Prajapati : umaprajapati35@gmail.com
     - Vrushali Patil : pvrushali27@gmail.com
     
-    # Study Material
+    ### Study Material
     https://github.com/uma0shubh/cars24_data
+    
     https://github.com/uma0shubh/cars24_Regression
     """
                                                     
