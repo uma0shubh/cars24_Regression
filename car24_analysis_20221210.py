@@ -221,7 +221,7 @@ with Appendix:
     # *************************************************************
     df1 = df1.append(pred, ignore_index = True)
     
-    fig500 = df1.head()
+    fig500 = df1.iloc[-1]
     st.write(fig500)
     
     
