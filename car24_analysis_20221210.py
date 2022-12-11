@@ -645,11 +645,11 @@ with Graphical:
     elif x_axis_2 == "RegistrationState":
         x2 = df1["registrationstate"]
     
-#     fig303 = plt.figure(figsize = (15,4))
-#     #plt.bar(x.value_counts())
-#     plt.bar(x, df1["price"])
-#     plt.xticks(rotation=90)
-#     st.pyplot(fig303)
+    fig303 = plt.figure(figsize = (15,4))
+    #plt.bar(x.value_counts())
+    plt.bar(x, df1["price"])
+    plt.xticks(rotation=90)
+    st.pyplot(fig303)
     
 #     fig303 = sns.set(font_scale=1.4)
 #     x.value_counts().plot(kind='bar', figsize=(15, 4), rot=90)
@@ -717,22 +717,13 @@ with Graphical:
 
     
     
-# with Appendix:
+with Prediction:
+    # Linear Regression
+    linreg_1 = LinearRegression()
+    linreg_1.fit(df9.iloc[:,:-1], df9['price'])
     
-
-#     # *************************************************************
-
-
-#     # Linear Regression
-#     linreg = LinearRegression()
-#     linreg.fit(df9.iloc[:,:-1], df9['price'])
-# #     acc_model(0,linreg,train,test)
-    
-    
-#     fig600 = linreg.predict(pred_final)
-#     np.array(fig600)
-    
-# #     st.write(fig600)
+    fig600 = linreg.predict(pred_final)
+    st.write(fig600)
 
                                                     
                                                     
