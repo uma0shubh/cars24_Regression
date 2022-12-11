@@ -219,6 +219,14 @@ with Prediction:
 
 with Appendix:
     # *************************************************************
+    df1 = df1.append(pred, ignore_index = True)
+    
+    fig500 = df1.head()
+    st.write(fig500)
+    
+    
+    
+    
     # Label Encoding
     df7 = df1.copy(deep=True)
 
