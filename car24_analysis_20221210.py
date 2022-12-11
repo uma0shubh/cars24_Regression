@@ -638,10 +638,17 @@ with Graphical:
                                                     
 with AboutUs:
     # Cars 24
-    """ # History of Cars24:
-    ## Cars24 was started by FabFurnish founders Vikram Chopra and Mehul Agrawal in August, 2015. Their aim is to help the car owners to sell their cars instantly without any trouble.
-    And also help the dealers and people who are looking for a second hand car with no trouble and issues in a very less time and minimum paperwork and legal formalities.
-    And apart from that you’ll also get expert assistance and from start to finish.
+    """ ### History of Cars24:
+    Cars24 was started by FabFurnish founders Vikram Chopra and Mehul Agrawal in August, 2015. Their aim is to help the car owners to sell their cars instantly without any trouble. And also help the dealers and people who are looking for a second hand car with no trouble and issues in a very less time and minimum paperwork and legal formalities. And apart from that you’ll also get expert assistance and from start to finish.
+    
+    ### Services offered by Cars24
+    Cars24 offers buy and sell service of old cars and also free RC transfer. They help us to sell the cars with the best price and also provide instant payment with zero trouble in paper work or delay in the payments.
+    They also provide financial loans to the businesses to help them to grow faster and also to buy the dream car with a very fast process with their AI and machine learning. Currently they are having 3 product in their financial menu as well,
+    
+    ### Business Model Of Cars24: How Cars24 earns?
+    Cars24 follows asset-heavy customers to business (C2B) model, where it buys used cars from individuals and dealers and sells them to other dealerships and individuals as well.
+    There’s no public information about it’s charges but according to Economic Times, unlike a listings-based classifieds platform, Cars24 enables the end-to-end transaction itself, charging a commission of about 4-5% for each transaction and also a small fee from the buyers as an registration
+    
     """
     
     """# Contact Us """
