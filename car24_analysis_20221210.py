@@ -524,8 +524,7 @@ with Appendix:
     
     
     fig600 = linreg.predict(pred_final)
-    np.array(fig600)
-    
+    fig600 = np.array(fig600)
     st.write(fig600)
 
 # #     # Support vector machine
