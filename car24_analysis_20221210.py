@@ -289,22 +289,22 @@ with Appendix:
     linear_svr.fit(train, target)
     acc_model(2,linear_svr,train,test)
 
-    # MLPRegressor
-    mlp = MLPRegressor()
-    param_grid = {'hidden_layer_sizes': [i for i in range(2,20)],
-                  'activation': ['relu'],
-                  'solver': ['adam'],
-                  'learning_rate': ['constant'],
-                  'learning_rate_init': [0.01],
-                  'power_t': [0.5],
-                  'alpha': [0.0001],
-                  'max_iter': [1000],
-                  'early_stopping': [True],
-                  'warm_start': [False]}
-    mlp_GS = GridSearchCV(mlp, param_grid=param_grid, 
-                       cv=10, verbose=True, pre_dispatch='2*n_jobs')
-    mlp_GS.fit(train, target)
-    acc_model(3,mlp_GS,train,test)
+#     # MLPRegressor
+#     mlp = MLPRegressor()
+#     param_grid = {'hidden_layer_sizes': [i for i in range(2,20)],
+#                   'activation': ['relu'],
+#                   'solver': ['adam'],
+#                   'learning_rate': ['constant'],
+#                   'learning_rate_init': [0.01],
+#                   'power_t': [0.5],
+#                   'alpha': [0.0001],
+#                   'max_iter': [1000],
+#                   'early_stopping': [True],
+#                   'warm_start': [False]}
+#     mlp_GS = GridSearchCV(mlp, param_grid=param_grid, 
+#                        cv=10, verbose=True, pre_dispatch='2*n_jobs')
+#     mlp_GS.fit(train, target)
+#     acc_model(3,mlp_GS,train,test)
 
     # Stochastic Gradient Descent
     sgd = SGDRegressor()
@@ -365,23 +365,23 @@ with Appendix:
     lgb.plot_importance(modelL,ax = axes,height = 0.5)
     plt.show();
 
-    # GradientBoostingRegressor with HyperOpt
-    def hyperopt_gb_score(params):
-        clf = GradientBoostingRegressor(**params)
-        current_score = cross_val_score(clf, train, target, cv=10).mean()
-        print(current_score, params)
-        return current_score 
+#     # GradientBoostingRegressor with HyperOpt
+#     def hyperopt_gb_score(params):
+#         clf = GradientBoostingRegressor(**params)
+#         current_score = cross_val_score(clf, train, target, cv=10).mean()
+#         print(current_score, params)
+#         return current_score 
 
-    space_gb = {
-                'n_estimators': hp.choice('n_estimators', range(100, 1000)),
-                'max_depth': hp.choice('max_depth', np.arange(2, 10, dtype=int))            
-            }
+#     space_gb = {
+#                 'n_estimators': hp.choice('n_estimators', range(100, 1000)),
+#                 'max_depth': hp.choice('max_depth', np.arange(2, 10, dtype=int))            
+#             }
 
-    best = fmin(fn=hyperopt_gb_score, space=space_gb, algo=tpe.suggest, max_evals=10)
-    print('best:')
-    print(best)
+#     best = fmin(fn=hyperopt_gb_score, space=space_gb, algo=tpe.suggest, max_evals=10)
+#     print('best:')
+#     print(best)
 
-    params = space_eval(space_gb, best)
+#     params = space_eval(space_gb, best)
 
     # Gradient Boosting Regression
     gradient_boosting = GradientBoostingRegressor(**params)
@@ -416,10 +416,17 @@ with Appendix:
     # *************************************************************
     """# Models comparison"""
     models = pd.DataFrame({
+#         'Model': ['Linear Regression', 'Support Vector Machines', 'Linear SVR', 
+#                   'MLPRegressor', 'Stochastic Gradient Decent', 
+#                   'Decision Tree Regressor', 'Random Forest',  'XGB', 'LGBM',
+#                   'GradientBoostingRegressor', 'RidgeRegressor', 'BaggingRegressor', 'ExtraTreesRegressor', 
+#                   'AdaBoostRegressor', 'VotingRegressor'],
+        
+        models = pd.DataFrame({
         'Model': ['Linear Regression', 'Support Vector Machines', 'Linear SVR', 
-                  'MLPRegressor', 'Stochastic Gradient Decent', 
+                  'Stochastic Gradient Decent', 
                   'Decision Tree Regressor', 'Random Forest',  'XGB', 'LGBM',
-                  'GradientBoostingRegressor', 'RidgeRegressor', 'BaggingRegressor', 'ExtraTreesRegressor', 
+                  'RidgeRegressor', 'BaggingRegressor', 'ExtraTreesRegressor', 
                   'AdaBoostRegressor', 'VotingRegressor'],
 
         'r2_train': acc_train_r2,
