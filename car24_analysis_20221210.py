@@ -55,7 +55,7 @@ def add_logo(logo_path, width, height):
     return modified_logo
 #st.sidebar.image(add_logo(logo_path="https://www.cars24.com/js/28776e9c38260ac3339c3babe6171dd0.svg", width=50, height=60))
 
-my_logo = add_logo(logo_path="https://excelrcom.b-cdn.net/assets/media/general/logo_white_204.png", width=50, height=60)
+my_logo = add_logo(logo_path="https://github.com/uma0shubh/cars24_data/blob/main/excelr_logo.jpg?raw=true", width=50, height=60)
 st.sidebar.image(my_logo)
     
 add_logo()
