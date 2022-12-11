@@ -45,7 +45,7 @@ df = pd.read_csv(url)
 st.set_page_config(layout="wide")
 st.title("Car Price Prediction")
 # options = st.sidebar.selectbox("Select Analyzing options:", options= ("Prediction","Data Analysis","Graphical Interface"))
-Prediction, Graphical, Appendix, AboutUs = st.tabs(["Prediction","Graphical Interface","Appendix","About Us"])
+Prediction, Graphical, Appendix, AboutUs, ContactUs = st.tabs(["Prediction","Graphical Interface","Appendix","About Us","Contact Us"])
 # st.header(options)
 
 # def add_logo(logo_path, width, height):
@@ -661,7 +661,10 @@ with AboutUs:
     - Mahindra First Choice Wheels
     
     website : https://www.cars24.com/
+    """
     
+with ContactUs:
+    """
     # Contact Us
     Data Scientist & Developer Team
     - Arpita Pyne : pynearpita06@gmail.com
@@ -672,7 +675,6 @@ with AboutUs:
     
     # Study Material
     https://github.com/uma0shubh/cars24_data
-    
     https://github.com/uma0shubh/cars24_Regression
     """
                                                     
