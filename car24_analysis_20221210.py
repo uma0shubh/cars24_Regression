@@ -69,6 +69,37 @@ Prediction, Graphical, Appendix, AboutUs, ContactUs = st.tabs(["Prediction","Gra
 
 
 
+with Appendix:
+    # Checking duplicates *************************************************************
+    duplicate = df[df.duplicated()]
+    df['city'].value_counts()
+
+    # Considering Top 15 Cities
+    df1 = df.loc[df['city'].isin(['New Delhi', 'Mumbai', 'Jaipur', 'Chennai', 'Lucknow', 'Bangalore', 'Indore', 'Hyderabad', 'Kochi', 'Pune', 'Kolkata', 'Ahmedabad', 'Gurgaon', 'Noida', 'Ghaziabad'])]
+    print(df1.shape)
+    df1['city'].value_counts()
+
+    # Data Pre-processing
+    """# Missing Values"""
+    df1.dropna(inplace=True)
+    df1.isnull().sum()
+
+    fig101 = plt.figure(figsize=(8,4))
+    sns.heatmap(df1.isnull(),cbar=False,cmap='viridis')
+    st.pyplot(fig101)
+
+    df1.reset_index(inplace=True)
+    df1.info()
+    df1.drop(["index"],axis=1,inplace=True)
+    
+    # *************************************************************
+    """# Descriptive statistics"""
+    fig102 = df1.describe(include = 'all')
+    st.write(fig102)
+
+
+
+
 # *********************************************
 with Prediction:
     left_column,mid1_column,mid2_column,right_column = st.columns(4)
@@ -151,41 +182,12 @@ with Prediction:
         return features
 
     button = st.button("Predict Price")
-    pred = user_input()
-    st.write(pred)
+#     pred = user_input()
+#     st.write(pred)
     
 
 
 with Appendix:
-    # Checking duplicates *************************************************************
-    duplicate = df[df.duplicated()]
-    df['city'].value_counts()
-
-    # Considering Top 15 Cities
-    df1 = df.loc[df['city'].isin(['New Delhi', 'Mumbai', 'Jaipur', 'Chennai', 'Lucknow', 'Bangalore', 'Indore', 'Hyderabad', 'Kochi', 'Pune', 'Kolkata', 'Ahmedabad', 'Gurgaon', 'Noida', 'Ghaziabad'])]
-    print(df1.shape)
-    df1['city'].value_counts()
-
-    # Data Pre-processing
-    """# Missing Values"""
-    df1.isnull().sum()
-    #sns.heatmap(df1.isnull(),cbar=False,cmap='viridis')
-    df1.dropna(inplace=True)
-    df1.isnull().sum()
-
-    fig101 = plt.figure(figsize=(8,4))
-    sns.heatmap(df1.isnull(),cbar=False,cmap='viridis')
-    st.pyplot(fig101)
-
-    df1.reset_index(inplace=True)
-    df1.info()
-    df1.drop(["index"],axis=1,inplace=True)
-    
-    # *************************************************************
-    """# Descriptive statistics"""
-    fig102 = df1.describe(include = 'all')
-    st.write(fig102)
-    
     # *************************************************************
     # Label Encoding
     df7 = df1.copy(deep=True)
