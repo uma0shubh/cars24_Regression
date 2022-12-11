@@ -524,7 +524,7 @@ with Appendix:
     
     
     fig600 = linreg.predict(pred_final)
-    fig600.iloc[0,0]
+    np.array(fig600)
     
 #     st.write(fig600)
 
