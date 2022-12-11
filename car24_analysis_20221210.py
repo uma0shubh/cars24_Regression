@@ -62,7 +62,7 @@ st.image("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASsAAACoCAMAAACPKThEAAAA
 
 # add_bg_from_url()
 
-title_alignment="""<style>#the-title {text-align: center}</style>"""
+title_alignment="""<style>#st.title("Car Price Prediction") {text-align: center}</style>"""
 st.markdown(title_alignment, unsafe_allow_html=True)
 
 #st.title("Car Price Prediction")
