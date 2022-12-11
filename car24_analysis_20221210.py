@@ -68,6 +68,94 @@ Prediction, Graphical, Appendix, AboutUs, ContactUs = st.tabs(["Prediction","Gra
 # st.header(options)
 
 
+
+# *********************************************
+with Prediction:
+    left_column,mid1_column,mid2_column,right_column = st.columns(4)
+    def user_input():
+        with left_column:
+            year = st.selectbox("Year:",options = sorted(df1["year"].unique()))
+            fueltype = st.selectbox("Fuel Type:", options=sorted(df1["fueltype"].unique()))
+            bodytype = st.selectbox("Body Type:", options=sorted(df1["bodytype"].unique()))
+
+        with mid1_column:
+            brand = st.selectbox("Car Name:",options = sorted(df1["make"].unique()))
+            kilometerdriven = st.number_input("Enter Km Driven:")
+            discountprice = st.number_input("Enter Discount Price:")
+
+        model_name = ""
+        if brand == "Audi":
+            model_name = cars.get("Audi")
+        elif brand == "Bmw":
+            model_name = cars.get("Bmw")
+        elif brand == "Datsun":
+            model_name = cars.get("Datsun")
+        elif brand == "Fiat":
+            model_name = cars.get("Fiat")
+        elif brand == "Ford":
+            model_name = cars.get("Ford")
+        elif brand == "Honda":
+            model_name = cars.get("Honda")
+        elif brand == "Hyundai":
+            model_name = cars.get("Hyundai")
+        elif brand == "Jaguar":
+            model_name = cars.get("Jaguar")
+        elif brand == "Jeep":
+            model_name = cars.get("Jeep")
+        elif brand == "Kia":
+            model_name = cars.get("Kia")
+        elif brand == "Mahindra":
+            model_name = cars.get("Mahindra")
+        elif brand == "Maruti":
+            model_name = cars.get("Maruti")
+        elif brand == "Mercedes Benz":
+            model_name = cars.get("Mercedes Benz")
+        elif brand == "Mg":
+            model_name = cars.get("Mg")
+        elif brand == "Nissan":
+            model_name = cars.get("Nissan")
+        elif brand == "Renault":
+            model_name = cars.get("Renault")
+        elif brand == "Skoda":
+            model_name = cars.get("Skoda")
+        elif brand == "Tata":
+            model_name = cars.get("Tata")
+        elif brand == "Toyota":
+            model_name = cars.get("Toyota")
+        elif brand == "Volkswagen":
+            model_name = cars.get("Volkswagen")        
+
+        with mid2_column:
+            model = st.selectbox("Model Name:", options=model_name)
+            transmission = st.selectbox("Transmission:", options=sorted(df1["transmission"].unique()))
+            benefits = st.number_input("Enter Benefits:")
+
+        with right_column:
+            city = st.selectbox("City:", options=sorted(df1["city"].unique()))
+            ownernumber = st.selectbox("Owner Number:", options=sorted(df1["ownernumber"].unique()))
+
+        new_data = {"make":brand,
+                "model":model,
+                "city":city,
+                "year":year,
+                "fueltype":fueltype,
+                "kilometerdriven":kilometerdriven,
+                "ownernumber":ownernumber,
+                "transmission":transmission,
+                "bodytype":bodytype,
+                "benefits":benefits,
+                "discountprice":discountprice
+                }
+
+        features = pd.DataFrame(new_data,index = [0])
+        return features
+
+    button = st.button("Predict Price")
+    pred = user_input()
+    st.write(pred)
+    
+
+
 with Appendix:
     # Checking duplicates *************************************************************
     duplicate = df[df.duplicated()]
@@ -462,111 +550,30 @@ cars = {
 
 
 # *****************************************************************
-with Prediction:
-    left_column,mid1_column,mid2_column,right_column = st.columns(4)
-    def user_input():
-        with left_column:
-            year = st.selectbox("Year:",options = sorted(df1["year"].unique()))
-            fueltype = st.selectbox("Fuel Type:", options=sorted(df1["fueltype"].unique()))
-            bodytype = st.selectbox("Body Type:", options=sorted(df1["bodytype"].unique()))
 
-        with mid1_column:
-            brand = st.selectbox("Car Name:",options = sorted(df1["make"].unique()))
-            kilometerdriven = st.number_input("Enter Km Driven:")
-            discountprice = st.number_input("Enter Discount Price:")
-
-        model_name = ""
-        if brand == "Audi":
-            model_name = cars.get("Audi")
-        elif brand == "Bmw":
-            model_name = cars.get("Bmw")
-        elif brand == "Datsun":
-            model_name = cars.get("Datsun")
-        elif brand == "Fiat":
-            model_name = cars.get("Fiat")
-        elif brand == "Ford":
-            model_name = cars.get("Ford")
-        elif brand == "Honda":
-            model_name = cars.get("Honda")
-        elif brand == "Hyundai":
-            model_name = cars.get("Hyundai")
-        elif brand == "Jaguar":
-            model_name = cars.get("Jaguar")
-        elif brand == "Jeep":
-            model_name = cars.get("Jeep")
-        elif brand == "Kia":
-            model_name = cars.get("Kia")
-        elif brand == "Mahindra":
-            model_name = cars.get("Mahindra")
-        elif brand == "Maruti":
-            model_name = cars.get("Maruti")
-        elif brand == "Mercedes Benz":
-            model_name = cars.get("Mercedes Benz")
-        elif brand == "Mg":
-            model_name = cars.get("Mg")
-        elif brand == "Nissan":
-            model_name = cars.get("Nissan")
-        elif brand == "Renault":
-            model_name = cars.get("Renault")
-        elif brand == "Skoda":
-            model_name = cars.get("Skoda")
-        elif brand == "Tata":
-            model_name = cars.get("Tata")
-        elif brand == "Toyota":
-            model_name = cars.get("Toyota")
-        elif brand == "Volkswagen":
-            model_name = cars.get("Volkswagen")        
-
-        with mid2_column:
-            model = st.selectbox("Model Name:", options=model_name)
-            transmission = st.selectbox("Transmission:", options=sorted(df1["transmission"].unique()))
-            benefits = st.number_input("Enter Benefits:")
-
-        with right_column:
-            city = st.selectbox("City:", options=sorted(df1["city"].unique()))
-            ownernumber = st.selectbox("Owner Number:", options=sorted(df1["ownernumber"].unique()))
-
-        new_data = {"make":brand,
-                "model":model,
-                "city":city,
-                "year":year,
-                "fueltype":fueltype,
-                "kilometerdriven":kilometerdriven,
-                "ownernumber":ownernumber,
-                "transmission":transmission,
-                "bodytype":bodytype,
-                "benefits":benefits,
-                "discountprice":discountprice
-                }
-
-        features = pd.DataFrame(new_data,index = [0])
-        return features
-
-    button = st.button("Predict Price")
-    pred = user_input()
     
-#     fig400 = pred.head()
-    st.write(pred)
+# #     fig400 = pred.head()
+#     st.write(pred)
     
-    numerics = ['int8', 'int16', 'int32', 'int64', 'float16', 'float32', 'float64']
-    categorical_columns = []
-    features = pred.columns.values.tolist()
-    for col in features:
-        if pred[col].dtype in numerics: continue
-        categorical_columns.append(col)
-    # Encoding categorical features
-    for col in categorical_columns:
-        if col in pred.columns:
-            le = LabelEncoder()
-            le.fit(list(pred[col].astype(str).values))
-            pred[col] = le.transform(list(pred[col].astype(str).values))
+#     numerics = ['int8', 'int16', 'int32', 'int64', 'float16', 'float32', 'float64']
+#     categorical_columns = []
+#     features = pred.columns.values.tolist()
+#     for col in features:
+#         if pred[col].dtype in numerics: continue
+#         categorical_columns.append(col)
+#     # Encoding categorical features
+#     for col in categorical_columns:
+#         if col in pred.columns:
+#             le = LabelEncoder()
+#             le.fit(list(pred[col].astype(str).values))
+#             pred[col] = le.transform(list(pred[col].astype(str).values))
     
-    pred['year'] = (pred['year']-1900).astype(int)
-    fig401 = pred.head()
-    st.write(fig401)
+#     pred['year'] = (pred['year']-1900).astype(int)
+#     fig401 = pred.head()
+#     st.write(fig401)
 
-#     fig403 = linreg.predict(pred)    
-#     st.write(fig403)
+# #     fig403 = linreg.predict(pred)    
+# #     st.write(fig403)
 
 
 
