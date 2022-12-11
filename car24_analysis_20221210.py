@@ -396,123 +396,123 @@ with Graphical:
 
     
     
-# with Appendix:
-#     # *************************************************************
-#     # Accuracy List
-#     acc_train_r2 = []
-#     acc_test_r2 = []
-#     acc_train_d = []
-#     acc_test_d = []
-#     acc_train_rmse = []
-#     acc_test_rmse = []
+with Appendix:
+    # *************************************************************
+    # Accuracy List
+    acc_train_r2 = []
+    acc_test_r2 = []
+    acc_train_d = []
+    acc_test_d = []
+    acc_train_rmse = []
+    acc_test_rmse = []
 
-#     def acc_d(y_meas, y_pred):
-#         # Relative error between predicted y_pred and measured y_meas values (relative error also known as % error)
-#         return mean_absolute_error(y_meas, y_pred)*len(y_meas)/sum(abs(y_meas))
+    def acc_d(y_meas, y_pred):
+        # Relative error between predicted y_pred and measured y_meas values (relative error also known as % error)
+        return mean_absolute_error(y_meas, y_pred)*len(y_meas)/sum(abs(y_meas))
 
-#     def acc_rmse(y_meas, y_pred):
-#         # RMSE between predicted y_pred and measured y_meas values
-#         return (mean_squared_error(y_meas, y_pred))**0.5
+    def acc_rmse(y_meas, y_pred):
+        # RMSE between predicted y_pred and measured y_meas values
+        return (mean_squared_error(y_meas, y_pred))**0.5
 
-#     def acc_boosting_model(num,model,train,test,num_iteration=0):
-#         # Calculation of accuracy of boosting model by different metrics
+    def acc_boosting_model(num,model,train,test,num_iteration=0):
+        # Calculation of accuracy of boosting model by different metrics
 
-#         global acc_train_r2, acc_test_r2, acc_train_d, acc_test_d, acc_train_rmse, acc_test_rmse
+        global acc_train_r2, acc_test_r2, acc_train_d, acc_test_d, acc_train_rmse, acc_test_rmse
 
-#         if num_iteration > 0:
-#             ytrain = model.predict(train, num_iteration = num_iteration)  
-#             ytest = model.predict(test, num_iteration = num_iteration)
-#         else:
-#             ytrain = model.predict(train)  
-#             ytest = model.predict(test)
+        if num_iteration > 0:
+            ytrain = model.predict(train, num_iteration = num_iteration)  
+            ytest = model.predict(test, num_iteration = num_iteration)
+        else:
+            ytrain = model.predict(train)  
+            ytest = model.predict(test)
 
-#         print('target = ', targetb[:5].values)
-#         print('ytrain = ', ytrain[:5])
+        print('target = ', targetb[:5].values)
+        print('ytrain = ', ytrain[:5])
 
-#         acc_train_r2_num = round(r2_score(targetb, ytrain) * 100, 2)
-#         print('acc(r2_score) for train =', acc_train_r2_num)   
-#         acc_train_r2.insert(num, acc_train_r2_num)
+        acc_train_r2_num = round(r2_score(targetb, ytrain) * 100, 2)
+        print('acc(r2_score) for train =', acc_train_r2_num)   
+        acc_train_r2.insert(num, acc_train_r2_num)
 
-#         acc_train_d_num = round(acc_d(targetb, ytrain) * 100, 2)
-#         print('acc(relative error) for train =', acc_train_d_num)   
-#         acc_train_d.insert(num, acc_train_d_num)
+        acc_train_d_num = round(acc_d(targetb, ytrain) * 100, 2)
+        print('acc(relative error) for train =', acc_train_d_num)   
+        acc_train_d.insert(num, acc_train_d_num)
 
-#         acc_train_rmse_num = round(acc_rmse(targetb, ytrain) * 100, 2)
-#         print('acc(rmse) for train =', acc_train_rmse_num)   
-#         acc_train_rmse.insert(num, acc_train_rmse_num)
+        acc_train_rmse_num = round(acc_rmse(targetb, ytrain) * 100, 2)
+        print('acc(rmse) for train =', acc_train_rmse_num)   
+        acc_train_rmse.insert(num, acc_train_rmse_num)
 
-#         print('target_test =', target_testb[:5].values)
-#         print('ytest =', ytest[:5])
+        print('target_test =', target_testb[:5].values)
+        print('ytest =', ytest[:5])
 
-#         acc_test_r2_num = round(r2_score(target_testb, ytest) * 100, 2)
-#         print('acc(r2_score) for test =', acc_test_r2_num)
-#         acc_test_r2.insert(num, acc_test_r2_num)
+        acc_test_r2_num = round(r2_score(target_testb, ytest) * 100, 2)
+        print('acc(r2_score) for test =', acc_test_r2_num)
+        acc_test_r2.insert(num, acc_test_r2_num)
 
-#         acc_test_d_num = round(acc_d(target_testb, ytest) * 100, 2)
-#         print('acc(relative error) for test =', acc_test_d_num)
-#         acc_test_d.insert(num, acc_test_d_num)
+        acc_test_d_num = round(acc_d(target_testb, ytest) * 100, 2)
+        print('acc(relative error) for test =', acc_test_d_num)
+        acc_test_d.insert(num, acc_test_d_num)
 
-#         acc_test_rmse_num = round(acc_rmse(target_testb, ytest) * 100, 2)
-#         print('acc(rmse) for test =', acc_test_rmse_num)
-#         acc_test_rmse.insert(num, acc_test_rmse_num)
+        acc_test_rmse_num = round(acc_rmse(target_testb, ytest) * 100, 2)
+        print('acc(rmse) for test =', acc_test_rmse_num)
+        acc_test_rmse.insert(num, acc_test_rmse_num)
 
-#     def acc_model(num,model,train,test):
-#         # Calculation of accuracy of model Sklearn by different metrics   
+    def acc_model(num,model,train,test):
+        # Calculation of accuracy of model Sklearn by different metrics   
 
-#         global acc_train_r2, acc_test_r2, acc_train_d, acc_test_d, acc_train_rmse, acc_test_rmse
+        global acc_train_r2, acc_test_r2, acc_train_d, acc_test_d, acc_train_rmse, acc_test_rmse
 
-#         ytrain = model.predict(train)  
-#         ytest = model.predict(test)
+        ytrain = model.predict(train)  
+        ytest = model.predict(test)
 
-#         print('target = ', target[:5].values)
-#         print('ytrain = ', ytrain[:5])
+        print('target = ', target[:5].values)
+        print('ytrain = ', ytrain[:5])
 
-#         acc_train_r2_num = round(r2_score(target, ytrain) * 100, 2)
-#         print('acc(r2_score) for train =', acc_train_r2_num)   
-#         acc_train_r2.insert(num, acc_train_r2_num)
+        acc_train_r2_num = round(r2_score(target, ytrain) * 100, 2)
+        print('acc(r2_score) for train =', acc_train_r2_num)   
+        acc_train_r2.insert(num, acc_train_r2_num)
 
-#         acc_train_d_num = round(acc_d(target, ytrain) * 100, 2)
-#         print('acc(relative error) for train =', acc_train_d_num)   
-#         acc_train_d.insert(num, acc_train_d_num)
+        acc_train_d_num = round(acc_d(target, ytrain) * 100, 2)
+        print('acc(relative error) for train =', acc_train_d_num)   
+        acc_train_d.insert(num, acc_train_d_num)
 
-#         acc_train_rmse_num = round(acc_rmse(target, ytrain) * 100, 2)
-#         print('acc(rmse) for train =', acc_train_rmse_num)   
-#         acc_train_rmse.insert(num, acc_train_rmse_num)
+        acc_train_rmse_num = round(acc_rmse(target, ytrain) * 100, 2)
+        print('acc(rmse) for train =', acc_train_rmse_num)   
+        acc_train_rmse.insert(num, acc_train_rmse_num)
 
-#         print('target_test =', target_test[:5].values)
-#         print('ytest =', ytest[:5])
+        print('target_test =', target_test[:5].values)
+        print('ytest =', ytest[:5])
 
-#         acc_test_r2_num = round(r2_score(target_test, ytest) * 100, 2)
-#         print('acc(r2_score) for test =', acc_test_r2_num)
-#         acc_test_r2.insert(num, acc_test_r2_num)
+        acc_test_r2_num = round(r2_score(target_test, ytest) * 100, 2)
+        print('acc(r2_score) for test =', acc_test_r2_num)
+        acc_test_r2.insert(num, acc_test_r2_num)
 
-#         acc_test_d_num = round(acc_d(target_test, ytest) * 100, 2)
-#         print('acc(relative error) for test =', acc_test_d_num)
-#         acc_test_d.insert(num, acc_test_d_num)
+        acc_test_d_num = round(acc_d(target_test, ytest) * 100, 2)
+        print('acc(relative error) for test =', acc_test_d_num)
+        acc_test_d.insert(num, acc_test_d_num)
 
-#         acc_test_rmse_num = round(acc_rmse(target_test, ytest) * 100, 2)
-#         print('acc(rmse) for test =', acc_test_rmse_num)
-#         acc_test_rmse.insert(num, acc_test_rmse_num)
+        acc_test_rmse_num = round(acc_rmse(target_test, ytest) * 100, 2)
+        print('acc(rmse) for test =', acc_test_rmse_num)
+        acc_test_rmse.insert(num, acc_test_rmse_num)
 
-#     # *************************************************************
-#     """# Model Building
+    # *************************************************************
+    """# Model Building
 
-#     - Linear Regression
-#     - Support vector machine 
-#     - Linear SVR
-#     - MLPRegressor (Deep Learning)
-#     - Stochastic Gradient Descent
-#     - Decision Tree Regressor
-#     - Random Forest
-#     - XGB
-#     - LGBM
-#     - Gradient Boosting Regressor
-#     - Ridge Regressor
-#     - Bagging Regressor
-#     - ExtraTreesRegressor 
-#     - AdaBoost Regressor
-#     - Voting Regressor
-#     """
+    - Linear Regression
+    - Support vector machine 
+    - Linear SVR
+    - MLPRegressor (Deep Learning)
+    - Stochastic Gradient Descent
+    - Decision Tree Regressor
+    - Random Forest
+    - XGB
+    - LGBM
+    - Gradient Boosting Regressor
+    - Ridge Regressor
+    - Bagging Regressor
+    - ExtraTreesRegressor 
+    - AdaBoost Regressor
+    - Voting Regressor
+    """
 
 #     # Linear Regression
 #     linreg = LinearRegression()
