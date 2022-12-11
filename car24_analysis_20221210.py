@@ -35,6 +35,7 @@ warnings.filterwarnings("ignore")
 import requests
 import pandas as pd
 import streamlit as st
+from PIL import Image
 
 # Load Dataset *************************************************************
 url = 'https://github.com/uma0shubh/cars24_data/blob/main/cars24_20221210.csv?raw=true'
@@ -47,30 +48,18 @@ st.title("Car Price Prediction")
 Prediction, Graphical, Appendix = st.tabs(["Prediction","Graphical Interface","Appendix"])
 # st.header(options)
 
-def add_logo():
-    st.markdown(
-        """
-        <style>
-            [data-testid="stSidebarNav"] {
-                background-image: url(https://www.cars24.com/js/28776e9c38260ac3339c3babe6171dd0.svg);
-                background-repeat: no-repeat;
-                padding-top: 120px;
-                background-position: 20px 20px;
-            }
-            [data-testid="stSidebarNav"]::before {
-                content: "Car Price Prediction";
-                margin-left: 20px;
-                margin-top: 20px;
-                font-size: 30px;
-                position: relative;
-                top: 100px;
-            }
-        </style>
-        """,
-        unsafe_allow_html=True,
-    )
+st.sidebar.image(add_logo(logo_path="https://www.cars24.com/js/28776e9c38260ac3339c3babe6171dd0.svg", width=50, height=60))
+
+# def add_logo(logo_path, width, height):
+#     """Read and return a resized logo"""
+#     logo = Image.open(logo_path)
+#     modified_logo = logo.resize((width, height))
+#     return modified_logo
+
+# my_logo = add_logo(logo_path="your/logo/path", width=50, height=60)
+# st.sidebar.image(my_logo)
     
-add_logo()
+# add_logo()
 
 # Data Filter *****************************************************************
 cars = {
