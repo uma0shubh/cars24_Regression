@@ -496,7 +496,7 @@ def acc_model(num,model,train,test):
     acc_model(14,Voting_Reg,train,test)
 
     # *************************************************************
-    """# Models comparison"""
+    # Models comparison
     models = pd.DataFrame({
         'Model': ['Linear Regression', 'Support Vector Machines', 'Linear SVR', 'Stochastic Gradient Decent', 
                   'Decision Tree Regressor', 'Random Forest',  'XGB', 'LGBM','RidgeRegressor', 'BaggingRegressor', 'ExtraTreesRegressor',
@@ -555,34 +555,7 @@ def acc_model(num,model,train,test):
     plt.show()
 #     st.write(fig201)
 
-    """Thus, the best model is Linear Regression."""
-
-# #     # *************************************************************
-# #     # Prediction
-# #     #For models from Sklearn
-# #     testn = pd.DataFrame(scaler.transform(test0), columns = test0.columns)
-
-# #     #Ridge Regressor model for basic train
-# #     ridge.fit(train0, train_target0)
-# #     #ridge.predict(testn)[:3]
-
-# #     #xgb model for basic train
-# #     xgb_reg.fit(train0, train_target0)
-# #     #xgb_reg.predict(testn)[:3]
-
-# #     #Ada_Boost  model for basic train
-# #     Ada_Boost.fit(train0, train_target0)
-# #     #Ada_Boost.predict(testn)[:3]
-
-# #     #Voting Regressor model for basic train
-# #     Voting_Reg.fit(train0, train_target0)
-# #     #Voting_Reg.predict(testn)[:3]
-
-# #     #svr model for basic train
-# #     svr.fit(train0, train_target0)
-# #     #svr.predict(testn)[:3]
-
-
+    
 
 
 with Appendix:
@@ -610,9 +583,13 @@ with Appendix:
     - Voting Regressor
     """
     
+    """# Models comparison"""
+    
     st.write(fig200)
     
     st.write(fig201)
+    
+    """Thus, the best model is Linear Regression."""
     
 
     
