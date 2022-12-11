@@ -520,6 +520,10 @@ with Appendix:
     linreg = LinearRegression()
     linreg.fit(train, target)
     acc_model(0,linreg,train,test)
+    
+    
+    fig600 = linreg.predict(pred_final)
+    st.write(fig600)
 
 # #     # Support vector machine
 # #     svr = SVR()
