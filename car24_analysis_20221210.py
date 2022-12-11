@@ -1,21 +1,16 @@
-# -*- coding: utf-8 -*-
-
 # Import Libraries *************************************************************
 import seaborn as sns
 sns.set()
 import matplotlib.pyplot as plt
-# %matplotlib inline
 import numpy as np
 import sklearn as skt
 import plotly
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
-# preprocessing
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.model_selection import train_test_split, cross_val_score, GridSearchCV, StratifiedKFold
 import pandas_profiling as pp
-# models
 from sklearn.linear_model import LinearRegression, SGDRegressor, RidgeCV
 from sklearn.svm import SVR, LinearSVR
 from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor, ExtraTreesRegressor 
@@ -28,7 +23,6 @@ from sklearn import metrics
 from sklearn.metrics import r2_score, mean_absolute_error, mean_squared_error
 import xgboost as xgb
 import lightgbm as lgb
-# model tuning
 from hyperopt import STATUS_OK, Trials, fmin, hp, tpe, space_eval
 import warnings
 warnings.filterwarnings("ignore")
@@ -37,9 +31,11 @@ import pandas as pd
 import streamlit as st
 from PIL import Image
 
+
 # Load Dataset *************************************************************
 url = 'https://github.com/uma0shubh/cars24_data/blob/main/cars24_20221210.csv?raw=true'
 df = pd.read_csv(url)
+
 
 # Page Setup *************************************************************
 st.set_page_config(layout="wide")
@@ -59,6 +55,7 @@ Prediction, Graphical, Appendix, AboutUs, ContactUs = st.tabs(["Prediction","Gra
 # st.sidebar.image(my_logo)
     
 # add_logo()
+
 
 with Appendix:
     # Checking duplicates *************************************************************
