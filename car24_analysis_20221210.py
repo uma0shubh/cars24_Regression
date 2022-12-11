@@ -42,7 +42,6 @@ st.set_page_config(layout="wide")
 
 #https://github.com/uma0shubh/cars24_data/blob/main/background1.jpeg
 
-[theme]
 primaryColor="#6eb52f"
 backgroundColor="#f0f0f5"
 secondaryBackgroundColor="#e0e0ef"
