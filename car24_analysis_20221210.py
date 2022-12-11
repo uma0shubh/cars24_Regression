@@ -42,6 +42,9 @@ st.set_page_config(layout="wide")
 
 #https://github.com/uma0shubh/cars24_data/blob/main/background1.jpeg
 
+#st.image("https://scontent.fdel3-3.fna.fbcdn.net/v/t39.30808-6/304085798_456928279786631_7564844763627760843_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=rXhgP1_yNeoAX_4leNq&_nc_ht=scontent.fdel3-3.fna&oh=00_AfBwFN6l0LaVG5WZb1OqSQ2GamOuMsY_Cx1hnB8rsxB40w&oe=639A2764", width=100)
+st.image("data:image/png;base64,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", width=100)
+
 # def add_bg_from_url():
 #     st.markdown(
 #          f"""
@@ -59,14 +62,28 @@ st.set_page_config(layout="wide")
 
 # add_bg_from_url()
 
-st.image("data:image/png;base64,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", width=100)
-st.markdown("<h1 style='text-align: center; color: black;'>Car Price Prediction</h1>", unsafe_allow_html=True)
+
+
+
+title_alignment="""<style>#st.title("Car Price Prediction") {text-align: center}</style>"""
+st.markdown(title_alignment, unsafe_allow_html=True)
 
 #st.title("Car Price Prediction")
 # options = st.sidebar.selectbox("Select Analyzing options:", options= ("Prediction","Data Analysis","Graphical Interface"))
 Prediction, Graphical, Appendix, AboutUs, ContactUs = st.tabs(["Prediction","Graphical Interface","Appendix","About Us","Contact Us"])
 # st.header(options)
 
+# def add_logo(logo_path, width, height):
+#     """Read and return a resized logo"""
+#     logo = Image.open(logo_path)
+#     modified_logo = logo.resize((width, height))
+#     return modified_logo
+# #st.sidebar.image(add_logo(logo_path="https://www.cars24.com/js/28776e9c38260ac3339c3babe6171dd0.svg", width=50, height=60))
+
+# my_logo = add_logo(logo_path="https://github.com/uma0shubh/cars24_data/blob/main/excelr_logo.jpg?raw=true", width=50, height=60)
+# st.sidebar.image(my_logo)
+    
+# add_logo()
 
 
 with Appendix:
@@ -81,6 +98,8 @@ with Appendix:
 
     # Data Pre-processing
     """# Missing Values"""
+    df1.isnull().sum()
+    sns.heatmap(df1.isnull(),cbar=False,cmap='viridis')
     df1.dropna(inplace=True)
     df1.isnull().sum()
 
@@ -96,98 +115,7 @@ with Appendix:
     """# Descriptive statistics"""
     fig102 = df1.describe(include = 'all')
     st.write(fig102)
-
-
-
-
-# *********************************************
-with Prediction:
-    left_column,mid1_column,mid2_column,right_column = st.columns(4)
-    def user_input():
-        with left_column:
-            year = st.selectbox("Year:",options = sorted(df1["year"].unique()))
-            fueltype = st.selectbox("Fuel Type:", options=sorted(df1["fueltype"].unique()))
-            bodytype = st.selectbox("Body Type:", options=sorted(df1["bodytype"].unique()))
-
-        with mid1_column:
-            brand = st.selectbox("Car Name:",options = sorted(df1["make"].unique()))
-            kilometerdriven = st.number_input("Enter Km Driven:")
-            discountprice = st.number_input("Enter Discount Price:")
-
-        model_name = ""
-        if brand == "Audi":
-            model_name = cars.get("Audi")
-        elif brand == "Bmw":
-            model_name = cars.get("Bmw")
-        elif brand == "Datsun":
-            model_name = cars.get("Datsun")
-        elif brand == "Fiat":
-            model_name = cars.get("Fiat")
-        elif brand == "Ford":
-            model_name = cars.get("Ford")
-        elif brand == "Honda":
-            model_name = cars.get("Honda")
-        elif brand == "Hyundai":
-            model_name = cars.get("Hyundai")
-        elif brand == "Jaguar":
-            model_name = cars.get("Jaguar")
-        elif brand == "Jeep":
-            model_name = cars.get("Jeep")
-        elif brand == "Kia":
-            model_name = cars.get("Kia")
-        elif brand == "Mahindra":
-            model_name = cars.get("Mahindra")
-        elif brand == "Maruti":
-            model_name = cars.get("Maruti")
-        elif brand == "Mercedes Benz":
-            model_name = cars.get("Mercedes Benz")
-        elif brand == "Mg":
-            model_name = cars.get("Mg")
-        elif brand == "Nissan":
-            model_name = cars.get("Nissan")
-        elif brand == "Renault":
-            model_name = cars.get("Renault")
-        elif brand == "Skoda":
-            model_name = cars.get("Skoda")
-        elif brand == "Tata":
-            model_name = cars.get("Tata")
-        elif brand == "Toyota":
-            model_name = cars.get("Toyota")
-        elif brand == "Volkswagen":
-            model_name = cars.get("Volkswagen")        
-
-        with mid2_column:
-            model = st.selectbox("Model Name:", options=model_name)
-            transmission = st.selectbox("Transmission:", options=sorted(df1["transmission"].unique()))
-            benefits = st.number_input("Enter Benefits:")
-
-        with right_column:
-            city = st.selectbox("City:", options=sorted(df1["city"].unique()))
-            ownernumber = st.selectbox("Owner Number:", options=sorted(df1["ownernumber"].unique()))
-
-        new_data = {"make":brand,
-                "model":model,
-                "city":city,
-                "year":year,
-                "fueltype":fueltype,
-                "kilometerdriven":kilometerdriven,
-                "ownernumber":ownernumber,
-                "transmission":transmission,
-                "bodytype":bodytype,
-                "benefits":benefits,
-                "discountprice":discountprice
-                }
-
-        features = pd.DataFrame(new_data,index = [0])
-        return features
-
-    button = st.button("Predict Price")
-#     pred = user_input()
-#     st.write(pred)
     
-
-
-with Appendix:
     # *************************************************************
     # Label Encoding
     df7 = df1.copy(deep=True)
@@ -358,6 +286,227 @@ with Appendix:
     linreg = LinearRegression()
     linreg.fit(train, target)
     acc_model(0,linreg,train,test)
+
+#     # Support vector machine
+#     svr = SVR()
+#     svr.fit(train, target)
+#     acc_model(1,svr,train,test)
+
+#     # Linear SVR
+#     linear_svr = LinearSVR()
+#     linear_svr.fit(train, target)
+#     acc_model(2,linear_svr,train,test)
+
+# #     # MLPRegressor
+# #     mlp = MLPRegressor()
+# #     param_grid = {'hidden_layer_sizes': [i for i in range(2,20)],
+# #                   'activation': ['relu'],
+# #                   'solver': ['adam'],
+# #                   'learning_rate': ['constant'],
+# #                   'learning_rate_init': [0.01],
+# #                   'power_t': [0.5],
+# #                   'alpha': [0.0001],
+# #                   'max_iter': [1000],
+# #                   'early_stopping': [True],
+# #                   'warm_start': [False]}
+# #     mlp_GS = GridSearchCV(mlp, param_grid=param_grid, 
+# #                        cv=10, verbose=True, pre_dispatch='2*n_jobs')
+# #     mlp_GS.fit(train, target)
+# #     acc_model(3,mlp_GS,train,test)
+
+#     # Stochastic Gradient Descent
+#     sgd = SGDRegressor()
+#     sgd.fit(train, target)
+#     acc_model(4,sgd,train,test)
+
+#     # Decision Tree Regressor
+#     decision_tree = DecisionTreeRegressor()
+#     decision_tree.fit(train, target)
+#     acc_model(5,decision_tree,train,test)
+
+#     # Random Forest
+#     random_forest = RandomForestRegressor()
+#     random_forest.fit(train, target)
+#     acc_model(6,random_forest,train,test)
+
+#     # XGB
+#     xgb_clf = xgb.XGBRegressor(objective ='reg:squarederror', verbosity = 0, silent=True, random_state=42) 
+#     parameters = {'n_estimators': [60, 100, 120, 140], 
+#                   'learning_rate': [0.01, 0.1],
+#                   'max_depth': [5, 7],
+#                   'reg_lambda': [0.5]}
+#     xgb_reg = GridSearchCV(estimator=xgb_clf, param_grid=parameters, cv=5, n_jobs=-1).fit(trainb, targetb)
+#     print("Best score: %0.3f" % xgb_reg.best_score_)
+#     print("Best parameters set:", xgb_reg.best_params_)
+#     acc_boosting_model(7,xgb_reg,trainb,testb)
+
+#     # LGBM
+#     Xtrain, Xval, Ztrain, Zval = train_test_split(trainb, targetb, test_size=0.2, random_state=0)
+#     train_set = lgb.Dataset(Xtrain, Ztrain, silent=False)
+#     valid_set = lgb.Dataset(Xval, Zval, silent=False)
+#     params = {
+#             'boosting_type':'gbdt',
+#             'objective': 'regression',
+#             'num_leaves': 31,
+#             'learning_rate': 0.01,
+#             'max_depth': -1,
+#             'subsample': 0.8,
+#             'bagging_fraction' : 1,
+#             'max_bin' : 5000 ,
+#             'bagging_freq': 20,
+#             'colsample_bytree': 0.6,
+#             'metric': 'rmse',
+#             'min_split_gain': 0.5,
+#             'min_child_weight': 1,
+#             'min_child_samples': 10,
+#             'scale_pos_weight':1,
+#             'zero_as_missing': False,
+#             'seed':0,        
+#         }
+#     modelL = lgb.train(params, train_set = train_set, num_boost_round=10000,
+#                        early_stopping_rounds=8000,verbose_eval=500, valid_sets=valid_set)
+
+#     acc_boosting_model(8,modelL,trainb,testb,modelL.best_iteration)
+
+#     fig =  plt.figure(figsize = (5,5))
+#     axes = fig.add_subplot(111)
+#     lgb.plot_importance(modelL,ax = axes,height = 0.5)
+#     plt.show();
+
+# #     # GradientBoostingRegressor with HyperOpt
+# #     def hyperopt_gb_score(params):
+# #         clf = GradientBoostingRegressor(**params)
+# #         current_score = cross_val_score(clf, train, target, cv=10).mean()
+# #         print(current_score, params)
+# #         return current_score 
+
+# #     space_gb = {
+# #                 'n_estimators': hp.choice('n_estimators', range(100, 1000)),
+# #                 'max_depth': hp.choice('max_depth', np.arange(2, 10, dtype=int))            
+# #             }
+
+# #     best = fmin(fn=hyperopt_gb_score, space=space_gb, algo=tpe.suggest, max_evals=10)
+# #     print('best:')
+# #     print(best)
+
+# #     params = space_eval(space_gb, best)
+
+# #     # Gradient Boosting Regression
+# #     gradient_boosting = GradientBoostingRegressor(**params)
+# #     gradient_boosting.fit(train, target)
+# #     acc_model(9,gradient_boosting,train,test)
+
+#     # Ridge Regressor
+#     ridge = RidgeCV(cv=5)
+#     ridge.fit(train, target)
+#     acc_model(10,ridge,train,test)
+
+#     # Bagging Regressor
+#     bagging = BaggingRegressor()
+#     bagging.fit(train, target)
+#     acc_model(11,bagging,train,test)
+
+#     # Extra Trees Regressor
+#     etr = ExtraTreesRegressor()
+#     etr.fit(train, target)
+#     acc_model(12,etr,train,test)
+
+#     # AdaBoost Regressor
+#     Ada_Boost = AdaBoostRegressor()
+#     Ada_Boost.fit(train, target)
+#     acc_model(13,Ada_Boost,train,test)
+
+#     # Voting Regressor
+#     Voting_Reg = VotingRegressor(estimators=[('lin', linreg), ('ridge', ridge), ('sgd', sgd)])
+#     Voting_Reg.fit(train, target)
+#     acc_model(14,Voting_Reg,train,test)
+
+#     # *************************************************************
+#     """# Models comparison"""
+#     models = pd.DataFrame({
+#         'Model': ['Linear Regression', 'Support Vector Machines', 'Linear SVR', 'Stochastic Gradient Decent', 
+#                   'Decision Tree Regressor', 'Random Forest',  'XGB', 'LGBM','RidgeRegressor', 'BaggingRegressor', 'ExtraTreesRegressor',
+#                   'AdaBoostRegressor', 'VotingRegressor'],
+        
+# #         'Model': ['Linear Regression', 'Support Vector Machines', 'Linear SVR', 
+# #                   'MLPRegressor', 'Stochastic Gradient Decent', 
+# #                   'Decision Tree Regressor', 'Random Forest',  'XGB', 'LGBM',
+# #                   'GradientBoostingRegressor', 'RidgeRegressor', 'BaggingRegressor', 'ExtraTreesRegressor', 
+# #                   'AdaBoostRegressor', 'VotingRegressor'],
+        
+#         'r2_train': acc_train_r2,
+#         'r2_test': acc_test_r2,
+#         'd_train': acc_train_d,
+#         'd_test': acc_test_d,
+#         'rmse_train': acc_train_rmse,
+#         'rmse_test': acc_test_rmse
+#                          })
+
+#     pd.options.display.float_format = '{:,.2f}'.format
+
+#     print('Prediction accuracy for models by R2 criterion - r2_test')
+#     models.sort_values(by=['r2_test', 'r2_train'], ascending=False)
+
+#     print('Prediction accuracy for models by RMSE - rmse_test')
+#     models.sort_values(by=['rmse_test', 'rmse_train'], ascending=True)
+
+#     # Model Output - Visualization
+#     # Plot
+#     fig200 = plt.figure(figsize=[20,8])
+#     xx = models['Model']
+#     plt.tick_params(labelsize=14)
+#     plt.plot(xx, models['r2_train'], label = 'r2_train')
+#     plt.plot(xx, models['r2_test'], label = 'r2_test')
+#     plt.legend()
+#     plt.title('R2-criterion for 15 popular models for train and test datasets')
+#     plt.xlabel('Models')
+#     plt.ylabel('R2-criterion, %')
+#     plt.xticks(xx, rotation='vertical')
+#     plt.savefig('graph.png')
+#     plt.show()
+#     st.write(fig200)
+
+#     # Plot
+#     fig201 = plt.figure(figsize=[20,8])
+#     xx = models['Model']
+#     plt.tick_params(labelsize=14)
+#     plt.plot(xx, models['rmse_train'], label = 'rmse_train')
+#     plt.plot(xx, models['rmse_test'], label = 'rmse_test')
+#     plt.legend()
+#     plt.title('RMSE for 15 popular models for train and test datasets')
+#     plt.xlabel('Models')
+#     plt.ylabel('RMSE, %')
+#     plt.xticks(xx, rotation='vertical')
+#     plt.savefig('graph.png')
+#     plt.show()
+#     st.write(fig201)
+
+#     """Thus, the best model is Linear Regression."""
+
+#     # *************************************************************
+#     # Prediction
+#     #For models from Sklearn
+#     testn = pd.DataFrame(scaler.transform(test0), columns = test0.columns)
+
+#     #Ridge Regressor model for basic train
+#     ridge.fit(train0, train_target0)
+#     #ridge.predict(testn)[:3]
+
+#     #xgb model for basic train
+#     xgb_reg.fit(train0, train_target0)
+#     #xgb_reg.predict(testn)[:3]
+
+#     #Ada_Boost  model for basic train
+#     Ada_Boost.fit(train0, train_target0)
+#     #Ada_Boost.predict(testn)[:3]
+
+#     #Voting Regressor model for basic train
+#     Voting_Reg.fit(train0, train_target0)
+#     #Voting_Reg.predict(testn)[:3]
+
+#     #svr model for basic train
+#     svr.fit(train0, train_target0)
+#     #svr.predict(testn)[:3]
 
 
 with Graphical:
@@ -552,31 +701,128 @@ cars = {
 
 
 # *****************************************************************
+with Prediction:
+    left_column,mid1_column,mid2_column,right_column = st.columns(4)
+    def user_input():
+        with left_column:
+            year = st.selectbox("Year:",options = sorted(df1["year"].unique()))
+            fueltype = st.selectbox("Fuel Type:", options=sorted(df1["fueltype"].unique()))
+            bodytype = st.selectbox("Body Type:", options=sorted(df1["bodytype"].unique()))
 
-    
-# #     fig400 = pred.head()
-#     st.write(pred)
-    
-#     numerics = ['int8', 'int16', 'int32', 'int64', 'float16', 'float32', 'float64']
-#     categorical_columns = []
-#     features = pred.columns.values.tolist()
-#     for col in features:
-#         if pred[col].dtype in numerics: continue
-#         categorical_columns.append(col)
-#     # Encoding categorical features
-#     for col in categorical_columns:
-#         if col in pred.columns:
-#             le = LabelEncoder()
-#             le.fit(list(pred[col].astype(str).values))
-#             pred[col] = le.transform(list(pred[col].astype(str).values))
-    
-#     pred['year'] = (pred['year']-1900).astype(int)
-#     fig401 = pred.head()
-#     st.write(fig401)
+        with mid1_column:
+            brand = st.selectbox("Car Name:",options = sorted(df1["make"].unique()))
+            kilometerdriven = st.number_input("Enter Km Driven:")
+            discountprice = st.number_input("Enter Discount Price:")
 
-# #     fig403 = linreg.predict(pred)    
-# #     st.write(fig403)
+        model_name = ""
+        if brand == "Audi":
+            model_name = cars.get("Audi")
+        elif brand == "Bmw":
+            model_name = cars.get("Bmw")
+        elif brand == "Datsun":
+            model_name = cars.get("Datsun")
+        elif brand == "Fiat":
+            model_name = cars.get("Fiat")
+        elif brand == "Ford":
+            model_name = cars.get("Ford")
+        elif brand == "Honda":
+            model_name = cars.get("Honda")
+        elif brand == "Hyundai":
+            model_name = cars.get("Hyundai")
+        elif brand == "Jaguar":
+            model_name = cars.get("Jaguar")
+        elif brand == "Jeep":
+            model_name = cars.get("Jeep")
+        elif brand == "Kia":
+            model_name = cars.get("Kia")
+        elif brand == "Mahindra":
+            model_name = cars.get("Mahindra")
+        elif brand == "Maruti":
+            model_name = cars.get("Maruti")
+        elif brand == "Mercedes Benz":
+            model_name = cars.get("Mercedes Benz")
+        elif brand == "Mg":
+            model_name = cars.get("Mg")
+        elif brand == "Nissan":
+            model_name = cars.get("Nissan")
+        elif brand == "Renault":
+            model_name = cars.get("Renault")
+        elif brand == "Skoda":
+            model_name = cars.get("Skoda")
+        elif brand == "Tata":
+            model_name = cars.get("Tata")
+        elif brand == "Toyota":
+            model_name = cars.get("Toyota")
+        elif brand == "Volkswagen":
+            model_name = cars.get("Volkswagen")        
 
+        with mid2_column:
+            model = st.selectbox("Model Name:", options=model_name)
+            transmission = st.selectbox("Transmission:", options=sorted(df1["transmission"].unique()))
+            benefits = st.number_input("Enter Benefits:")
+
+        with right_column:
+            city = st.selectbox("City:", options=sorted(df1["city"].unique()))
+            ownernumber = st.selectbox("Owner Number:", options=sorted(df1["ownernumber"].unique()))
+
+        new_data = {"make":brand,
+                "model":model,
+                "city":city,
+                "year":year,
+                "fueltype":fueltype,
+                "kilometerdriven":kilometerdriven,
+                "ownernumber":ownernumber,
+                "transmission":transmission,
+                "bodytype":bodytype,
+                "benefits":benefits,
+                "discountprice":discountprice
+                }
+
+        features = pd.DataFrame(new_data,index = [0])
+        return features
+
+    button = st.button("Predict Price")
+    pred = user_input()
+    
+    fig400 = pred.head()
+    st.write(fig400)
+    
+    numerics = ['int8', 'int16', 'int32', 'int64', 'float16', 'float32', 'float64']
+    categorical_columns = []
+    features = pred.columns.values.tolist()
+    for col in features:
+        if pred[col].dtype in numerics: continue
+        categorical_columns.append(col)
+    # Encoding categorical features
+    for col in categorical_columns:
+        if col in pred.columns:
+            le = LabelEncoder()
+            le.fit(list(pred[col].astype(str).values))
+            pred[col] = le.transform(list(pred[col].astype(str).values))
+    
+    pred['year'] = (pred['year']-1900).astype(int)
+    fig401 = pred.head()
+    st.write(fig401)
+    
+#     scaler = StandardScaler()
+#     pred_trans = pd.DataFrame(scaler.transform(pred), columns = pred.columns)
+#     fig402 = pred_trans.head()
+#     st.write(fig402)
+
+#     fig403 = linreg.predict(pred)    
+#     st.write(fig403)
+
+#     model=pickle.load(open('model_linear.pkl','rb'))
+
+#     prediction = model.predict(df)
+#     pred = np.round(prediction,2)
+#     predic = abs(pred)
+#     predict = str(predic).lstrip('[').rstrip(']')
+#     button_clicked = False
+
+#     if button:
+#         button_clicked = True
+#         st.subheader(f"Car Price: ₹{predict}")
 
 
 
