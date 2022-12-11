@@ -108,7 +108,7 @@ with Appendix:
     """# Missing Values"""
 #     df1.isnull().sum()
 #     sns.heatmap(df1.isnull(),cbar=False,cmap='viridis')
-#     df1.dropna(inplace=True)
+    df1.dropna(inplace=True)
 #     df1.isnull().sum()
 
 #     fig101 = plt.figure(figsize=(8,4))
