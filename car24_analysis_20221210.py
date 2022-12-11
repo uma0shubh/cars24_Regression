@@ -383,10 +383,10 @@ with Appendix:
 
 #     params = space_eval(space_gb, best)
 
-    # Gradient Boosting Regression
-    gradient_boosting = GradientBoostingRegressor(**params)
-    gradient_boosting.fit(train, target)
-    acc_model(9,gradient_boosting,train,test)
+#     # Gradient Boosting Regression
+#     gradient_boosting = GradientBoostingRegressor(**params)
+#     gradient_boosting.fit(train, target)
+#     acc_model(9,gradient_boosting,train,test)
 
     # Ridge Regressor
     ridge = RidgeCV(cv=5)
