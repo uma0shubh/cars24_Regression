@@ -783,13 +783,8 @@ with Prediction:
 #     fig402 = pred_trans.head()
 #     st.write(fig402)
 
-    fig403 = linreg.predict(pred)    
-    st.write(fig403)
-    
-with AboutUs:
-    """ # Thanks """
-    
-    
+#     fig403 = linreg.predict(pred)    
+#     st.write(fig403)
 
 #     model=pickle.load(open('model_linear.pkl','rb'))
 
