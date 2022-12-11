@@ -415,7 +415,7 @@ with Appendix:
 
     # *************************************************************
     """# Models comparison"""
-    models = pd.DataFrame({
+#     models = pd.DataFrame({
 #         'Model': ['Linear Regression', 'Support Vector Machines', 'Linear SVR', 
 #                   'MLPRegressor', 'Stochastic Gradient Decent', 
 #                   'Decision Tree Regressor', 'Random Forest',  'XGB', 'LGBM',
