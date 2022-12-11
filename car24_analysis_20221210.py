@@ -42,11 +42,7 @@ st.set_page_config(layout="wide")
 
 #https://github.com/uma0shubh/cars24_data/blob/main/background1.jpeg
 
-primaryColor="#6eb52f"
-backgroundColor="#f0f0f5"
-secondaryBackgroundColor="#e0e0ef"
-textColor="#262730"
-font="sans serif"
+st.image("https://www.carlogos.org/car-logos/tesla-logo-2200x2800-show.png", width=100)
 
 # def add_bg_from_url():
 #     st.markdown(
