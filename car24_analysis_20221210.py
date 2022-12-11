@@ -680,6 +680,7 @@ with ContactUs:
     """
                                                     
 with Prediction:
+    left_column,right_column = st.columns(2)
     def user_input():
         with right_column:
             brand = st.selectbox("Car Name:",options = sorted(df["make"].unique()))
@@ -752,17 +753,17 @@ with Prediction:
         return features
 
     button = st.button("Predict Price")
-    df = user_input()
+#     df = user_input()
 
-    model=pickle.load(open('model_linear.pkl','rb'))
+#     model=pickle.load(open('model_linear.pkl','rb'))
 
-    prediction = model.predict(df)
-    pred = np.round(prediction,2)
-    predic = abs(pred)
-    predict = str(predic).lstrip('[').rstrip(']')
-    button_clicked = False
+#     prediction = model.predict(df)
+#     pred = np.round(prediction,2)
+#     predic = abs(pred)
+#     predict = str(predic).lstrip('[').rstrip(']')
+#     button_clicked = False
 
-    if button:
-        button_clicked = True
-        st.subheader(f"Car Price: ₹{predict}")
+#     if button:
+#         button_clicked = True
+#         st.subheader(f"Car Price: ₹{predict}")
 
