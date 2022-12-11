@@ -772,10 +772,10 @@ with Prediction:
     fig401 = pred.head()
     st.write(fig401)
     
-#     scaler = StandardScaler()
-#     pred_trans = pd.DataFrame(scaler.transform(pred), columns = pred.columns)
-#     fig401 = pred_trans.head()
-#     st.write(fig402)
+    scaler = StandardScaler()
+    pred_trans = pd.DataFrame(scaler.transform(pred), columns = pred.columns)
+    fig401 = pred_trans.head()
+    st.write(fig402)
     
 with AboutUs:
     """ # Thanks """
