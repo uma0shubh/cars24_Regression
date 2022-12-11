@@ -45,20 +45,20 @@ df = pd.read_csv(url)
 st.set_page_config(layout="wide")
 st.title("Car Price Prediction")
 # options = st.sidebar.selectbox("Select Analyzing options:", options= ("Prediction","Data Analysis","Graphical Interface"))
-Prediction, Graphical, Appendix = st.tabs(["Prediction","Graphical Interface","Appendix"])
+Prediction, Graphical, Appendix, AboutUs = st.tabs(["Prediction","Graphical Interface","Appendix","About Us])
 # st.header(options)
 
-def add_logo(logo_path, width, height):
-    """Read and return a resized logo"""
-    logo = Image.open(logo_path)
-    modified_logo = logo.resize((width, height))
-    return modified_logo
-#st.sidebar.image(add_logo(logo_path="https://www.cars24.com/js/28776e9c38260ac3339c3babe6171dd0.svg", width=50, height=60))
+# def add_logo(logo_path, width, height):
+#     """Read and return a resized logo"""
+#     logo = Image.open(logo_path)
+#     modified_logo = logo.resize((width, height))
+#     return modified_logo
+# #st.sidebar.image(add_logo(logo_path="https://www.cars24.com/js/28776e9c38260ac3339c3babe6171dd0.svg", width=50, height=60))
 
-my_logo = add_logo(logo_path="https://github.com/uma0shubh/cars24_data/blob/main/excelr_logo.jpg?raw=true", width=50, height=60)
-st.sidebar.image(my_logo)
+# my_logo = add_logo(logo_path="https://github.com/uma0shubh/cars24_data/blob/main/excelr_logo.jpg?raw=true", width=50, height=60)
+# st.sidebar.image(my_logo)
     
-add_logo()
+# add_logo()
 
 # Data Filter *****************************************************************
 cars = {
@@ -634,11 +634,18 @@ with Graphical:
     fig308 = plt.figure(figsize=(15,10))
     sns.heatmap(df8.corr(),annot=True,cmap='RdYlGn')
     st.write(fig308)
+                                                    
+                                                    
+with AboutUs:
+    """# Cars 24 """
+    """# Contact Us """
+    """# Study Material """
+                                                    
+    
+                                                    
     
     
     
-
-
 # left_column,right_column= st.columns(2)
 # if options == "Prediction":
 #     def user_input():
