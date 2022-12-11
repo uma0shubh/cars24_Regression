@@ -61,7 +61,7 @@ st.image("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASsAAACoCAMAAACPKThEAAAA
 
 # add_bg_from_url()
 
-st.markdown("<h1 style='text-align: center; color: black;'>Car Price Prediction</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: black;'>CAR PRICE PREDICTION</h1>", unsafe_allow_html=True)
 
 #st.title("Car Price Prediction")
 # options = st.sidebar.selectbox("Select Analyzing options:", options= ("Prediction","Data Analysis","Graphical Interface"))
