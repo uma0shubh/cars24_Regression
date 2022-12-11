@@ -545,8 +545,8 @@ with Prediction:
     button = st.button("Predict Price")
     pred = user_input()
     
-    fig400 = pred.head()
-    st.write(fig400)
+#     fig400 = pred.head()
+    st.write(pred)
     
     numerics = ['int8', 'int16', 'int32', 'int64', 'float16', 'float32', 'float64']
     categorical_columns = []
