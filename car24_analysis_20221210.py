@@ -243,6 +243,7 @@ with Appendix:
     pred_final = pred_final.iloc[:-1]
     pred_final = np.array(pred_final).reshape(1, -1)
     df8 = df7.iloc[:-1]
+    df9 = df8.copy(deep=True)
     
 
     # *************************************************************
@@ -518,7 +519,7 @@ with Appendix:
 
     # Linear Regression
     linreg = LinearRegression()
-    linreg.fit(df8.iloc[:,:-1], df8['price'])
+    linreg.fit(df9.iloc[:,:-1], df9['price'])
 #     acc_model(0,linreg,train,test)
     
     
