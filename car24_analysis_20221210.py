@@ -761,6 +761,19 @@ with Prediction:
     fig400 = pred.head()
     st.write(fig400)
     
+    numerics = ['int8', 'int16', 'int32', 'int64', 'float16', 'float32', 'float64']
+    categorical_columns = []
+    features = pred.columns.values.tolist()
+    for col in features:
+        if pred[col].dtype in numerics: continue
+        categorical_columns.append(col)
+    # Encoding categorical features
+    for col in categorical_columns:
+        if col in pred.columns:
+            le = LabelEncoder()
+            le.fit(list(pred[col].astype(str).values))
+            pred[col] = le.transform(list(pred[col].astype(str).values))
+    
     pred['year'] = (pred['year']-1900).astype(int)
     fig401 = pred.head()
     st.write(fig401)
