@@ -671,7 +671,7 @@ with AboutUs:
     
     # Study Material
     https://github.com/uma0shubh/cars24_data
-    https://github.com/uma0shubh/cars24_Regression/edit/main/car24_analysis_20221210.py
+    https://github.com/uma0shubh/cars24_Regression
     """
                                                     
     
