@@ -679,7 +679,7 @@ with ContactUs:
     https://github.com/uma0shubh/cars24_Regression
     """
                                                     
-with prediction:
+with Prediction:
     def user_input():
         with right_column:
             brand = st.selectbox("Car Name:",options = sorted(df["make"].unique()))
