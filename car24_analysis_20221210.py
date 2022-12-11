@@ -237,7 +237,7 @@ with Appendix:
 
     df7['year'] = (df7['year']-1900).astype(int)
 
-    df8= df7.drop(['name','storename','isc24assured','registrationcity','url','registrationstate','createdDate'], axis = 1)
+    df8= df7.copy(deep=True)
 
     # *************************************************************
     # Train-Test split
