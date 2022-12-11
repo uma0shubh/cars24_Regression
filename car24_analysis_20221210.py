@@ -663,14 +663,15 @@ with AboutUs:
     website : https://www.cars24.com/
     
     # Contact Us
-    - Arpita Pyne
-    - Asmit Pawar
-    - Sagar Chore
-    - Uma Prajapati
-    - Vrushali Patil
+    - Arpita Pyne : pynearpita06@gmail.com
+    - Asmit Pawar : asmitpawar98@gmail.com
+    - Sagar Chore : sagar.chore@gmail.com
+    - Uma Prajapati : umaprajapati35@gmail.com
+    - Vrushali Patil : pvrushali27@gmail.com
     
     # Study Material
-                                                    
+    https://github.com/uma0shubh/cars24_data
+    https://github.com/uma0shubh/cars24_Regression/edit/main/car24_analysis_20221210.py
     """
                                                     
     
