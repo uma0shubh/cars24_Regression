@@ -538,7 +538,7 @@ def acc_model(num,model,train,test):
     plt.xticks(xx, rotation='vertical')
     plt.savefig('graph.png')
     plt.show()
-    st.write(fig200)
+#     st.write(fig200)
 
     # Plot
     fig201 = plt.figure(figsize=[20,8])
@@ -553,7 +553,7 @@ def acc_model(num,model,train,test):
     plt.xticks(xx, rotation='vertical')
     plt.savefig('graph.png')
     plt.show()
-    st.write(fig201)
+#     st.write(fig201)
 
     """Thus, the best model is Linear Regression."""
 
@@ -609,6 +609,10 @@ with Appendix:
     - AdaBoost Regressor
     - Voting Regressor
     """
+    
+    st.write(fig200)
+    
+    st.write(fig201)
     
 
     
