@@ -62,7 +62,10 @@ st.image("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASsAAACoCAMAAACPKThEAAAA
 
 # add_bg_from_url()
 
-st.title("Car Price Prediction")
+title_alignment="""<style>#the-title {text-align: center}</style>"""
+st.markdown(title_alignment, unsafe_allow_html=True)
+
+#st.title("Car Price Prediction")
 # options = st.sidebar.selectbox("Select Analyzing options:", options= ("Prediction","Data Analysis","Graphical Interface"))
 Prediction, Graphical, Appendix, AboutUs, ContactUs = st.tabs(["Prediction","Graphical Interface","Appendix","About Us","Contact Us"])
 # st.header(options)
