@@ -649,16 +649,8 @@ with Graphical:
         x2 = df1["registrationstate"]
     
     fig303 = plt.figure(figsize=(15,4))
-    sns.countplot(df1['city']);
+    sns.countplot(x2);
     st.write(fig303)
-    
-#     fig303 = sns.set(font_scale=1.4)
-#     x.value_counts().plot(kind='bar', figsize=(15, 4), rot=90)
-#     st.write(fig303)
-    
-#     fig304 = x.value_counts().plot(kind='barh', figsize=(15, 20))
-#     st.write(fig304)
-    
     
     
     # ************************************************************* 
