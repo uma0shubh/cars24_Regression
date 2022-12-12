@@ -70,393 +70,393 @@ with col2:
 Prediction, Graphical, Appendix, AboutUs, ContactUs = st.tabs(["Prediction","Graphical Interface","Appendix","About Us","Contact Us"])
 
 
-# Data Filter *****************************************************************
-cars = {
-    'Audi': ['A3', 'A6', 'Q3'],
-    'Bmw': ['3 Series', '5 Series', 'X3'],
-    'Datsun': ['Go', 'Go Plus', 'Redi Go'],
-    'Fiat': ['Urban Cross'],
-    'Ford': ['Ecosport', 'Endeavour', 'Figo', 'Figo Aspire', 'Freestyle', 'New Figo'],
-    'Honda': ['Accord', 'Amaze', 'Brio', 'Br-V', 'City', 'Civic', 'Crv', 'Jazz', 'Wr-V'],
-    'Hyundai': ['Accent', 'Alcazar', 'Aura', 'Creta', 'Elite I20', 'Eon', 'Grand I10', 'Grand I10 Nios', 'Grand I10 Prime', 'I10', 'I20', 'I20 Active', 'New Elantra', 'New I20', 'New I20 N Line', 'New Santro', 'Santro Xing', 'Tucson New', 'Venue', 'Verna', 'Xcent'],
-    'Jaguar': ['Xf'],
-    'Jeep': ['Compass'],
-    'Kia': ['Carens', 'Seltos', 'Sonet'],
-    'Mahindra': ['Bolero', 'Bolero Neo', 'Kuv 100 Nxt', 'Kuv100', 'Marazzo', 'Scorpio', 'Thar', 'Tuv300', 'Xuv 3Oo', 'Xuv500', 'Xuv700'],
-    'Maruti': ['A Star', 'Alto', 'Alto 800', 'Alto K10', 'Baleno', 'Brezza', 'Celerio', 'Celerio X', 'Ciaz', 'Dzire', 'Eeco', 'Ertiga', 'Ignis', 'New  Wagon-R', 'Omni E', 'Ritz', 'S Cross', 'S Presso', 'Swift', 'Swift Dzire', 'Vitara Brezza', 'Wagon R', 'Wagon R 1.0', 'Wagon R Stingray', 'Xl6', 'Zen Estilo'],
-    'Mercedes Benz': ['C Class', 'E Class'],
-    'Mg': ['Astor', 'Hector', 'Hector Plus'],
-    'Nissan': ['Kicks', 'Magnite', 'Micra', 'Micra Active', 'Sunny', 'Terrano'],
-    'Renault': ['Captur', 'Duster', 'Kiger', 'Kwid', 'Pulse', 'Triber'],
-    'Skoda': ['Kushaq', 'Octavia', 'Rapid', 'Slavia'],
-    'Tata': ['Altroz', 'Harrier', 'Hexa', 'Nexon', 'Punch', 'Safari', 'Tiago', 'Tiago Nrg', 'Tigor', 'Zest'],
-    'Toyota': ['Camry', 'Corolla Altis', 'Etios', 'Etios Liva', 'Glanza', 'Innova', 'Innova Crysta', 'Urban Cruiser', 'Yaris'],
-    'Volkswagen': ['Ameo', 'Jetta', 'Polo', 'Taigun', 'Tiguan', 'Vento']
-}
+# # Data Filter *****************************************************************
+# cars = {
+#     'Audi': ['A3', 'A6', 'Q3'],
+#     'Bmw': ['3 Series', '5 Series', 'X3'],
+#     'Datsun': ['Go', 'Go Plus', 'Redi Go'],
+#     'Fiat': ['Urban Cross'],
+#     'Ford': ['Ecosport', 'Endeavour', 'Figo', 'Figo Aspire', 'Freestyle', 'New Figo'],
+#     'Honda': ['Accord', 'Amaze', 'Brio', 'Br-V', 'City', 'Civic', 'Crv', 'Jazz', 'Wr-V'],
+#     'Hyundai': ['Accent', 'Alcazar', 'Aura', 'Creta', 'Elite I20', 'Eon', 'Grand I10', 'Grand I10 Nios', 'Grand I10 Prime', 'I10', 'I20', 'I20 Active', 'New Elantra', 'New I20', 'New I20 N Line', 'New Santro', 'Santro Xing', 'Tucson New', 'Venue', 'Verna', 'Xcent'],
+#     'Jaguar': ['Xf'],
+#     'Jeep': ['Compass'],
+#     'Kia': ['Carens', 'Seltos', 'Sonet'],
+#     'Mahindra': ['Bolero', 'Bolero Neo', 'Kuv 100 Nxt', 'Kuv100', 'Marazzo', 'Scorpio', 'Thar', 'Tuv300', 'Xuv 3Oo', 'Xuv500', 'Xuv700'],
+#     'Maruti': ['A Star', 'Alto', 'Alto 800', 'Alto K10', 'Baleno', 'Brezza', 'Celerio', 'Celerio X', 'Ciaz', 'Dzire', 'Eeco', 'Ertiga', 'Ignis', 'New  Wagon-R', 'Omni E', 'Ritz', 'S Cross', 'S Presso', 'Swift', 'Swift Dzire', 'Vitara Brezza', 'Wagon R', 'Wagon R 1.0', 'Wagon R Stingray', 'Xl6', 'Zen Estilo'],
+#     'Mercedes Benz': ['C Class', 'E Class'],
+#     'Mg': ['Astor', 'Hector', 'Hector Plus'],
+#     'Nissan': ['Kicks', 'Magnite', 'Micra', 'Micra Active', 'Sunny', 'Terrano'],
+#     'Renault': ['Captur', 'Duster', 'Kiger', 'Kwid', 'Pulse', 'Triber'],
+#     'Skoda': ['Kushaq', 'Octavia', 'Rapid', 'Slavia'],
+#     'Tata': ['Altroz', 'Harrier', 'Hexa', 'Nexon', 'Punch', 'Safari', 'Tiago', 'Tiago Nrg', 'Tigor', 'Zest'],
+#     'Toyota': ['Camry', 'Corolla Altis', 'Etios', 'Etios Liva', 'Glanza', 'Innova', 'Innova Crysta', 'Urban Cruiser', 'Yaris'],
+#     'Volkswagen': ['Ameo', 'Jetta', 'Polo', 'Taigun', 'Tiguan', 'Vento']
+# }
 
 
-# *****************************************************************
-# Checking duplicates *************************************************************
-duplicate = df[df.duplicated()]
-df['city'].value_counts()
+# # *****************************************************************
+# # Checking duplicates *************************************************************
+# duplicate = df[df.duplicated()]
+# df['city'].value_counts()
 
-# Considering Top 15 Cities
-df1 = df.loc[df['city'].isin(['New Delhi', 'Mumbai', 'Jaipur', 'Chennai', 'Lucknow', 'Bangalore', 'Indore', 'Hyderabad', 'Kochi', 'Pune', 'Kolkata', 'Ahmedabad', 'Gurgaon', 'Noida', 'Ghaziabad'])]
-print(df1.shape)
-df1['city'].value_counts()
+# # Considering Top 15 Cities
+# df1 = df.loc[df['city'].isin(['New Delhi', 'Mumbai', 'Jaipur', 'Chennai', 'Lucknow', 'Bangalore', 'Indore', 'Hyderabad', 'Kochi', 'Pune', 'Kolkata', 'Ahmedabad', 'Gurgaon', 'Noida', 'Ghaziabad'])]
+# print(df1.shape)
+# df1['city'].value_counts()
 
-# Data Pre-processing
-# Missing Values
-#     df1.isnull().sum()
-#     sns.heatmap(df1.isnull(),cbar=False,cmap='viridis')
-df1.dropna(inplace=True)
-#     df1.isnull().sum()
+# # Data Pre-processing
+# # Missing Values
+# #     df1.isnull().sum()
+# #     sns.heatmap(df1.isnull(),cbar=False,cmap='viridis')
+# df1.dropna(inplace=True)
+# #     df1.isnull().sum()
 
-#     fig101 = plt.figure(figsize=(8,4))
-#     fig101 = sns.heatmap(df1.isnull(),cbar=False,cmap='viridis')
-#     st.pyplot(fig101)
+# #     fig101 = plt.figure(figsize=(8,4))
+# #     fig101 = sns.heatmap(df1.isnull(),cbar=False,cmap='viridis')
+# #     st.pyplot(fig101)
 
-df1.reset_index(inplace=True)
-df1.info()
-df1.drop(["index"],axis=1,inplace=True)
-df1= df1.drop(['name','storename','isc24assured','registrationcity','url','registrationstate','createdDate'], axis = 1)
+# df1.reset_index(inplace=True)
+# df1.info()
+# df1.drop(["index"],axis=1,inplace=True)
+# df1= df1.drop(['name','storename','isc24assured','registrationcity','url','registrationstate','createdDate'], axis = 1)
 
-# *************************************************************
-# Descriptive statistics
-fig102 = df1.describe(include = 'all')
-
-
-with Prediction:
-    left_column,mid1_column,mid2_column,right_column = st.columns(4)
-    def user_input():
-        with left_column:
-            year = st.selectbox("Year:",options = sorted(df1["year"].unique()))
-            fueltype = st.selectbox("Fuel Type:", options=sorted(df1["fueltype"].unique()))
-            bodytype = st.selectbox("Body Type:", options=sorted(df1["bodytype"].unique()))
-
-        with mid1_column:
-            brand = st.selectbox("Car Name:",options = sorted(df1["make"].unique()))
-            kilometerdriven = st.number_input("Enter Km Driven:")
-            discountprice = st.number_input("Enter Discount Price:")
-
-        model_name = ""
-        if brand == "Audi":
-            model_name = cars.get("Audi")
-        elif brand == "Bmw":
-            model_name = cars.get("Bmw")
-        elif brand == "Datsun":
-            model_name = cars.get("Datsun")
-        elif brand == "Fiat":
-            model_name = cars.get("Fiat")
-        elif brand == "Ford":
-            model_name = cars.get("Ford")
-        elif brand == "Honda":
-            model_name = cars.get("Honda")
-        elif brand == "Hyundai":
-            model_name = cars.get("Hyundai")
-        elif brand == "Jaguar":
-            model_name = cars.get("Jaguar")
-        elif brand == "Jeep":
-            model_name = cars.get("Jeep")
-        elif brand == "Kia":
-            model_name = cars.get("Kia")
-        elif brand == "Mahindra":
-            model_name = cars.get("Mahindra")
-        elif brand == "Maruti":
-            model_name = cars.get("Maruti")
-        elif brand == "Mercedes Benz":
-            model_name = cars.get("Mercedes Benz")
-        elif brand == "Mg":
-            model_name = cars.get("Mg")
-        elif brand == "Nissan":
-            model_name = cars.get("Nissan")
-        elif brand == "Renault":
-            model_name = cars.get("Renault")
-        elif brand == "Skoda":
-            model_name = cars.get("Skoda")
-        elif brand == "Tata":
-            model_name = cars.get("Tata")
-        elif brand == "Toyota":
-            model_name = cars.get("Toyota")
-        elif brand == "Volkswagen":
-            model_name = cars.get("Volkswagen")        
-
-        with mid2_column:
-            model = st.selectbox("Model Name:", options=model_name)
-            transmission = st.selectbox("Transmission:", options=sorted(df1["transmission"].unique()))
-            benefits = st.number_input("Enter Benefits:")
-
-        with right_column:
-            city = st.selectbox("City:", options=sorted(df1["city"].unique()))
-            ownernumber = st.selectbox("Owner Number:", options=sorted(df1["ownernumber"].unique()))
-
-        new_data = {"make":brand,
-                "model":model,
-                "city":city,
-                "year":year,
-                "fueltype":fueltype,
-                "kilometerdriven":kilometerdriven,
-                "ownernumber":ownernumber,
-                "transmission":transmission,
-                "bodytype":bodytype,
-                "benefits":benefits,
-                "discountprice":discountprice
-                }
-
-        features = pd.DataFrame(new_data,index = [0])
-        return features
-
-    button = st.button("Predict Price")
-    pred = user_input()
+# # *************************************************************
+# # Descriptive statistics
+# fig102 = df1.describe(include = 'all')
 
 
-# *************************************************************
-df1 = df1.append(pred, ignore_index = True)
+# with Prediction:
+#     left_column,mid1_column,mid2_column,right_column = st.columns(4)
+#     def user_input():
+#         with left_column:
+#             year = st.selectbox("Year:",options = sorted(df1["year"].unique()))
+#             fueltype = st.selectbox("Fuel Type:", options=sorted(df1["fueltype"].unique()))
+#             bodytype = st.selectbox("Body Type:", options=sorted(df1["bodytype"].unique()))
 
-# Label Encoding
-df7 = df1.copy(deep=True)
+#         with mid1_column:
+#             brand = st.selectbox("Car Name:",options = sorted(df1["make"].unique()))
+#             kilometerdriven = st.number_input("Enter Km Driven:")
+#             discountprice = st.number_input("Enter Discount Price:")
 
-numerics = ['int8', 'int16', 'int32', 'int64', 'float16', 'float32', 'float64']
-categorical_columns = []
-features = df7.columns.values.tolist()
-for col in features:
-    if df7[col].dtype in numerics: continue
-    categorical_columns.append(col)
-# Encoding categorical features
-for col in categorical_columns:
-    if col in df7.columns:
-        le = LabelEncoder()
-        le.fit(list(df7[col].astype(str).values))
-        df7[col] = le.transform(list(df7[col].astype(str).values))
+#         model_name = ""
+#         if brand == "Audi":
+#             model_name = cars.get("Audi")
+#         elif brand == "Bmw":
+#             model_name = cars.get("Bmw")
+#         elif brand == "Datsun":
+#             model_name = cars.get("Datsun")
+#         elif brand == "Fiat":
+#             model_name = cars.get("Fiat")
+#         elif brand == "Ford":
+#             model_name = cars.get("Ford")
+#         elif brand == "Honda":
+#             model_name = cars.get("Honda")
+#         elif brand == "Hyundai":
+#             model_name = cars.get("Hyundai")
+#         elif brand == "Jaguar":
+#             model_name = cars.get("Jaguar")
+#         elif brand == "Jeep":
+#             model_name = cars.get("Jeep")
+#         elif brand == "Kia":
+#             model_name = cars.get("Kia")
+#         elif brand == "Mahindra":
+#             model_name = cars.get("Mahindra")
+#         elif brand == "Maruti":
+#             model_name = cars.get("Maruti")
+#         elif brand == "Mercedes Benz":
+#             model_name = cars.get("Mercedes Benz")
+#         elif brand == "Mg":
+#             model_name = cars.get("Mg")
+#         elif brand == "Nissan":
+#             model_name = cars.get("Nissan")
+#         elif brand == "Renault":
+#             model_name = cars.get("Renault")
+#         elif brand == "Skoda":
+#             model_name = cars.get("Skoda")
+#         elif brand == "Tata":
+#             model_name = cars.get("Tata")
+#         elif brand == "Toyota":
+#             model_name = cars.get("Toyota")
+#         elif brand == "Volkswagen":
+#             model_name = cars.get("Volkswagen")        
 
-df7['year'] = (df7['year']-1900).astype(int)
+#         with mid2_column:
+#             model = st.selectbox("Model Name:", options=model_name)
+#             transmission = st.selectbox("Transmission:", options=sorted(df1["transmission"].unique()))
+#             benefits = st.number_input("Enter Benefits:")
 
-pred_final = df7.iloc[-1]
-pred_final = pred_final.iloc[:-1]
-pred_final = np.array(pred_final).reshape(1, -1)
-df8 = df7.iloc[:-1]
-df9 = df8.copy(deep=True)
+#         with right_column:
+#             city = st.selectbox("City:", options=sorted(df1["city"].unique()))
+#             ownernumber = st.selectbox("Owner Number:", options=sorted(df1["ownernumber"].unique()))
+
+#         new_data = {"make":brand,
+#                 "model":model,
+#                 "city":city,
+#                 "year":year,
+#                 "fueltype":fueltype,
+#                 "kilometerdriven":kilometerdriven,
+#                 "ownernumber":ownernumber,
+#                 "transmission":transmission,
+#                 "bodytype":bodytype,
+#                 "benefits":benefits,
+#                 "discountprice":discountprice
+#                 }
+
+#         features = pd.DataFrame(new_data,index = [0])
+#         return features
+
+#     button = st.button("Predict Price")
+#     pred = user_input()
 
 
-with Appendix:
-    """# Missing Values"""
-#     st.pyplot(fig101)
+# # *************************************************************
+# df1 = df1.append(pred, ignore_index = True)
+
+# # Label Encoding
+# df7 = df1.copy(deep=True)
+
+# numerics = ['int8', 'int16', 'int32', 'int64', 'float16', 'float32', 'float64']
+# categorical_columns = []
+# features = df7.columns.values.tolist()
+# for col in features:
+#     if df7[col].dtype in numerics: continue
+#     categorical_columns.append(col)
+# # Encoding categorical features
+# for col in categorical_columns:
+#     if col in df7.columns:
+#         le = LabelEncoder()
+#         le.fit(list(df7[col].astype(str).values))
+#         df7[col] = le.transform(list(df7[col].astype(str).values))
+
+# df7['year'] = (df7['year']-1900).astype(int)
+
+# pred_final = df7.iloc[-1]
+# pred_final = pred_final.iloc[:-1]
+# pred_final = np.array(pred_final).reshape(1, -1)
+# df8 = df7.iloc[:-1]
+# df9 = df8.copy(deep=True)
+
+
+# with Appendix:
+#     """# Missing Values"""
+# #     st.pyplot(fig101)
     
-    """# Descriptive statistics"""
-    st.write(fig102)
+#     """# Descriptive statistics"""
+#     st.write(fig102)
     
-    """# Model Building
+#     """# Model Building
 
-    - Linear Regression
-    - Support vector machine 
-    - Linear SVR
-    - MLPRegressor (Deep Learning)
-    - Stochastic Gradient Descent
-    - Decision Tree Regressor
-    - Random Forest
-    - XGB
-    - LGBM
-    - Gradient Boosting Regressor
-    - Ridge Regressor
-    - Bagging Regressor
-    - ExtraTreesRegressor 
-    - AdaBoost Regressor
-    - Voting Regressor
-    """
+#     - Linear Regression
+#     - Support vector machine 
+#     - Linear SVR
+#     - MLPRegressor (Deep Learning)
+#     - Stochastic Gradient Descent
+#     - Decision Tree Regressor
+#     - Random Forest
+#     - XGB
+#     - LGBM
+#     - Gradient Boosting Regressor
+#     - Ridge Regressor
+#     - Bagging Regressor
+#     - ExtraTreesRegressor 
+#     - AdaBoost Regressor
+#     - Voting Regressor
+#     """
     
-    """# Models comparison"""
+#     """# Models comparison"""
     
-    """Thus, the best model is Linear Regression."""
+#     """Thus, the best model is Linear Regression."""
 
     
 
-with Graphical:
-    # *************************************************************
-    """# Data Overview """
-    fig300 = df1.head()
-    st.write(fig300)
+# with Graphical:
+#     # *************************************************************
+#     """# Data Overview """
+#     fig300 = df1.head()
+#     st.write(fig300)
     
-    """# Univariant plots """
-    """### Numerical Analysis """
-    """##### Density Plot """
-    x_axis = st.selectbox("Select Variable", options=("Price", "Km", "Benefits", "Discount Price"))
-    if x_axis == "Price":
-        x = df1["price"]
-    elif x_axis == "Km":
-        x = df1["kilometerdriven"]
-    elif x_axis == "benefits":
-        x = df1["Benefits"]
-    elif x_axis == "Discount Price":
-        x = df1["discountprice"]
+#     """# Univariant plots """
+#     """### Numerical Analysis """
+#     """##### Density Plot """
+#     x_axis = st.selectbox("Select Variable", options=("Price", "Km", "Benefits", "Discount Price"))
+#     if x_axis == "Price":
+#         x = df1["price"]
+#     elif x_axis == "Km":
+#         x = df1["kilometerdriven"]
+#     elif x_axis == "benefits":
+#         x = df1["Benefits"]
+#     elif x_axis == "Discount Price":
+#         x = df1["discountprice"]
     
-    fig301 = plt.figure(figsize=(15,8))
-    sns.distplot(x)
-    st.write(fig301)
-    st.write("Skewness: %f" % x.skew())
-    st.write("Kurtosis: %f" % x.kurt())
+#     fig301 = plt.figure(figsize=(15,8))
+#     sns.distplot(x)
+#     st.write(fig301)
+#     st.write("Skewness: %f" % x.skew())
+#     st.write("Kurtosis: %f" % x.kurt())
     
-    """##### Box Plot """
-    fig302 = plt.figure(figsize=(15,4))
-    #sns.boxplot(x=x,data=df1)
-    sns.boxplot(x=x)
-    st.write(fig302)
+#     """##### Box Plot """
+#     fig302 = plt.figure(figsize=(15,4))
+#     #sns.boxplot(x=x,data=df1)
+#     sns.boxplot(x=x)
+#     st.write(fig302)
     
-    """### Categorical Analysis """
-    """##### Bar Plot """
-    x_axis_2 = st.selectbox("Select Variable", options=("Brand", "City", "Year", "Owner Number", "FuelType", "Transmission", "BodyType", "RegistrationState"))
-    if x_axis_2 == "Brand":
-        x2 = df1["make"]
-    elif x_axis_2 == "City":
-        x2 = df1["city"]
-    elif x_axis_2 == "Year":
-        x2 = df1["year"]
-    elif x_axis_2 == "Owner Number":
-        x2 = df1["ownernumber"]
-    elif x_axis_2 == "FuelType":
-        x2 = df1["fueltype"]
-    elif x_axis_2 == "Transmission":
-        x2 = df1["transmission"]
-    elif x_axis_2 == "BodyType":
-        x2 = df1["bodytype"]
-    elif x_axis_2 == "RegistrationState":
-        x2 = df1["registrationstate"]
+#     """### Categorical Analysis """
+#     """##### Bar Plot """
+#     x_axis_2 = st.selectbox("Select Variable", options=("Brand", "City", "Year", "Owner Number", "FuelType", "Transmission", "BodyType", "RegistrationState"))
+#     if x_axis_2 == "Brand":
+#         x2 = df1["make"]
+#     elif x_axis_2 == "City":
+#         x2 = df1["city"]
+#     elif x_axis_2 == "Year":
+#         x2 = df1["year"]
+#     elif x_axis_2 == "Owner Number":
+#         x2 = df1["ownernumber"]
+#     elif x_axis_2 == "FuelType":
+#         x2 = df1["fueltype"]
+#     elif x_axis_2 == "Transmission":
+#         x2 = df1["transmission"]
+#     elif x_axis_2 == "BodyType":
+#         x2 = df1["bodytype"]
+#     elif x_axis_2 == "RegistrationState":
+#         x2 = df1["registrationstate"]
     
-    fig303 = plt.figure(figsize = (15,4))
-    #plt.bar(x.value_counts())
-    plt.bar(x, df1["price"])
-    plt.xticks(rotation=90)
-    st.write(fig303)
-    
-#     fig303 = sns.set(font_scale=1.4)
-#     x.value_counts().plot(kind='bar', figsize=(15, 4), rot=90)
+#     fig303 = plt.figure(figsize = (15,4))
+#     #plt.bar(x.value_counts())
+#     plt.bar(x, df1["price"])
+#     plt.xticks(rotation=90)
 #     st.write(fig303)
     
-#     fig304 = x.value_counts().plot(kind='barh', figsize=(15, 20))
-#     st.write(fig304)
+# #     fig303 = sns.set(font_scale=1.4)
+# #     x.value_counts().plot(kind='bar', figsize=(15, 4), rot=90)
+# #     st.write(fig303)
+    
+# #     fig304 = x.value_counts().plot(kind='barh', figsize=(15, 20))
+# #     st.write(fig304)
     
     
     
-    # ************************************************************* 
-    """# Bivariate plots """
-    x_axis_1 = st.selectbox("Select Variable", options=("Brand", "City", "Year", "Owner Number", "FuelType", "Transmission", "BodyType"))
-    if x_axis_1 == "Brand":
-        x1 = "make"
-    elif x_axis_1 == "City":
-        x1 = "city"
-    elif x_axis_1 == "Year":
-        x1 = "year"
-    elif x_axis_1 == "Owner Number":
-        x1 = "ownernumber"
-    elif x_axis_1 == "FuelType":
-        x1 = "fueltype"
-    elif x_axis_1 == "Transmission":
-        x1 = "transmission"
-    elif x_axis_1 == "BodyType":
-        x1 = "bodytype"
+#     # ************************************************************* 
+#     """# Bivariate plots """
+#     x_axis_1 = st.selectbox("Select Variable", options=("Brand", "City", "Year", "Owner Number", "FuelType", "Transmission", "BodyType"))
+#     if x_axis_1 == "Brand":
+#         x1 = "make"
+#     elif x_axis_1 == "City":
+#         x1 = "city"
+#     elif x_axis_1 == "Year":
+#         x1 = "year"
+#     elif x_axis_1 == "Owner Number":
+#         x1 = "ownernumber"
+#     elif x_axis_1 == "FuelType":
+#         x1 = "fueltype"
+#     elif x_axis_1 == "Transmission":
+#         x1 = "transmission"
+#     elif x_axis_1 == "BodyType":
+#         x1 = "bodytype"
     
-    fig304 = sns.catplot(y='price', x=x1, data=df1.sort_values('price',ascending=False),kind="boxen",height=5, aspect=3)
-    st.pyplot(fig304)
+#     fig304 = sns.catplot(y='price', x=x1, data=df1.sort_values('price',ascending=False),kind="boxen",height=5, aspect=3)
+#     st.pyplot(fig304)
     
-    # ******
-    x_axis_3 = st.selectbox("Select Variable", options=("Brand", "Owner Number", "FuelType", "Transmission", "BodyType"))
-    if x_axis_3 == "Brand":
-        x3 = "make"
-    elif x_axis_3 == "Owner Number":
-        x3 = "ownernumber"
-    elif x_axis_3 == "FuelType":
-        x3 = "fueltype"
-    elif x_axis_3 == "Transmission":
-        x3 = "transmission"
-    elif x_axis_3 == "BodyType":
-        x3 = "bodytype"
+#     # ******
+#     x_axis_3 = st.selectbox("Select Variable", options=("Brand", "Owner Number", "FuelType", "Transmission", "BodyType"))
+#     if x_axis_3 == "Brand":
+#         x3 = "make"
+#     elif x_axis_3 == "Owner Number":
+#         x3 = "ownernumber"
+#     elif x_axis_3 == "FuelType":
+#         x3 = "fueltype"
+#     elif x_axis_3 == "Transmission":
+#         x3 = "transmission"
+#     elif x_axis_3 == "BodyType":
+#         x3 = "bodytype"
     
-#     fig305 = px.sunburst(df1, path=['city', x3], color='city',height=600)
-#     fig305.update_layout(title_text="Two-level Sunburst Diagram", font_size=10)
-#     st.write(fig305)
+# #     fig305 = px.sunburst(df1, path=['city', x3], color='city',height=600)
+# #     fig305.update_layout(title_text="Two-level Sunburst Diagram", font_size=10)
+# #     st.write(fig305)
     
-    fig306 = px.treemap(df1, path=['city', x3], color='city',height=600,width=1000)
-    fig306.update_layout(title_text="Distribution within City", font_size=10)
-    st.write(fig306)
+#     fig306 = px.treemap(df1, path=['city', x3], color='city',height=600,width=1000)
+#     fig306.update_layout(title_text="Distribution within City", font_size=10)
+#     st.write(fig306)
     
     
-    # ************************************************************* 
-    """# Yearly City Growth """
-    fig307 = px.histogram(df1, x="year", y="price",color='city', barmode='group',height=500,width=1200)
-    fig307.update_layout(title_text="Yearly City Growth", font_size=10)
-    st.write(fig307)
+#     # ************************************************************* 
+#     """# Yearly City Growth """
+#     fig307 = px.histogram(df1, x="year", y="price",color='city', barmode='group',height=500,width=1200)
+#     fig307.update_layout(title_text="Yearly City Growth", font_size=10)
+#     st.write(fig307)
     
-    # ************************************************************* 
-    """# Correlation """
-    fig308 = plt.figure(figsize=(15,10))
-    sns.heatmap(df8.corr(),annot=True,cmap='RdYlGn')
-    st.write(fig308)
+#     # ************************************************************* 
+#     """# Correlation """
+#     fig308 = plt.figure(figsize=(15,10))
+#     sns.heatmap(df8.corr(),annot=True,cmap='RdYlGn')
+#     st.write(fig308)
 
     
     
-with Prediction:
-    # Linear Regression
-    linreg_1 = LinearRegression()
-    linreg_1.fit(df9.iloc[:,:-1], df9['price'])
+# with Prediction:
+#     # Linear Regression
+#     linreg_1 = LinearRegression()
+#     linreg_1.fit(df9.iloc[:,:-1], df9['price'])
     
-    fig600 = linreg_1.predict(pred_final)
-    st.write(fig600)
+#     fig600 = linreg_1.predict(pred_final)
+#     st.write(fig600)
 
                                                     
                                                     
-with AboutUs:
-    """ 
-    ### History of Cars24:
-    Cars24 was started by FabFurnish founders Vikram Chopra and Mehul Agrawal in August, 2015. Their aim is to help the car owners to sell their cars instantly without any trouble. And also help the dealers and people who are looking for a second hand car with no trouble and issues in a very less time and minimum paperwork and legal formalities. And apart from that you’ll also get expert assistance and from start to finish.
+# with AboutUs:
+#     """ 
+#     ### History of Cars24:
+#     Cars24 was started by FabFurnish founders Vikram Chopra and Mehul Agrawal in August, 2015. Their aim is to help the car owners to sell their cars instantly without any trouble. And also help the dealers and people who are looking for a second hand car with no trouble and issues in a very less time and minimum paperwork and legal formalities. And apart from that you’ll also get expert assistance and from start to finish.
     
-    ### Services offered by Cars24
-    Cars24 offers buy and sell service of old cars and also free RC transfer. They help us to sell the cars with the best price and also provide instant payment with zero trouble in paper work or delay in the payments.
-    They also provide financial loans to the businesses to help them to grow faster and also to buy the dream car with a very fast process with their AI and machine learning. Currently they are having 3 product in their financial menu as well,
+#     ### Services offered by Cars24
+#     Cars24 offers buy and sell service of old cars and also free RC transfer. They help us to sell the cars with the best price and also provide instant payment with zero trouble in paper work or delay in the payments.
+#     They also provide financial loans to the businesses to help them to grow faster and also to buy the dream car with a very fast process with their AI and machine learning. Currently they are having 3 product in their financial menu as well,
     
-    ### Business Model Of Cars24: How Cars24 earns?
-    Cars24 follows asset-heavy customers to business (C2B) model, where it buys used cars from individuals and dealers and sells them to other dealerships and individuals as well.
-    There’s no public information about it’s charges but according to Economic Times, unlike a listings-based classifieds platform, Cars24 enables the end-to-end transaction itself, charging a commission of about 4-5% for each transaction and also a small fee from the buyers as an registration
+#     ### Business Model Of Cars24: How Cars24 earns?
+#     Cars24 follows asset-heavy customers to business (C2B) model, where it buys used cars from individuals and dealers and sells them to other dealerships and individuals as well.
+#     There’s no public information about it’s charges but according to Economic Times, unlike a listings-based classifieds platform, Cars24 enables the end-to-end transaction itself, charging a commission of about 4-5% for each transaction and also a small fee from the buyers as an registration
     
-    ### Cars24 Competitors:
-    - Droom
-    - Cardekho
-    - Cartrade
-    - Carwale
-    - Spinny
-    - Carnation
-    - Dealer Direct
-    - Checkgaadi
-    - Mahindra First Choice Wheels
+#     ### Cars24 Competitors:
+#     - Droom
+#     - Cardekho
+#     - Cartrade
+#     - Carwale
+#     - Spinny
+#     - Carnation
+#     - Dealer Direct
+#     - Checkgaadi
+#     - Mahindra First Choice Wheels
     
-    website : https://www.cars24.com/
-    """
+#     website : https://www.cars24.com/
+#     """
     
-with ContactUs:
-    """
-    ### Contact Us
-    Data Scientist & Developer Team
-    - Arpita Pyne : pynearpita06@gmail.com
-    - Asmit Pawar : asmitpawar98@gmail.com
-    - Sagar Chore : sagar.chore@gmail.com
-    - Uma Prajapati : umaprajapati35@gmail.com
-    - Vrushali Patil : pvrushali27@gmail.com
+# with ContactUs:
+#     """
+#     ### Contact Us
+#     Data Scientist & Developer Team
+#     - Arpita Pyne : pynearpita06@gmail.com
+#     - Asmit Pawar : asmitpawar98@gmail.com
+#     - Sagar Chore : sagar.chore@gmail.com
+#     - Uma Prajapati : umaprajapati35@gmail.com
+#     - Vrushali Patil : pvrushali27@gmail.com
     
-    ### Study Material
-    https://github.com/uma0shubh/cars24_data
+#     ### Study Material
+#     https://github.com/uma0shubh/cars24_data
     
-    https://github.com/uma0shubh/cars24_Regression
-    """
+#     https://github.com/uma0shubh/cars24_Regression
+#     """
 
-# #     model=pickle.load(open('model_linear.pkl','rb'))
+# # #     model=pickle.load(open('model_linear.pkl','rb'))
 
-# #     prediction = model.predict(df)
-# #     pred = np.round(prediction,2)
-# #     predic = abs(pred)
-# #     predict = str(predic).lstrip('[').rstrip(']')
-# #     button_clicked = False
+# # #     prediction = model.predict(df)
+# # #     pred = np.round(prediction,2)
+# # #     predic = abs(pred)
+# # #     predict = str(predic).lstrip('[').rstrip(']')
+# # #     button_clicked = False
 
-# #     if button:
-# #         button_clicked = True
-# #         st.subheader(f"Car Price: ₹{predict}")
+# # #     if button:
+# # #         button_clicked = True
+# # #         st.subheader(f"Car Price: ₹{predict}")
 
 
 
