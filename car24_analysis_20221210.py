@@ -657,7 +657,7 @@ with Graphical:
 #     plt.xticks(rotation=90)
 
 #     fig303 = df1.plot.bar(x=, rot=0)
-    st.write(fig303)
+    st.pyplot(fig303)
     
 #     fig303 = sns.set(font_scale=1.4)
 #     x.value_counts().plot(kind='bar', figsize=(15, 4), rot=90)
