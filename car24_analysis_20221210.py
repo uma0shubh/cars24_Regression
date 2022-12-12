@@ -655,7 +655,7 @@ with Graphical:
     
     # ************************************************************* 
     """# Bivariate plots """
-    x_axis_1 = st.selectbox("Select Variable", options=("Brand", "City", "Year", "Owner Number", "FuelType", "Transmission", "BodyType"))
+    x_axis_1 = st.selectbox("Select Variable", options=("Brand", "City", "Year", "FuelType", "Transmission", "BodyType"))
     if x_axis_1 == "Brand":
         x1 = "make"
     elif x_axis_1 == "City":
