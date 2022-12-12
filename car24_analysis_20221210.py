@@ -562,7 +562,7 @@ df9 = df8.copy(deep=True)
 
 with Appendix:
     """# Missing Values"""
-    st.pyplot(fig101)
+    st.write(fig101)
     
     """# Descriptive statistics"""
     st.write(fig102)
