@@ -1,5 +1,3 @@
-sudo sysctl fs.inotify.max_user_watches=100000
-
 # Import Libraries *************************************************************
 import seaborn as sns
 sns.set()
