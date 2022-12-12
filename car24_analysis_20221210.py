@@ -648,7 +648,8 @@ with Graphical:
     elif x_axis_2 == "RegistrationState":
         x2 = df1["registrationstate"]
         
-    fig303 = df1.groupby('city').size().plot(kind='bar')
+#     fig303 = df1.groupby('city').size().plot(kind='bar')
+    fig303 = sns.countplot(df1['city'], color='gray')
     
 #     fig303 = plt.figure(figsize = (15,4))
 #     #plt.bar(x.value_counts())
