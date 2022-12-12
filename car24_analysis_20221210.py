@@ -630,7 +630,7 @@ with Graphical:
     
     """### Categorical Analysis """
     """##### Bar Plot """
-    x_axis_2 = st.selectbox("Select Variable", options=("Brand", "City", "Year", "Owner Number", "FuelType", "Transmission", "BodyType", "RegistrationState"))
+    x_axis_2 = st.selectbox("Select Variable", options=("Brand", "City", "Year", "Owner Number", "FuelType", "Transmission", "BodyType"))
     if x_axis_2 == "Brand":
         x2 = df1["make"]
     elif x_axis_2 == "City":
