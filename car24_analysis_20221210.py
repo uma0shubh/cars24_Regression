@@ -649,7 +649,7 @@ with Graphical:
         x2 = df1["registrationstate"]
         
 #     fig303 = df1.groupby('city').size().plot(kind='bar')
-    fig303 = sns.countplot(df1['city'], color='gray')
+    fig303 = sns.countplot(df1['city'], color='gray');
     
 #     fig303 = plt.figure(figsize = (15,4))
 #     #plt.bar(x.value_counts())
@@ -657,7 +657,7 @@ with Graphical:
 #     plt.xticks(rotation=90)
 
 #     fig303 = df1.plot.bar(x=, rot=0)
-    st.pyplot(fig303)
+    st.write(fig303)
     
 #     fig303 = sns.set(font_scale=1.4)
 #     x.value_counts().plot(kind='bar', figsize=(15, 4), rot=90)
