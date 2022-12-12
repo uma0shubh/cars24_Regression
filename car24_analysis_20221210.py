@@ -107,14 +107,14 @@ df1['city'].value_counts()
 
 # Data Pre-processing
 # Missing Values
-#     df1.isnull().sum()
-#     sns.heatmap(df1.isnull(),cbar=False,cmap='viridis')
+#df1.isnull().sum()
+#sns.heatmap(df1.isnull(),cbar=False,cmap='viridis')
 df1.dropna(inplace=True)
-#     df1.isnull().sum()
+df1.isnull().sum()
 
-#     fig101 = plt.figure(figsize=(8,4))
-#     fig101 = sns.heatmap(df1.isnull(),cbar=False,cmap='viridis')
-#     st.pyplot(fig101)
+fig101 = plt.figure(figsize=(8,4))
+fig101 = sns.heatmap(df1.isnull(),cbar=False,cmap='viridis')
+#st.pyplot(fig101)
 
 df1.reset_index(inplace=True)
 df1.info()
@@ -562,7 +562,7 @@ df9 = df8.copy(deep=True)
 
 with Appendix:
     """# Missing Values"""
-#     st.pyplot(fig101)
+    st.pyplot(fig101)
     
     """# Descriptive statistics"""
     st.write(fig102)
