@@ -112,6 +112,7 @@ df1['city'].value_counts()
 df1.dropna(inplace=True)
 df1.isnull().sum()
 
+%matplotlib inline
 fig101 = plt.figure(figsize=(8,4))
 fig101 = sns.heatmap(df1.isnull(),cbar=False,cmap='viridis')
 #st.pyplot(fig101)
