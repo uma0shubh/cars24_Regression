@@ -596,7 +596,7 @@ with Appendix:
     """
     
     """# Models comparison"""
-    """Prediction accuracy for models by R2 criterion - r2_test"""
+#     """Prediction accuracy for models by R2 criterion - r2_test"""
     st.write(fig200)
     st.write(fig201)
     
