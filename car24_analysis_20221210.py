@@ -715,9 +715,18 @@ with Prediction:
     linreg_1 = LinearRegression()
     linreg_1.fit(df9.iloc[:,:-1], df9['price'])
     
-    fig600 = linreg_1.predict(pred_final)
-    st.write(fig600)
+#     fig600 = linreg_1.predict(pred_final)
+#     st.write(fig600)
+    
+    prediction = linreg_1.predict(pred_final)
+    pred = np.round(prediction,2)
+    predic = abs(pred)
+    predict = str(predic).lstrip('[').rstrip(']')
+    button_clicked = False
 
+    if button:
+        button_clicked = True
+        st.subheader(f"Car Price: ₹{predict}")
                                                     
                                                     
 with AboutUs:
@@ -764,17 +773,7 @@ with ContactUs:
     https://github.com/uma0shubh/cars24_Regression
     """
 
-# #     model=pickle.load(open('model_linear.pkl','rb'))
 
-# #     prediction = model.predict(df)
-# #     pred = np.round(prediction,2)
-# #     predic = abs(pred)
-# #     predict = str(predic).lstrip('[').rstrip(']')
-# #     button_clicked = False
-
-# #     if button:
-# #         button_clicked = True
-# #         st.subheader(f"Car Price: ₹{predict}")
 
 
 
