@@ -65,7 +65,7 @@ with col1:
 with mid:
     st.markdown("<h1 style='text-align: center; color: white;'>Car Price Prediction</h1>", unsafe_allow_html=True)
 with col2:
-    st.image("https://pbs.twimg.com/profile_images/1439939214162882569/6OPFxXo3_400x400.jpg", width=150)
+    st.image("https://pbs.twimg.com/profile_images/1439939214162882569/6OPFxXo3_400x400.jpg", width=100)
 
 Prediction, Graphical, Appendix, AboutUs, ContactUs = st.tabs(["Prediction","Graphical Interface","Appendix","About Us","Contact Us"])
 
