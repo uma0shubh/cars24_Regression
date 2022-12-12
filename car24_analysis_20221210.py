@@ -597,11 +597,10 @@ with Appendix:
     
     """# Models comparison"""
     """Prediction accuracy for models by R2 criterion - r2_test"""
-    st.write(fig700)
     st.write(fig200)
     st.write(fig201)
     
-    """Thus, the best model is Linear Regression."""
+    """Thus, the best model is Linear Regression & XGB."""
     
 
     
