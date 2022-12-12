@@ -111,7 +111,7 @@ df1['city'].value_counts()
 #sns.heatmap(df1.isnull(),cbar=False,cmap='viridis')
 df1.dropna(inplace=True)
 fig101 = df1.isnull().sum()
-fig101 = np.array(fig101).reshape(1, -1)
+# fig101 = np.array(fig101).reshape(1, -1)
 
 # fig101 = plt.figure(figsize=(8,4))
 # fig101 = sns.heatmap(df1.isnull(),cbar=False,cmap='viridis')
