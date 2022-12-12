@@ -530,14 +530,14 @@ models = pd.DataFrame({
 pd.options.display.float_format = '{:,.2f}'.format
 
 print('Prediction accuracy for models by R2 criterion - r2_test')
-models.sort_values(by=['r2_test', 'r2_train'], ascending=False)
+fig700 = models.sort_values(by=['r2_test', 'r2_train'], ascending=False)
 
 print('Prediction accuracy for models by RMSE - rmse_test')
 models.sort_values(by=['rmse_test', 'rmse_train'], ascending=True)
 
 # Model Output - Visualization
 # Plot
-fig200 = plt.figure(figsize=[20,8])
+fig200 = plt.figure(figsize=[15,4])
 xx = models['Model']
 plt.tick_params(labelsize=14)
 plt.plot(xx, models['r2_train'], label = 'r2_train')
@@ -552,7 +552,7 @@ plt.show()
 #     st.write(fig200)
 
 # Plot
-fig201 = plt.figure(figsize=[20,8])
+fig201 = plt.figure(figsize=[15,4])
 xx = models['Model']
 plt.tick_params(labelsize=14)
 plt.plot(xx, models['rmse_train'], label = 'rmse_train')
@@ -596,9 +596,9 @@ with Appendix:
     """
     
     """# Models comparison"""
-    
+    """Prediction accuracy for models by R2 criterion - r2_test"""
+    st.write(fig700)
     st.write(fig200)
-    
     st.write(fig201)
     
     """Thus, the best model is Linear Regression."""
@@ -716,27 +716,7 @@ with Graphical:
     fig308 = plt.figure(figsize=(15,10))
     sns.heatmap(df8.corr(),annot=True,cmap='RdYlGn')
     st.write(fig308)
-
-    
-    
-# with Prediction:
-#     # Linear Regression
-#     linreg_1 = LinearRegression()
-#     linreg_1.fit(df9.iloc[:,:-1], df9['price'])
-    
-# #     fig600 = linreg_1.predict(pred_final)
-# #     st.write(fig600)
-    
-#     prediction = linreg_1.predict(pred_final)
-#     pred = np.round(prediction,2)
-#     predic = abs(pred)
-#     predict = str(predic).lstrip('[').rstrip(']')
-#     button_clicked = False
-
-#     if button:
-#         button_clicked = True
-#         st.subheader(f"Car Price: ₹{predict}")
-                                                    
+                                     
                                                     
 with AboutUs:
     """ 
