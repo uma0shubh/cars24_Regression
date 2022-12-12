@@ -110,10 +110,10 @@ df1['city'].value_counts()
 #df1.isnull().sum()
 #sns.heatmap(df1.isnull(),cbar=False,cmap='viridis')
 df1.dropna(inplace=True)
-df1.isnull().sum()
+fig101 = df1.isnull().sum()
 
 # fig101 = plt.figure(figsize=(8,4))
-fig101 = sns.heatmap(df1.isnull(),cbar=False,cmap='viridis')
+# fig101 = sns.heatmap(df1.isnull(),cbar=False,cmap='viridis')
 
 df1.reset_index(inplace=True)
 df1.info()
